@@ -1,0 +1,4377 @@
+{
+  "items": [
+    {
+      "id": "400136",
+      "name": "12 Gauge Slug",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,250 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/12g_slug.png",
+      "description": "8 slugs for use in the Mossberg and KT Decider shotguns",
+      "confirmed": true
+    },
+    {
+      "id": "400137",
+      "name": "2x 12gauge",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,250 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/12g.png",
+      "description": "Ammo for use with the double barrel shotgun",
+      "confirmed": true
+    },
+    {
+      "id": "400070",
+      "name": ".308 Winchester Sniper rifle ammo",
+      "price": "50",
+      "gcPrice": "500 GC",
+      "dollarPrice": "50,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/.308_ammo.png",
+      "description": "7.62x51mm NATO sniper rifle clip for use with the .308 Winchester Sniple Rifle. Magazine holds 10 rounds",
+      "confirmed": true
+    },
+    {
+      "id": "400154",
+      "name": ".40 caliber 1911 Mag",
+      "price": "0.6",
+      "gcPrice": "-",
+      "dollarPrice": "500 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/.40_1911_mag.png",
+      "description": "7 round single-stack magazine for the 1911",
+      "confirmed": true
+    },
+    {
+      "id": "400135",
+      "name": ".45 ACP STI Eagle Elite ammo",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,250 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/.45ee_ammo.png",
+      "description": ".45 ACP 10 rounds magazine for the STI Eagle Elite handgun",
+      "confirmed": true
+    },
+    {
+      "id": "400133",
+      "name": ".50 BMG",
+      "price": "35",
+      "gcPrice": "350 GC",
+      "dollarPrice": "35,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/.50_ammo.png",
+      "description": "12.7x99mm NATO anti material rounds for M107A1 rifle. 5 rounds per magazine",
+      "confirmed": true
+    },
+    {
+      "id": "400001",
+      "name": "5.45 AK 30",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,200 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/5.45AK_30.png",
+      "description": "This is a standard 5.45x39mm 30 rounds clip for the russian AK 74M family of rifles",
+      "confirmed": true
+    },
+    {
+      "id": "400069",
+      "name": "5.45 AK 45",
+      "price": "2.5",
+      "gcPrice": "-",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/5.45AK_45.png",
+      "description": "This is a standard 5.45x39mm 45 rounds clip for the russian AK74 family of rifles",
+      "confirmed": true
+    },
+    {
+      "id": "400100",
+      "name": "5.45 AK Drum",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/5.45AK_drum.png",
+      "description": "100 rounds drum for AK74 and RPK machine guns",
+      "confirmed": true
+    },
+    {
+      "id": "400087",
+      "name": "5.7 FN ammo",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,250 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/5.7_fn_m240_mag.png",
+      "description": "FN (M240) machine gun round magazine. 20 rounds of 5.7&times;28mm ammo",
+      "confirmed": true
+    },
+    {
+      "id": "400101",
+      "name": "7.62 AKM Mag",
+      "price": "1.25",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/7.62AKM_mag.png",
+      "description": "AKM Assault Rifle magazine. 40 7.62x39mm rounds",
+      "confirmed": true
+    },
+    {
+      "id": "400071",
+      "name": "9mm Mag",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "900 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/9mm_mag.png",
+      "description": "\"15 rounds magazine of 9mm ammo for use with: B92, B93R and Jericho handguns\"",
+      "confirmed": true
+    },
+    {
+      "id": "400034",
+      "name": "9x19 Para Mag",
+      "price": "0.3",
+      "gcPrice": "-",
+      "dollarPrice": "250 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/9x19_para_mag.png",
+      "description": "18 rounds 9x19mm Parabellum magazine specially designed for Sig Sauer P226 handgun",
+      "confirmed": true
+    },
+    {
+      "id": "101200",
+      "name": "AA-12",
+      "price": "5",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/aa_12.png",
+      "description": "The AA-12 gauge automatic shotgun was designed to fire 12 gauge rounds from a 20 round storage system. It causes a reasonable amount of damage per round.",
+      "confirmed": true
+    },
+    {
+      "id": "400050",
+      "name": "AA-12 Drum",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,250 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/aa_12_drum.png",
+      "description": "12 gauge 20 rounds drum magazine for AA-12 shotgun",
+      "confirmed": true
+    },
+    {
+      "id": "400003",
+      "name": "ACOG",
+      "price": "2",
+      "gcPrice": "20 GC",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/acog.png",
+      "description": "The Acog is a rail mounted telescopic sight used to extend a shooters accuracy on medium to long range shots.",
+      "confirmed": true
+    },
+    {
+      "id": "101323",
+      "name": "Air horn",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/air_horn.png",
+      "description": "Do your friends keep getting attacked? Be the hero and blow your air horn to make the infected come after you instead.",
+      "confirmed": true
+    },
+    {
+      "id": "101022",
+      "name": "AK-74M",
+      "price": "4",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/ak_74m.png",
+      "description": "The AK-74M assault rifle is an upgrade of the AK 74 design with a slightly increased rate of fire. It fires a 5.45 x 39 mm round accurately at medium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101032",
+      "name": "AKM",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/akm.png",
+      "description": "The AKM is an assault rifle that was designed as a simplified version of the AK-47 rifle. It fires a 7.62 x 39 mm round and is relatively effective at medium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101035",
+      "name": "AKS-74U",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/aks_74u.png",
+      "description": "The AKS-74U is a shortened gas operated carbine version of the AKS-74 assault rifle. It fires a 5.45 x 39 mm round and is very effective at medium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "20199",
+      "name": "Captain Jack Frost",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/captain_jack_frost.png",
+      "description": "With a corncob pipe and a button nose...",
+      "confirmed": true
+    },
+    {
+      "id": "400145",
+      "name": "Anaconda rounds",
+      "price": "0.6",
+      "gcPrice": "6 GC",
+      "dollarPrice": "500 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/anaconda_mag.png",
+      "description": "6 rounds for the Anaconda",
+      "confirmed": true
+    },
+    {
+      "id": "101256",
+      "name": "Antibiotics",
+      "price": "0.5",
+      "gcPrice": "5 GC",
+      "dollarPrice": "500 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/anitibiotics.png",
+      "description": "Over the counter antibiotics that aid in curing colds and other minor ailments.",
+      "confirmed": true
+    },
+    {
+      "id": "101363",
+      "name": "Apple farm block",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/apple_farm_block.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "400140",
+      "name": "Arrow",
+      "price": "0.2",
+      "gcPrice": "2 GC",
+      "dollarPrice": "200 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/arrow_explo.png",
+      "description": "Explosive bolt (arrow) for the crossbow",
+      "confirmed": true
+    },
+    {
+      "id": "20201",
+      "name": "Asian Male",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Character",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/asian_male.png",
+      "description": "-",
+      "confirmed": true
+    },
+    {
+      "id": "20193",
+      "name": "Average Joe",
+      "price": "90",
+      "gcPrice": "900 GC",
+      "dollarPrice": "72,000 Dollars",
+      "type": "Character",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/average_joe.png",
+      "description": "-",
+      "confirmed": true
+    },
+    {
+      "id": "400043",
+      "name": "AWM .338 Magnum ammo",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/.338_ammo.png",
+      "description": "8.6x70mm specialized rimless bottlenecked centerfire 10 rounds cartridge. Specifically designed for AWM rifle",
+      "confirmed": true
+    },
+    {
+      "id": "101087",
+      "name": "AW Magnum",
+      "price": "12000",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/aw_magnum.png",
+      "description": "The AWM sniper rifle fires a custom .338W magnum round with devastating accuracy and effect. Each of its rounds deal a very high amount of damage.",
+      "confirmed": true
+    },
+    {
+      "id": "101111",
+      "name": "B92",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/b92.png",
+      "description": "The B92 handgun was specially designed to fire a 9mm round and is reasonably effective agains close range targets.",
+      "confirmed": true
+    },
+    {
+      "id": "101112",
+      "name": "B93R",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/b93r.png",
+      "description": "The B93R handgun was designed to fire a 9mm parabellum round from a 20 round clip. It is a relatively effective weapon against close ranged targets.",
+      "confirmed": true
+    },
+    {
+      "id": "101284",
+      "name": "Bag MRE",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/mre.png",
+      "description": "Meals Ready-to-Eat. Extremely convenient! An MRE can be eaten cold, right out of the pouch but they always taste better hot. Each serving size substantially relieves hunger and thirst",
+      "confirmed": true
+    },
+    {
+      "id": "101283",
+      "name": "Bag of Chips",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/bag_of_chips.png",
+      "description": "A bag of potato chips. Relieves minor hunger. BBQ Flavor!",
+      "confirmed": true
+    },
+    {
+      "id": "101362",
+      "name": "Bag of Chips farm block",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/bag_of_chips_farm_block.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101364",
+      "name": "Banana farm block",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/banana_farm_block.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "301340",
+      "name": "Bandage Recipe",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Blueprint",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/recipe.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101261",
+      "name": "Bandages",
+      "price": "0.4",
+      "gcPrice": "-",
+      "dollarPrice": "333 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/bandages.png",
+      "description": "Common bandages which heal minor wounds and stops excessive bleeding.",
+      "confirmed": true
+    },
+    {
+      "id": "101262",
+      "name": "Bandages DX",
+      "price": "0.8",
+      "gcPrice": "8 GC\n5 ea / 40 GC",
+      "dollarPrice": "800 Dollars\n5 ea / 4,000 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/bandages_dx.png",
+      "description": "Medical bandages which heal moderate wounds and stops excessive bleeding.",
+      "confirmed": true
+    },
+    {
+      "id": "101316",
+      "name": "Barb wire barricade",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/barb_wire_barricade.png",
+      "description": "Drag this across a doorway to barricade the entrance leaving you safe inside, unless something is already inside with you!",
+      "confirmed": true
+    },
+    {
+      "id": "101278",
+      "name": "Bat",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/bat.png",
+      "description": "Handy for those times when you need to beat the crap outta something or somebody.",
+      "confirmed": true
+    },
+    {
+      "id": "20197",
+      "name": "Christmas Special",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/christmas_special.png",
+      "description": "A yule tide treat",
+      "confirmed": true
+    },
+    {
+      "id": "101315",
+      "name": "Binoculars",
+      "price": "3",
+      "gcPrice": "30 GC",
+      "dollarPrice": "3,000 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/binoculars.png",
+      "description": "A great way to checkout if an area is safe before entering, keep an eye out for infected and bandits",
+      "confirmed": true
+    },
+    {
+      "id": "101109",
+      "name": "BIZON",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/bizon.png",
+      "description": "The Bizon submachine gun was designed to fire a 9 mm round from a 64 round magazine delivering accurate fire on close range targets.",
+      "confirmed": true
+    },
+    {
+      "id": "400047",
+      "name": "Bizon 64 ammo",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,200 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/bizon_ammo.png",
+      "description": "Bizon sub machine gun clip. Clip contains 64 rounds of 9x18mm ammo",
+      "confirmed": true
+    },
+    {
+      "id": "20196",
+      "name": "Gear_Backpack_GameSpot",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/gamespot_backpack.png",
+      "description": "-",
+      "confirmed": true
+    },
+    {
+      "id": "400038",
+      "name": "Blackwater Long Range",
+      "price": "3",
+      "gcPrice": "30 GC",
+      "dollarPrice": "3,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/blackwater_long_rang.png",
+      "description": "The Blackwater Long Range scope is a 10x rail mounted scope designed to be used used at long ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101247",
+      "name": "BLASER R93",
+      "price": "7000",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/blaser_r93.png",
+      "description": "The Blaser is a bolt action sniper rifle, designed to fire a .308W round from a 5 round clip. It is a highly accurate weapon at longer ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "20192",
+      "name": "Halloween Special!",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/halloween_special.png",
+      "description": "A unique mask to celebrate the eve of the hallows. Eat, Drink and be Scary! Wuhahahahaaa!",
+      "confirmed": true
+    },
+    {
+      "id": "20057",
+      "name": "Heavy Armor",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/heavy_armor.png",
+      "description": "Limited edition Armor Protection Level 5",
+      "confirmed": true
+    },
+    {
+      "id": "20198",
+      "name": "Santa's Lil Helper",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/santa_lil_helper.png",
+      "description": "Makin presents for all the good girls and boys!",
+      "confirmed": true
+    },
+    {
+      "id": "20200",
+      "name": "Santa's Sack",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/santa_sack.png",
+      "description": "With presents for everyone! Well, mostly zombies. And bandits.",
+      "confirmed": true
+    },
+    {
+      "id": "301355",
+      "name": "Broom",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/broom.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101381",
+      "name": "Butterfly Knife",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/butterfly_knife.png",
+      "description": "A folding knife with two handles counter rotating around the blade so that when its closed the blade concealed",
+      "confirmed": true
+    },
+    {
+      "id": "101302",
+      "name": "C01-Vaccine",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/vaccine_01.png",
+      "description": "An early prototype vaccine that when injected into your bloodstream fights off the infection and lowers blood toxicity levels. Its effectiveness is low however in comparison to later developed vaccines.",
+      "confirmed": true
+    },
+    {
+      "id": "101303",
+      "name": "C04-Vaccine",
+      "price": "2",
+      "gcPrice": "20 GC",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/vaccine_04.png",
+      "description": "A cure to the infection that was developed only weeks after the initial signs of the infection. Having had only a few weeks of production before the infected had taken over, supply is very low and demand is extremely high for these valuable vaccines.",
+      "confirmed": true
+    },
+    {
+      "id": "101344",
+      "name": "Canoe Paddle",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/canoe_paddle.png",
+      "description": "Wooden canoe paddle",
+      "confirmed": true
+    },
+    {
+      "id": "301342",
+      "name": "Canoe Paddle with Knives recipe",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Blueprint",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/recipe.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101292",
+      "name": "Can of Ham",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/can_of_ham.png",
+      "description": "Mechanically separated Spiced Ham in a 5-ounce cans. May contain pig parts. Relieves moderate hunger.",
+      "confirmed": true
+    },
+    {
+      "id": "101290",
+      "name": "Can of Pasta",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/can_of_pasta.png",
+      "description": "A can of delicious Pasta-O's. Fortified with iron and vitamins. Low sugar and low fat. Suitable for Vegetarians. \\r\\nGluten Free",
+      "confirmed": true
+    },
+    {
+      "id": "101296",
+      "name": "Can of soda",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/can_of_soda.png",
+      "description": "A carbonated beverage that when consumed quenches moderate thirst.",
+      "confirmed": true
+    },
+    {
+      "id": "101291",
+      "name": "Can of Soup",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/can_of_soup.png",
+      "description": "A can of creamy tomato soup. No need to add water. Relieves moderate hunger.",
+      "confirmed": true
+    },
+    {
+      "id": "101293",
+      "name": "Can of Tuna",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/can_of_tuna.png",
+      "description": "Chunk lite savory tuna in water. Firm, flaky, fresh tasting that you can really tear into. Each serving relieves moderate hunger.",
+      "confirmed": true
+    },
+    {
+      "id": "20176",
+      "name": "Small Backpack",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/small_backpack.png",
+      "description": "A small backpack allowing some storage for essential items and equipment.",
+      "confirmed": true
+    },
+    {
+      "id": "101365",
+      "name": "Carrot farm block",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/carrot_farm_block.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101347",
+      "name": "Chainsaw",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/chainsaw.png",
+      "description": "Tear through undead and living alike with this fearsome household tool",
+      "confirmed": true
+    },
+    {
+      "id": "20194",
+      "name": "The Mechanic",
+      "price": "90",
+      "gcPrice": "900 GC",
+      "dollarPrice": "72,000 Dollars",
+      "type": "Character",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/character_female01.png",
+      "description": "-",
+      "confirmed": true
+    },
+    {
+      "id": "20195",
+      "name": "Rockin Rollah",
+      "price": "90",
+      "gcPrice": "900 GC",
+      "dollarPrice": "72,000 Dollars",
+      "type": "Character",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/character_female02.png",
+      "description": "-",
+      "confirmed": true
+    },
+    {
+      "id": "301357",
+      "name": "Charcoal",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/charcoal.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101288",
+      "name": "Chocolate Bar",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/chocolate_bar.png",
+      "description": "A milk chocolate candy bar. The finest in gourmet chocolate. Each serving size provides minor sustenance.",
+      "confirmed": true
+    },
+    {
+      "id": "20022",
+      "name": "Beret Cover",
+      "price": "3",
+      "gcPrice": "-",
+      "dollarPrice": "3,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/beret_cover.png",
+      "description": "This cover is a stylish military fashion statement which stands out smashingly in a combat zone!",
+      "confirmed": true
+    },
+    {
+      "id": "400144",
+      "name": ".22 Caliber clip",
+      "price": "0.8",
+      "gcPrice": "-",
+      "dollarPrice": "700 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/ruger_mag.png",
+      "description": "10 round, 22 cal ammo clip for Ruger pistols and rifles",
+      "confirmed": true
+    },
+    {
+      "id": "20180",
+      "name": "Military Ruck",
+      "price": "3",
+      "gcPrice": "30 GC",
+      "dollarPrice": "3,500 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/military_ruck.png",
+      "description": "The mother of all backpacks. Carry 32 items at once!",
+      "confirmed": true
+    },
+    {
+      "id": "101286",
+      "name": "Coconut Water",
+      "price": "0.2",
+      "gcPrice": "2 GC",
+      "dollarPrice": "200 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/coconut_water.png",
+      "description": "A bottle of delicious coconut water that when consumed quenches moderate thirst.",
+      "confirmed": true
+    },
+    {
+      "id": "101331",
+      "name": "Colt Anaconda",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/colt_anaconda.png",
+      "description": "Introduced in 1990, the Colt Anaconda is a large double action .44 caliber revolver featuring a six round cylinder, designed and produced by the Colt's Manufacturing Company",
+      "confirmed": true
+    },
+    {
+      "id": "400019",
+      "name": "Compact Scope",
+      "price": "5",
+      "gcPrice": "-",
+      "dollarPrice": "5,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/compact_scope.png",
+      "description": "The Swiss Compact Sight is a rail mounted scope used to extend a shooters accuracy at close and medium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101322",
+      "name": "Compound Crossbow",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/compound_crossbow.png",
+      "description": "String drawn compound hunting crossbow for silent kills. Uses bow arrows for ammo",
+      "confirmed": true
+    },
+    {
+      "id": "101345",
+      "name": "Cricket bat",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/cricket_bat.png",
+      "description": "Score some runs and crush some skulls!",
+      "confirmed": true
+    },
+    {
+      "id": "101382",
+      "name": "Crowbar",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/crowbar.png",
+      "description": "A multi use household tool, useful for construction or surviving an apocalyptic event",
+      "confirmed": true
+    },
+    {
+      "id": "20188",
+      "name": "Night vision civilian",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "2,500 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/night_vision_civilian.png",
+      "description": "Night vision for everyone, these affordable goggles allow you to see at night while remaining hidden in the darkness",
+      "confirmed": true
+    },
+    {
+      "id": "400049",
+      "name": "CZ Scorpion EVO-3 ammo",
+      "price": "2.5",
+      "gcPrice": "-",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/evo_3_ammo.png",
+      "description": "30 rounds of 9x19mm ammo for the CZ Scorpion EVO-3 submachine gun",
+      "confirmed": true
+    },
+    {
+      "id": "101180",
+      "name": "Desert Eagle",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/desert_eagle.png",
+      "description": "The Desert Eagle handgun was designed to fire a .50 caliber round and deals a substancial amount of damage to targets at close ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "400086",
+      "name": "Desert Eagle ammo",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/desert_eagle_ammo.png",
+      "description": ".50 Action Express 7 round magazine for Desert Eagle handgun.",
+      "confirmed": true
+    },
+    {
+      "id": "101321",
+      "name": "Double Barrel",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/double_barrel.png",
+      "description": "Also known as Doubles or Broomsticks, this powerful shotgun allows two shots to be fired in quick succession before reloading",
+      "confirmed": true
+    },
+    {
+      "id": "301319",
+      "name": "Duck Tape",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/duct_tape.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101295",
+      "name": "Electro-AID",
+      "price": "2.5",
+      "gcPrice": "-",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/electro_aid.png",
+      "description": "A flavored drink with electrolytes that when consumed quenches moderate thirst.",
+      "confirmed": true
+    },
+    {
+      "id": "301320",
+      "name": "Empty Bottle",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/empty_bottle.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "301318",
+      "name": "Empty Can",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/empty_can.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101294",
+      "name": "Energy drink",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "700 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/energy_drink.png",
+      "description": "A caffeine jump-start that when consumed quenches moderate thirst.",
+      "confirmed": true
+    },
+    {
+      "id": "101108",
+      "name": "EVO-3",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/evo-3.png",
+      "description": "The EVO-3 submachine gun was designed to effectively fire 9 mm rounds from a 25 round magazine at close ranged targets at a very high rate of fire..",
+      "confirmed": true
+    },
+    {
+      "id": "20182",
+      "name": "Ex cage fighter",
+      "price": "90",
+      "gcPrice": "900 GC",
+      "dollarPrice": "72,000 Dollars",
+      "type": "Character",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/ex_cage_fighter.png",
+      "description": "-",
+      "confirmed": true
+    },
+    {
+      "id": "20174",
+      "name": "Ex Military",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Character",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/ex_military.png",
+      "description": "-",
+      "confirmed": true
+    },
+    {
+      "id": "101001",
+      "name": "Famas",
+      "price": "700",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/famas.png",
+      "description": "The Famas rifle is a gas operated standard infantry assault rifle, chambered for 5.56x45mm NATO round.",
+      "confirmed": true
+    },
+    {
+      "id": "400159",
+      "name": "Famas 30 rounds",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/famas_30.png",
+      "description": "This is a 30 round magazine for the Famas that allows the shooter to carry more ammo.",
+      "confirmed": false
+    },
+    {
+      "id": "101357",
+      "name": "Farm Block",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/farm_block.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101372",
+      "name": "Farm Block Crate",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/farm_block_crate.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101383",
+      "name": "Fire Axe",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/fire_axe.png",
+      "description": "Standard issue axe used by firefighters to enter buildings and remove dangerous debris",
+      "confirmed": true
+    },
+    {
+      "id": "20185",
+      "name": "ALICE Rucksack",
+      "price": "2.5",
+      "gcPrice": "25 GC",
+      "dollarPrice": "3,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/alice_rucksack.png",
+      "description": "Large backpack that fits everything you will need. The All-purpose Lightweight Individual Carrying Equipment. Dont forget the poo tickets!",
+      "confirmed": true
+    },
+    {
+      "id": "400152",
+      "name": "Flare clip",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/flare_clip.png",
+      "description": "Ammo for the flare gun",
+      "confirmed": false
+    },
+    {
+      "id": "400012",
+      "name": "Flash Hider",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/fh.png",
+      "description": "The Muzzle FlashHider will lower the visual flash of a weapon when fired at normal or rapid speeds.",
+      "confirmed": true
+    },
+    {
+      "id": "101306",
+      "name": "Flashlight",
+      "price": "0.1",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/flashlight.png",
+      "description": "Flashlight for night time, also blinds other players and doubles as a last resort blunt object to bash in the heads of the infected",
+      "confirmed": true
+    },
+    {
+      "id": "101004",
+      "name": "FN FiveSeven",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/fn_five_seven.png",
+      "description": "The FN Five Seven is a standard issue handgun that was designed to fire a 5.7 mm round. It is an effective weapon against close range targets.",
+      "confirmed": true
+    },
+    {
+      "id": "101095",
+      "name": "FN M249",
+      "price": "10",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/fn_m249.png",
+      "description": "The FN M249 machine gun fires a 5.56 mm round from a belt fed system. It is highly effective against targets at close and medium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101107",
+      "name": "FN P90",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/fn_p90.png",
+      "description": "The FN P90 submachine gun was designed to fire 9 mm rounds from a large 50 round magazine. It is very effective on close range targets.",
+      "confirmed": true
+    },
+    {
+      "id": "101246",
+      "name": "FN P90 S",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/fn_p90_s.png",
+      "description": "The FN P90S submachine gun is a highly effective weapon that carries a unique 50 round magazine. It fires a standard 5.56 mm round.",
+      "confirmed": true
+    },
+    {
+      "id": "101193",
+      "name": "FN SCAR CQC",
+      "price": "80",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/fn_scar_cqc.png",
+      "description": "The SCAR 16 CQC is an advanced assault rifle that fires standard 5.56 x 45 mm rounds effectively out to medium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101210",
+      "name": "FN SCAR NIGHT STALKER",
+      "price": "500",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/fn_scar_night_stalker.png",
+      "description": "The Scar 17 CQC Nightstalker is a assault rifle that fires standard 5.56 x 45 mm rounds effectively out to medium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "400000",
+      "name": "Forward Grip",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/forward_grip.png",
+      "description": "The bottom rail grip will allow the shooter more control of the weapon by use of the attached grip.",
+      "confirmed": true
+    },
+    {
+      "id": "101310",
+      "name": "Frag Grenade",
+      "price": "5",
+      "gcPrice": "50 GC",
+      "dollarPrice": "5,000 Dollars",
+      "type": "Weapon",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/frag_grenade.png",
+      "description": "The fragmentation grenade is used to spray shrapnel upon exploding. Pull the pin and dont forget to throw it far.. Fire in the hole!",
+      "confirmed": true
+    },
+    {
+      "id": "101384",
+      "name": "Frying Pan",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/frying_pan.png",
+      "description": "Whether frying an egg or flattening a face, the common household frying pan has many uses",
+      "confirmed": true
+    },
+    {
+      "id": "101005",
+      "name": "G36",
+      "price": "10",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/g36.png",
+      "description": "The MTAC X36 assault rifle fires a 5.56 mm round. Its high rate of fire and medium recoil deliver a reasonably tight spread on impact of targets up to medium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "400029",
+      "name": "G36 ammo",
+      "price": "0.6",
+      "gcPrice": "-",
+      "dollarPrice": "500 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/g36_ammo.png",
+      "description": "This is a 30 round magazine of 5.56x45mm specially designed for the G36 Assault Rifle",
+      "confirmed": true
+    },
+    {
+      "id": "400099",
+      "name": "G36 C-Mag",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "3,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/g36_cmag.png",
+      "description": "\"This is a 5.56x45mm, 100 round drum magazine specially designed for for the G36 Assault Rifle\"",
+      "confirmed": true
+    },
+    {
+      "id": "101385",
+      "name": "Garden Shears",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/garden_shears.png",
+      "description": "Whether shortening hedges or heads these shears are sure to come in handy",
+      "confirmed": true
+    },
+    {
+      "id": "20043",
+      "name": "M9 helmet black",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/m9_helmet_black.png",
+      "description": "The M9 helmet gives a good standard of head protection. This one in black.",
+      "confirmed": true
+    },
+    {
+      "id": "20049",
+      "name": "M9 Helmet Forest 1",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/m9_helmet_forest1.png",
+      "description": "The M9 helmet gives a good standard of head protection. This one in a special forest pattern.",
+      "confirmed": true
+    },
+    {
+      "id": "301344",
+      "name": "Gas Mask Recipe",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Blueprint",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/recipe.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "20050",
+      "name": "M9 Helmet Goggles 1",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/m9_helmet_goggles1.png",
+      "description": "The M9 helmet gives a good standard of head protection. This one with goggles.",
+      "confirmed": true
+    },
+    {
+      "id": "101386",
+      "name": "Golf Club",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/golf_club.png",
+      "description": "Best used for long drives. FORE!",
+      "confirmed": true
+    },
+    {
+      "id": "101289",
+      "name": "Granola Bar",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/granola_bar.png",
+      "description": "An organic granola bar. Each serving size helps relieve moderate hunger.",
+      "confirmed": true
+    },
+    {
+      "id": "301324",
+      "name": "Gun Powder",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/gun_powder.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "20047",
+      "name": "M9 Helmet Green",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/m9_helmet_green.png",
+      "description": "The M9 helmet gives a good standard of head protection. This one in green.",
+      "confirmed": true
+    },
+    {
+      "id": "101307",
+      "name": "Hammer",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/hammer.png",
+      "description": "Go with the funk, it is said. If you cant groove to this then you probably are dead. Stop, Hammer time.",
+      "confirmed": true
+    },
+    {
+      "id": "20048",
+      "name": "M9 Helmet Urban",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/m9_helmet_urban.png",
+      "description": "The M9 helmet gives a good standard of head protection. This one in Urban camo.",
+      "confirmed": true
+    },
+    {
+      "id": "101308",
+      "name": "Hatchet",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "800 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/hatchet.png",
+      "description": "Cold-Steel, drop forged head with differential heat treatment. American Hickory Handle. Sharp corners will easily pierce the thickest skull and the razor sharp edge will shear through flesh and bone like it was white bread.",
+      "confirmed": true
+    },
+    {
+      "id": "20046",
+      "name": "M9 Helmet with Goggles",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/m9_helmet_with_goggles.png",
+      "description": "The M9 helmet gives a good standard of head protection. This one with goggles.",
+      "confirmed": true
+    },
+    {
+      "id": "400005",
+      "name": "Holographic",
+      "price": "3",
+      "gcPrice": "30 GC",
+      "dollarPrice": "3,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/holograp.png",
+      "description": "The Holosight is a rail mounted holographic sight used to extend a shooters accuracy at close and medium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101106",
+      "name": "Honey Badger",
+      "price": "150",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/honey_badger.png",
+      "description": "The Honey Badger submachine gun fires a .300 round at a medium rate of fire causing a good amount of damage on close range targets.",
+      "confirmed": true
+    },
+    {
+      "id": "20184",
+      "name": "Hunter",
+      "price": "90",
+      "gcPrice": "900 GC",
+      "dollarPrice": "72,000 Dollars",
+      "type": "Character",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/hunter.png",
+      "description": "-",
+      "confirmed": true
+    },
+    {
+      "id": "20179",
+      "name": "Large Backpack",
+      "price": "2",
+      "gcPrice": "20 GC",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/large_backpack.png",
+      "description": "Large Backpack",
+      "confirmed": true
+    },
+    {
+      "id": "101173",
+      "name": "IMI TAR-21",
+      "price": "400",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/imi_tar_21.png",
+      "description": "The TAR-21 is an unique gas operated, rotating bolt, bullpup design assault rifle that fires a 5.56 x 45 mm round. It is extremely effective at close and medium range.",
+      "confirmed": true
+    },
+    {
+      "id": "101375",
+      "name": "Industrial Power Generator block",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/industrial_power_generator_block.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101285",
+      "name": "Instant Oatmeal",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/instant_oatmeal.png",
+      "description": "A heart warming way to start your day. Classic Maple and Brown Sugar. Relieves a moderate amount of hunger.",
+      "confirmed": true
+    },
+    {
+      "id": "20067",
+      "name": "K Style NVG",
+      "price": "2",
+      "gcPrice": "20 GC",
+      "dollarPrice": "3,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/nvg_goggles.png",
+      "description": "Standard K style helmet rigged with NVG set up for night ops.",
+      "confirmed": true
+    },
+    {
+      "id": "101115",
+      "name": "Jericho 9mm",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/jericho_9mm.png",
+      "description": "The Jericho was designed as a universal self-loading pistol which fires a 9mm Parabellum round and is highly effective at close range.",
+      "confirmed": true
+    },
+    {
+      "id": "101297",
+      "name": "Juice",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/juice.png",
+      "description": "A healthy drink that when consumed quenches moderate thirst.",
+      "confirmed": true
+    },
+    {
+      "id": "400007",
+      "name": "Kobra",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/kobra.png",
+      "description": "The Kobra is a rail mounted red dot sight used to extend a shooters accuracy at close and medium range targets.",
+      "confirmed": true
+    },
+    {
+      "id": "101332",
+      "name": "Kruger .22 Rifle",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/kruger_.22_rifle.png",
+      "description": "Semi-automatic .22 Long Rifle with removable rotary magazine",
+      "confirmed": true
+    },
+    {
+      "id": "400150",
+      "name": "Kruger Mini-14 clip",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/mini14_mag.png",
+      "description": "Standard size clip for the Kruger Mini-14",
+      "confirmed": true
+    },
+    {
+      "id": "20023",
+      "name": "Boonie Cover",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/boonie.png",
+      "description": "This Jungle Boonie cover is high speed, great for blending in and blocking out the sun and bugs but it won't stop bullets.",
+      "confirmed": true
+    },
+    {
+      "id": "101183",
+      "name": "KT DECIDER",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/kt_decider.png",
+      "description": "The KT Decider is a bull-pup shotgun design that has two magazine feed tubes, each side capable of holding 7 shells, for a total capacity of 14+1.",
+      "confirmed": true
+    },
+    {
+      "id": "20041",
+      "name": "Boonie Desert",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/boonie_desert.png",
+      "description": "This boonie hat is great for desert ops, keeping you out of the sun and foiling those pesky bugs.",
+      "confirmed": true
+    },
+    {
+      "id": "400146",
+      "name": "Large Kruger Rifle clip",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/kruger_large_mag.png",
+      "description": "30 round rotary loaded mag",
+      "confirmed": true
+    },
+    {
+      "id": "101373",
+      "name": "Light block crate",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/light_block_crate.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "20042",
+      "name": "Boonie Green",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/boonie_green.png",
+      "description": "While not a bullet stopper this boonie hat will keep you cool and in camo in the wild places.",
+      "confirmed": true
+    },
+    {
+      "id": "101088",
+      "name": "M107",
+      "price": "10000",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/m107.png",
+      "description": "The M107 sniper rifle fires a .50 caliber round that strikes with deadly effect at extreme ranges. It has a 10 round clip that allows for a high rate of fire.",
+      "confirmed": true
+    },
+    {
+      "id": "101002",
+      "name": "M16",
+      "price": "4",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/m16.png",
+      "description": "The M16 rifle is a gas operated standard infantry assault rifle, chambered for 5.56x45mm NATO round.",
+      "confirmed": true
+    },
+    {
+      "id": "400143",
+      "name": "M249 Ammo Box",
+      "price": "2.5",
+      "gcPrice": "25 GC",
+      "dollarPrice": "2,500 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/m249_ammo.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "101055",
+      "name": "M4",
+      "price": "15",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/m4.png",
+      "description": "The M4 is a versitile, light weight, commando style assault rifle that is gas operated and fires a 5.56 x 45 mm round effectively in both close and medium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101040",
+      "name": "M4 Semi",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/m4_semi.png",
+      "description": "The civilian M4 semi auto rifle, chambered for 5.56x45mm NATO round.",
+      "confirmed": true
+    },
+    {
+      "id": "20096",
+      "name": "Boonie Hat Leather",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/boonie_hat_leather.png",
+      "description": "This is the boonie hat that comes with a bit of sophistication. It is all leather, which is bound to be a hit, but it will not stop one!",
+      "confirmed": true
+    },
+    {
+      "id": "20015",
+      "name": "Custom Guerilla",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "2,500 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/custom_guerilla.png",
+      "description": "Custom designed guerilla field gear and body armor that allows for decent protection under fast moving conditions. Level 2 Protection",
+      "confirmed": true
+    },
+    {
+      "id": "20178",
+      "name": "Gas Mask 2",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/gas_mask2.png",
+      "description": "A mask put over your face to protect from inhaling airborn pollutants and toxic gasses",
+      "confirmed": true
+    },
+    {
+      "id": "20098",
+      "name": "Hard Hat",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/hard_hat.png",
+      "description": "The traditional construction hard hat is just the ticket for knocking around old buildings and showing your enemies that you are tough!",
+      "confirmed": true
+    },
+    {
+      "id": "20054",
+      "name": "IBA Sand",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "2,500 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/iba_sand.png",
+      "description": "Special IBA release gear in Sand toned pattern with Level 2 protection.",
+      "confirmed": true
+    },
+    {
+      "id": "20006",
+      "name": "K. Style Helmet",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "2,500 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/k._style_helmet.png",
+      "description": "The good ol' Turtle Head is guaranteed to protect your brain. (Well, at least a little bit)\\r\\nLevel 2 Protection",
+      "confirmed": true
+    },
+    {
+      "id": "20189",
+      "name": "Rebel",
+      "price": "90",
+      "gcPrice": "900 GC",
+      "dollarPrice": "72,000 Dollars",
+      "type": "Character",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/male_character.png",
+      "description": "-",
+      "confirmed": true
+    },
+    {
+      "id": "101169",
+      "name": "MASADA",
+      "price": "50",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/masada.png",
+      "description": "The Masada was designed for close combat operations and is a gas operated assault rifle that fires a chambered for 5.56x45mm NATO round. It is highly effective at close ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101085",
+      "name": "MAUSER SP66",
+      "price": "5000",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/sp66.png",
+      "description": "The Mauser SP66 sniper rifle was designed to fire a .308W round from a 5 round clip. It is highly accurate at long ranges when combined with a good scope.",
+      "confirmed": true
+    },
+    {
+      "id": "101217",
+      "name": "MAUSER SRG DESERT",
+      "price": "5000",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/mauser_srg_desert.png",
+      "description": "The Mauser SP66 Desert sniper rifle fires a .308W round.",
+      "confirmed": true
+    },
+    {
+      "id": "101410",
+      "name": "Meat",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/meat.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "20059",
+      "name": "Light Gear Forest",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/light_gear_forest.png",
+      "description": "Light weight Level 1 protection in a Green Forest pattern.",
+      "confirmed": true
+    },
+    {
+      "id": "400147",
+      "name": "Medium Kruger Rifle clip",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/kruger_medium_mag.png",
+      "description": "Medium Kruger Rifle clip",
+      "confirmed": true
+    },
+    {
+      "id": "101304",
+      "name": "Medkit",
+      "price": "10",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/medkit.png",
+      "description": "A standard field medical kit commonly used by Medics to heal wounded soldiers on the battlefield. Very effective",
+      "confirmed": true
+    },
+    {
+      "id": "101314",
+      "name": "Metal Bat",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/metal_bat.png",
+      "description": "Aluminum, will never rust. Heads bounce off faster. Not suitable for major league destruction.",
+      "confirmed": true
+    },
+    {
+      "id": "301365",
+      "name": "Metal Pipe",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/metal_pipe.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "301327",
+      "name": "Metal Scrap",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/metal_scrap.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "20175",
+      "name": "Medium Backpack",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/medium_backpack.png",
+      "description": "A medium sized backpack with plenty of space and durability.",
+      "confirmed": true
+    },
+    {
+      "id": "101340",
+      "name": "MiniSaints",
+      "price": "0.2",
+      "gcPrice": "-",
+      "dollarPrice": "200 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/minisaints.png",
+      "description": "Creamy, moist and delectable, MiniSaints are a delicious treat the whole family can enjoy! Best consumed while watching family movies, possibly involving snow and dogs.",
+      "confirmed": true
+    },
+    {
+      "id": "400088",
+      "name": "Modular Aluminum Combat Grip",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/modular_grip.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "101158",
+      "name": "MOSSBERG 590",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/mossberg_590.png",
+      "description": "The Mossberg 590 is a 12 gauge shotgun which has a 8 round storage tube. It is known to do an extremely high amount of damage at close range.",
+      "confirmed": true
+    },
+    {
+      "id": "101103",
+      "name": "MP5/10",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/mp5_10.png",
+      "description": "The MP5/10 submachine gun was designed to fire a 10 mm Auto rounds from a 30 round clip effectively against close ranged targets.",
+      "confirmed": true
+    },
+    {
+      "id": "400079",
+      "name": "MP5 10mm Mag",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "900 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/mp5_10mm_mag.png",
+      "description": "10mm Auto 30 rounds cartridge for MP5/10 submachine gun",
+      "confirmed": true
+    },
+    {
+      "id": "101063",
+      "name": "MP7",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/mp7.png",
+      "description": "The RA TR7 submachine gun is a special issue weapon that fires a 4.6 mm standard cartridge from a 30 round magazine. It is effective at close range targets.",
+      "confirmed": true
+    },
+    {
+      "id": "400033",
+      "name": "MP7 30",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/mp7_30.png",
+      "description": "HK 4.6&times;30mm 30 rounds magazine for MP7 submachine gun.",
+      "confirmed": true
+    },
+    {
+      "id": "400032",
+      "name": "MP7 40",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,100 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/mp7_40.png",
+      "description": "HK 4.6&times;30mm 40 rounds extended magazine for MP7 submachine gun.",
+      "confirmed": true
+    },
+    {
+      "id": "20056",
+      "name": "MTV Forest",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "2,500 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/mtv_forest.png",
+      "description": "Limited edition MTV release Forest patterned gear with Level 2 protection.",
+      "confirmed": true
+    },
+    {
+      "id": "101392",
+      "name": "Nail Gun",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/nail_gun.png",
+      "description": "Commonly used in construction",
+      "confirmed": true
+    },
+    {
+      "id": "301328",
+      "name": "Nails",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/nail_mag.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "400157",
+      "name": "Nail Strip",
+      "price": "0.6",
+      "gcPrice": "-",
+      "dollarPrice": "500 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/nail_strip.png",
+      "description": "Connected strip of nails for use in the Nail Gun",
+      "confirmed": true
+    },
+    {
+      "id": "20187",
+      "name": "Night vision military",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "2,500 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/night_vision_military.png",
+      "description": "Otherwise known as NVD's. These enhance light allowing the user to see in almost total darkness",
+      "confirmed": true
+    },
+    {
+      "id": "20032",
+      "name": "Black Mask",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/black_mask.png",
+      "description": "The frightening Black Mask of Death, sure to give your enemies the chills.",
+      "confirmed": true
+    },
+    {
+      "id": "20033",
+      "name": "Clown Mask",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/clown_mask.png",
+      "description": "For all of you Jokers out there, we bring you the Clown Mask.",
+      "confirmed": true
+    },
+    {
+      "id": "301366",
+      "name": "Ointment",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/ointment.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "400046",
+      "name": "P90 50 rounds",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/p90_50.png",
+      "description": "P90 Compact Assault rifle rounds. 50 round clip",
+      "confirmed": true
+    },
+    {
+      "id": "101300",
+      "name": "Pain killers",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "500 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/pain_killers.png",
+      "description": "Over the counter pain killers that counter-act the effects of pain on the body.",
+      "confirmed": true
+    },
+    {
+      "id": "101348",
+      "name": "Personal locker",
+      "price": "150",
+      "gcPrice": "1,500 GC",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/personal_locker.png",
+      "description": "Placeable personal storage unit",
+      "confirmed": true
+    },
+    {
+      "id": "101309",
+      "name": "Pickaxe",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/pickaxe.png",
+      "description": "Spiked head, flat chisel. Has a good chance of getting stuck in the skull. Awkward to use in tight quarters.",
+      "confirmed": true
+    },
+    {
+      "id": "400022",
+      "name": "Pistol Flashlight",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/pistol_flashlight.png",
+      "description": "The Pistol Flashlight can be used to light dark areas and temporarily blind a shooters opponent.",
+      "confirmed": true
+    },
+    {
+      "id": "400021",
+      "name": "Pistol laser",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/pistol_laser.png",
+      "description": "The Pistol Laser is mounted on the left side of a handgun and used to target the enemy with a laser light.",
+      "confirmed": true
+    },
+    {
+      "id": "400156",
+      "name": "Pistol Silencer",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/pistol_silencer.png",
+      "description": "Lowers the sound of pistols being fired",
+      "confirmed": true
+    },
+    {
+      "id": "101388",
+      "name": "Pitchfork",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/pitchfork.png",
+      "description": "Designed to move hay economically, its intimidating design suits it well to sticking some undead",
+      "confirmed": true
+    },
+    {
+      "id": "101060",
+      "name": "PKM",
+      "price": "10",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/pkm.png",
+      "description": "The PKM machine gun was designed to fire a 7.62 mm rounds from a linked system and is reasonably accurate out to medium ranged targets.",
+      "confirmed": false
+    },
+    {
+      "id": "101389",
+      "name": "Police Baton",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/police_baton.png",
+      "description": "Used by law enforcement as an aid in hand to hand combat, often to subdue unruly or resistant suspects",
+      "confirmed": true
+    },
+    {
+      "id": "301343",
+      "name": "Police Baton w barbed wire recip",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Blueprint",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/recipe.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101390",
+      "name": "Power Drill",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/power_drill.png",
+      "description": "Battery powered and unconventional, the drill is quite effective at dispatching enemies in the grisliest way",
+      "confirmed": true
+    },
+    {
+      "id": "400027",
+      "name": "PSO-1",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/pso_1.png",
+      "description": "The PSO1 is a rail mounted telescopic sight used to extend a shooters accuracy on medium to long range shots.",
+      "confirmed": true
+    },
+    {
+      "id": "301331",
+      "name": "Rag",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/ra_h23.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101197",
+      "name": "RA H23",
+      "price": "10",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/ra_h23.png",
+      "description": "The RA LMG36 was designed to fire a 7.62 mm standard round. This machine gun delivers a reasonable amount of accurate fire onto targets at medium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101319",
+      "name": "Range Finder",
+      "price": "5",
+      "gcPrice": "50 GC",
+      "dollarPrice": "5,000 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/range_finder.png",
+      "description": "Need to know how far away something is? The range finder can be your best friend when sneaking around searching for survival items",
+      "confirmed": true
+    },
+    {
+      "id": "301332",
+      "name": "Razer Wire",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/razer_wire.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "400020",
+      "name": "Red Dot SP",
+      "price": "2",
+      "gcPrice": "20 GC",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/reddot_sp.png",
+      "description": "The Swiss Red Dot Sight is a rail mounted sight used to extend a shooters accuracy at close and medium range targets",
+      "confirmed": true
+    },
+    {
+      "id": "400023",
+      "name": "Reflex Sight",
+      "price": "3",
+      "gcPrice": "30 GC",
+      "dollarPrice": "3,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/reflex_sight.png",
+      "description": "The Reflex Sight is a rail mounted scope used to extend a shooters accuracy at medium and long ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "400018",
+      "name": "Rifle Flashlight",
+      "price": "2",
+      "gcPrice": "20 GC",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/rifle_flashlight.png",
+      "description": "The Flashlight can be used to light dark areas and temporarily blind a shooters opponent.",
+      "confirmed": true
+    },
+    {
+      "id": "400004",
+      "name": "Rifle Laser",
+      "price": "2",
+      "gcPrice": "20 GC",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/rifle_laser.png",
+      "description": "The Laser attachment mounts onto the side of a weapon and allows the shooter to mark the target with the laser.",
+      "confirmed": true
+    },
+    {
+      "id": "101318",
+      "name": "Riot Shield",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "1,600 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/riot_shield.png",
+      "description": "Its a riot shield! Hide behind it for safety",
+      "confirmed": true
+    },
+    {
+      "id": "101093",
+      "name": "RPK-74",
+      "price": "10",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/rpk_74.png",
+      "description": "The RPK-74 machine gun fires a 5.45 mm high velocity round that delivers a reasonably accurate rate of fire onto targets out to medium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101330",
+      "name": "Ruger",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/ruger.png",
+      "description": "Reliable and relatively common, the lower powered Kruger .22 is a household staple, allowing for low cost practice with firm control",
+      "confirmed": true
+    },
+    {
+      "id": "101098",
+      "name": "SAIGA",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/saiga.png",
+      "description": "The Saiga was developed as a 12 gauge shotgun with a 8 round storage tube. It inflicts a substancial amount of damage on targets at a close range.",
+      "confirmed": true
+    },
+    {
+      "id": "400073",
+      "name": "Saiga 10 ammo",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,250 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/saiga_10_ammo.png",
+      "description": "12 gauge 10 rounds magazine for SAIGA shotgun",
+      "confirmed": true
+    },
+    {
+      "id": "20097",
+      "name": "Fireman Helmet",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/fireman_helmet.png",
+      "description": "The traditional Firefighters helmet has been saving men for years. Give it a try if you want to be different in the battlezone.",
+      "confirmed": true
+    },
+    {
+      "id": "20177",
+      "name": "Gas Mask",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/gas_mask.png",
+      "description": "A mask put over your face to protect from inhaling airborn pollutants and toxic gasses",
+      "confirmed": true
+    },
+    {
+      "id": "301335",
+      "name": "Scissors",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/scissors.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "20034",
+      "name": "Jason Mask",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/jason_mask.png",
+      "description": "Hiding a monster, this mask strikes real horror in those who face it.",
+      "confirmed": true
+    },
+    {
+      "id": "301345",
+      "name": "Shiv Recipe",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Blueprint",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/recipe.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "400141",
+      "name": "Shotgun shell 2x",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,250 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/shotgun_shell_2x.png",
+      "description": "2 Shells for use in the double barrel",
+      "confirmed": true
+    },
+    {
+      "id": "400142",
+      "name": "Shotgun shell 8x",
+      "price": "6",
+      "gcPrice": "-",
+      "dollarPrice": "5,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/shotgun_shell_8x.png",
+      "description": "8 Shells for use in standard shotguns",
+      "confirmed": true
+    },
+    {
+      "id": "101346",
+      "name": "Shovel",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/shovel.png",
+      "description": "Practical AND deadly",
+      "confirmed": true
+    },
+    {
+      "id": "301347",
+      "name": "Shrapnel Bomb Recipe",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Blueprint",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/recipe.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101172",
+      "name": "SIG SAUER 556",
+      "price": "300",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/sig_sauer_556.png",
+      "description": "The 556 is a gas operated, rotating bolt assault rifle that fires a 5.56 x 45 mm round and was designed for special operations. It is very effective out to medium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101120",
+      "name": "Sig Sauer P226",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/sig_sauer_p226.png",
+      "description": "The SIG P226 is a full-sized, service-type pistol made by SIG Sauer. It been designed to fire a 9 x 19 mm round that makes it an effective weapon against close ranged targets.",
+      "confirmed": true
+    },
+    {
+      "id": "400013",
+      "name": "Silencer",
+      "price": "3.5",
+      "gcPrice": "-",
+      "dollarPrice": "3,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/silencer.png",
+      "description": "The Silencer will lower the sound of a weapons discharge when fired at normal or rapid speeds.",
+      "confirmed": true
+    },
+    {
+      "id": "301341",
+      "name": "Silencer Recipe",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Blueprint",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/recipe.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "20025",
+      "name": "Shadow",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/shadow.png",
+      "description": "This head gear was designed to not only make you look scary but also to protect your pretty face.",
+      "confirmed": true
+    },
+    {
+      "id": "20035",
+      "name": "Skull Mask",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/skull_mask.png",
+      "description": "The Skull Mask shows you know how to Grin and Bear it!",
+      "confirmed": true
+    },
+    {
+      "id": "20036",
+      "name": "Slash Mask",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/slash_mask.png",
+      "description": "While not just another pretty face, the Slash Mask is a cut above the rest! Get it and look the part of a killer.",
+      "confirmed": true
+    },
+    {
+      "id": "400084",
+      "name": "SMG-20 ammo",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/smg_20_ammo.png",
+      "description": "9x19mm Para 20 rounds magazine specially designed for Uzi and Veresk smg.",
+      "confirmed": true
+    },
+    {
+      "id": "400085",
+      "name": "SMG-40 ammo",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/smg_40_ammo.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "400009",
+      "name": "SMG Grip",
+      "price": "1.5",
+      "gcPrice": "-",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/smg_grip.png",
+      "description": "The M 7 grip provides a shooter with more control and accuracy when firing a weapon at a high rate of fire.",
+      "confirmed": true
+    },
+    {
+      "id": "301346",
+      "name": "Spear Recipe",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Blueprint",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/recipe.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101313",
+      "name": "Spiked Bat",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/spiked_bat.png",
+      "description": "Just your traditional baseball bat. With spikes. Razor sharp, sure to leave a mark.",
+      "confirmed": true
+    },
+    {
+      "id": "400016",
+      "name": "STANAG 30",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/stanag_30.png",
+      "description": "Standard 30 round clip of 5.45x45mm NATO rounds for use with the M4 and M16 Assault Rifles",
+      "confirmed": true
+    },
+    {
+      "id": "400015",
+      "name": "STANAG 45",
+      "price": "0.5",
+      "gcPrice": "5 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/stanag_45.png",
+      "description": "Medium 45 round clip of 5.45x45mm NATO rounds for use with the M4 and M16 Assault Rifles",
+      "confirmed": true
+    },
+    {
+      "id": "400010",
+      "name": "STANAG 60",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/stanag_60.png",
+      "description": "Large 60 round clip of 5.45x45mm NATO rounds for use with the M4 and M16",
+      "confirmed": true
+    },
+    {
+      "id": "400017",
+      "name": "Stanag C-Mag",
+      "price": "2",
+      "gcPrice": "20 GC",
+      "dollarPrice": "3,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/stanag_cmag.png",
+      "description": "Maximum size100 round drum of 5.45x45mm NATO rounds for use with the M4 and M16 Assault Rifles",
+      "confirmed": true
+    },
+    {
+      "id": "400148",
+      "name": "Standard Kruger .22 Rifle Clip",
+      "price": "0.5",
+      "gcPrice": "5 GC",
+      "dollarPrice": "500 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/kruger_standard_mag.png",
+      "description": "Standard issue 10 round rotary loaded magazine.",
+      "confirmed": true
+    },
+    {
+      "id": "400153",
+      "name": "Standard Mosin Magazine",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/mosin_mag.png",
+      "description": "Standard internally fed 5 round magazine designed for use in the Mosin rifle",
+      "confirmed": true
+    },
+    {
+      "id": "101224",
+      "name": "STI Eagle Elite .45 ACP",
+      "price": "0.5",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/sti_eagle_elite_.45_acp.png",
+      "description": "The STI Eagle Elite handgun is an upgraded version of the STI Eagle and is designed to fire a .45 ACP round effectively at close ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101068",
+      "name": "SVD",
+      "price": "1000",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/SVD.png",
+      "description": "The SVD sniper rifle was designed to fire a 7.62 mm round from a 10 round clip. Combined with an Optical Sniper Scope it is extremely accurate.",
+      "confirmed": true
+    },
+    {
+      "id": "400048",
+      "name": "SVD ammo",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/svd_ammo.png",
+      "description": "10 round magazine of 7.62x54mm ammo for the SVD (Dragunov Sniper Rifle)",
+      "confirmed": true
+    },
+    {
+      "id": "400039",
+      "name": "Swiss Arms Scope 8x",
+      "price": "2",
+      "gcPrice": "20 GC",
+      "dollarPrice": "2,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/swiss_scope_8x.png",
+      "description": "The Swiss Arms multirail scope is a rail mounted scope used to extend a shooters accuracy at medium and long ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "101267",
+      "name": "Tactical Knife",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/tactical_knife.png",
+      "description": "A standard issue knife with an 8\" fixed blade, this knife was first designed in 1985 for the United States Army and was later adapted by several other countries as well as mercenary groups throughout the world due to its sturdy design and stopping power.",
+      "confirmed": true
+    },
+    {
+      "id": "400008",
+      "name": "Tactical Sniper Scope",
+      "price": "3",
+      "gcPrice": "30 GC",
+      "dollarPrice": "3,000 Dollars",
+      "type": "Attachment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/tact_snp_scope.png",
+      "description": "8x rail mounted scope designed to be used used atmedium ranges.",
+      "confirmed": true
+    },
+    {
+      "id": "20181",
+      "name": "Teddy Bear backpack",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "1,000 Dollars",
+      "type": "Equipment",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/teddybear_backpack.png",
+      "description": "Roman's favorite accessory",
+      "confirmed": true
+    },
+    {
+      "id": "101305",
+      "name": "Time Capsule",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/time_capsule.png",
+      "description": "Write a message and leave it anywhere in the world for others to find",
+      "confirmed": true
+    },
+    {
+      "id": "301348",
+      "name": "TripWire Shrapnel Bomb recipe",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Blueprint",
+      "stackable": "",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/recipe.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "101064",
+      "name": "UZI",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/uzi.png",
+      "description": "The special issue UZI submachine gun is a open bolt, blow back design that fires 9 mm rounds from its magazine housed in the weapons pistol grip.",
+      "confirmed": true
+    },
+    {
+      "id": "101201",
+      "name": "VERESK SR-2",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/verserk_sr2.png",
+      "description": "The MTAC Flasher submachine gun was designed to fire a standard 9 mm round at a high rate of fire with reasonable accuracy at close range targets.",
+      "confirmed": true
+    },
+    {
+      "id": "400031",
+      "name": "VSS-10",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/vss_10.png",
+      "description": "\"Specially designed high power 9x39mm low velocity, high penetration subsonic round for VSS Vintorez sniper rifle. Standard 10 rounds magazine.\"",
+      "confirmed": true
+    },
+    {
+      "id": "400030",
+      "name": "VSS-20",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Ammo",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/vss_20.png",
+      "description": "\"Specially designed high power 9x39mm low velocity, high penetration subsonic round for VSS Vintorez sniper rifle. Extended 20 rounds magazine.\"",
+      "confirmed": true
+    },
+    {
+      "id": "101084",
+      "name": "VSS VINTOREZ",
+      "price": "15000",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/vss_vintorez.png",
+      "description": "The VSS Vintorez sniper rifle was designed to fire a 9 x 39 mm round using a gas operated, rotating bolt firing system. It is designed to be effective at medium distances.",
+      "confirmed": true
+    },
+    {
+      "id": "101298",
+      "name": "Water 1L",
+      "price": "0.5",
+      "gcPrice": "5 GC",
+      "dollarPrice": "500 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/water_1l.png",
+      "description": "A large bottle of water that when consumed quenches moderate thirst.",
+      "confirmed": true
+    },
+    {
+      "id": "101299",
+      "name": "Water 375ml",
+      "price": "0.3",
+      "gcPrice": "-",
+      "dollarPrice": "300 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/water_375ml.png",
+      "description": "A small bottle of water that when consumed quenches moderate thirst.",
+      "confirmed": true
+    },
+    {
+      "id": "101317",
+      "name": "Wood shield barricade",
+      "price": "2",
+      "gcPrice": "-",
+      "dollarPrice": "1,600 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/wood_shield_barricade.png",
+      "description": "Great for blocking doorways to keep out those pesky infected",
+      "confirmed": true
+    },
+    {
+      "id": "101391",
+      "name": "Wrench",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/wrench.png",
+      "description": "Loved by plumbers around the world, this hefty tool can easily collapse the skulls of your foes",
+      "confirmed": true
+    },
+    {
+      "id": "101301",
+      "name": "Zombie Repellent",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/zombie_repellent.png",
+      "description": "A spray on solution that when applied to the skin, it enters the blood stream and masks the smell of fresh blood.",
+      "confirmed": true
+    },
+    {
+      "id": "1",
+      "name": "GC",
+      "price": "0.1",
+      "gcPrice": "1 GC",
+      "dollarPrice": "-",
+      "type": "Game Currency",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/GC.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "0",
+      "name": "Dollars",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Game Currency",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/dollars.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "2",
+      "name": "EXP",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Game Currency",
+      "stackable": "Yes",
+      "image": "",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "101336",
+      "name": "Katana",
+      "price": "1.5",
+      "gcPrice": "15 GC",
+      "dollarPrice": "1,500 Dollars",
+      "type": "Weapon",
+      "stackable": "No",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/katana.png",
+      "description": "Ancient deadly sharp Samurai weapon, hand made to cleave your foe cleanly in two. Or three...or four....",
+      "confirmed": true
+    },
+    {
+      "id": "301255",
+      "name": "Premium - 1 Days",
+      "price": "20",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/1Days.png",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "301256",
+      "name": "Premium - 3 Days",
+      "price": "60",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/3Days.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "301257",
+      "name": "Premium - 7 Days",
+      "price": "140",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/7Days.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "301259",
+      "name": "Premium - 15 Days",
+      "price": "300",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/15Days.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "301260",
+      "name": "Premium - 30 Days",
+      "price": "600",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/30Days.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "101501",
+      "name": "Rod Fishing",
+      "price": "30",
+      "gcPrice": "300 GC",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/rod_fishing_01.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "101510",
+      "name": "Bait",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "100 Dollars",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/bait_lv1.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "101511",
+      "name": "Bait Premium",
+      "price": "1",
+      "gcPrice": "10 GC",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/bait_lv2.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "301405",
+      "name": "Scrap M107",
+      "price": "500",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/item_drop_scrap_m82.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "301413",
+      "name": "Scrap MAUSER SP66",
+      "price": "250",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/item_drop_scrap_sp66.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "301408",
+      "name": "Scrap BLASER R93",
+      "price": "350",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/item_drop_scrap_r93.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "301410",
+      "name": "Scrap FN SCAR NIGHT STALKER",
+      "price": "50",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/item_drop_scrap_scar_nig.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "301402",
+      "name": "Scrap IMI TAR-21",
+      "price": "40",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/item_drop_scrap_imi.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "301411",
+      "name": "Scrap SIG SAUER 556",
+      "price": "30",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/item_drop_scrap_sig516.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "301401",
+      "name": "Scrap Honey Badger",
+      "price": "15",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/item_drop_scrap_honey.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "301414",
+      "name": "Scrap Weapon Craft",
+      "price": "1",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Components",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/iron_wep.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "311000",
+      "name": "Bag Money 100,000",
+      "price": "-",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Consumable",
+      "stackable": "Yes",
+      "image": "",
+      "description": "",
+      "confirmed": false
+    },
+    {
+      "id": "310004",
+      "name": "Box Fish 2",
+      "price": "15",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Box",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/BOX_Fish_lv2.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "310003",
+      "name": "Box Fish 1",
+      "price": "30",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Box",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/BOX_Fish_lv1.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "310002",
+      "name": "Box Boss 2",
+      "price": "200",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Box",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/Box_boss_lv2.png",
+      "description": "",
+      "confirmed": true
+    },
+    {
+      "id": "310001",
+      "name": "Box Boss 1",
+      "price": "30",
+      "gcPrice": "-",
+      "dollarPrice": "-",
+      "type": "Box",
+      "stackable": "Yes",
+      "image": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/Box_boss_lv1.png",
+      "description": "",
+      "confirmed": true
+    }
+  ],
+  "events": [
+    {
+      "sheetName": "🧡CBT รับสมัครแคลน",
+      "eventName": "🧡CBT รับสมัครแคลน",
+      "startDate": "เริ่ม",
+      "endDate": "ปิด",
+      "rewardCount": 36,
+      "rewards": [
+        {
+          "itemId": "20067",
+          "name": "K Style NVG",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20015",
+          "name": "Custom Guerilla",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20185",
+          "name": "ALICE Rucksack",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "101262",
+          "name": "Bandages DX",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "400017",
+          "name": "Stanag C-Mag",
+          "type": "Ammo",
+          "bundle": ""
+        },
+        {
+          "itemId": "101318",
+          "name": "Riot Shield",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "20067",
+          "name": "K Style NVG",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20015",
+          "name": "Custom Guerilla",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20185",
+          "name": "ALICE Rucksack",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "101262",
+          "name": "Bandages DX",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "400017",
+          "name": "Stanag C-Mag",
+          "type": "Ammo",
+          "bundle": ""
+        },
+        {
+          "itemId": "101318",
+          "name": "Riot Shield",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "20067",
+          "name": "K Style NVG",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20015",
+          "name": "Custom Guerilla",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20185",
+          "name": "ALICE Rucksack",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "101262",
+          "name": "Bandages DX",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "400017",
+          "name": "Stanag C-Mag",
+          "type": "Ammo",
+          "bundle": ""
+        },
+        {
+          "itemId": "101318",
+          "name": "Riot Shield",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "20067",
+          "name": "K Style NVG",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20015",
+          "name": "Custom Guerilla",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20185",
+          "name": "ALICE Rucksack",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "101262",
+          "name": "Bandages DX",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "400017",
+          "name": "Stanag C-Mag",
+          "type": "Ammo",
+          "bundle": ""
+        },
+        {
+          "itemId": "101318",
+          "name": "Riot Shield",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "20067",
+          "name": "K Style NVG",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20015",
+          "name": "Custom Guerilla",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20185",
+          "name": "ALICE Rucksack",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "101262",
+          "name": "Bandages DX",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "400017",
+          "name": "Stanag C-Mag",
+          "type": "Ammo",
+          "bundle": ""
+        },
+        {
+          "itemId": "101318",
+          "name": "Riot Shield",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "20067",
+          "name": "K Style NVG",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20015",
+          "name": "Custom Guerilla",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20185",
+          "name": "ALICE Rucksack",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "101262",
+          "name": "Bandages DX",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "400017",
+          "name": "Stanag C-Mag",
+          "type": "Ammo",
+          "bundle": ""
+        },
+        {
+          "itemId": "101318",
+          "name": "Riot Shield",
+          "type": "Consumable",
+          "bundle": ""
+        }
+      ]
+    },
+    {
+      "sheetName": "🧡CBT WARZ Stream Party",
+      "eventName": "🧡CBT WARZ Stream Party",
+      "startDate": "2026-05-28 00:00:00",
+      "endDate": "2026-05-31 00:00:00",
+      "rewardCount": 11,
+      "rewards": [
+        {
+          "itemId": "101169",
+          "name": "MASADA",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "20067",
+          "name": "K Style NVG",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20015",
+          "name": "Custom Guerilla",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20185",
+          "name": "ALICE Rucksack",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "101262",
+          "name": "Bandages DX",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101318",
+          "name": "Riot Shield",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101317",
+          "name": "Wood shield barricade",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101501",
+          "name": "Rod Fishing",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101511",
+          "name": "Bait Premium",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101284",
+          "name": "Bag MRE",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101295",
+          "name": "Electro-AID",
+          "type": "Consumable",
+          "bundle": ""
+        }
+      ]
+    },
+    {
+      "sheetName": "💜 แจ้งบั๊ก รับของ",
+      "eventName": "แจ้งบั๊ก รับของ",
+      "startDate": "2026-05-28 00:00:00",
+      "endDate": "2026-05-31 00:00:00",
+      "rewardCount": 8,
+      "rewards": [
+        {
+          "itemId": "101510",
+          "name": "Bait",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101336",
+          "name": "Katana",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "20188",
+          "name": "Night vision civilian",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20056",
+          "name": "MTV Forest",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20179",
+          "name": "Large Backpack",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "101256",
+          "name": "Antibiotics",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101284",
+          "name": "Bag MRE",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101295",
+          "name": "Electro-AID",
+          "type": "Consumable",
+          "bundle": ""
+        }
+      ]
+    },
+    {
+      "sheetName": "💜 ปราบบอสพี่อู๋",
+      "eventName": "ปราบบอสพี่อู๋",
+      "startDate": "2026-05-28 00:00:00",
+      "endDate": "2026-05-31 00:00:00",
+      "rewardCount": 0,
+      "rewards": []
+    },
+    {
+      "sheetName": "💜 Bob Hunt",
+      "eventName": "Bob Hunt ล่าบ๊อบ ลุ้นโชค",
+      "startDate": "2026-05-28 00:00:00",
+      "endDate": "2026-05-31 00:00:00",
+      "rewardCount": 7,
+      "rewards": [
+        {
+          "itemId": "101055",
+          "name": "M4",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "400010",
+          "name": "STANAG 60",
+          "type": "Ammo",
+          "bundle": ""
+        },
+        {
+          "itemId": "20015",
+          "name": "Custom Guerilla",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20067",
+          "name": "K Style NVG",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20185",
+          "name": "ALICE Rucksack",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "101262",
+          "name": "Bandages DX",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "301255",
+          "name": "Premium - 1 Days",
+          "type": "Consumable",
+          "bundle": "Premium - 1 Days"
+        }
+      ]
+    },
+    {
+      "sheetName": "💜 Bob Cap",
+      "eventName": "Bob Cap",
+      "startDate": "2026-05-30 00:00:00",
+      "endDate": "2026-05-31 00:00:00",
+      "rewardCount": 8,
+      "rewards": [
+        {
+          "itemId": "101095",
+          "name": "FN M249",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "20054",
+          "name": "IBA Sand",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20006",
+          "name": "K. Style Helmet",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20179",
+          "name": "Large Backpack",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "101300",
+          "name": "Pain killers",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101256",
+          "name": "Antibiotics",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101284",
+          "name": "Bag MRE",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101295",
+          "name": "Electro-AID",
+          "type": "Consumable",
+          "bundle": ""
+        }
+      ]
+    },
+    {
+      "sheetName": "💜 Fishing",
+      "eventName": "ตกปลาในวันสิ้นโลก",
+      "startDate": "2026-05-29 00:00:00",
+      "endDate": "2026-05-31 00:00:00",
+      "rewardCount": 4,
+      "rewards": [
+        {
+          "itemId": "101501",
+          "name": "Rod Fishing",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101511",
+          "name": "Bait Premium",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "20180",
+          "name": "Military Ruck",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "101284",
+          "name": "Bag MRE",
+          "type": "Consumable",
+          "bundle": ""
+        }
+      ]
+    },
+    {
+      "sheetName": "🩵 ศึกชิงบัลลังก์นักล่า",
+      "eventName": "ศึกชิงบัลลังก์นักล่า",
+      "startDate": "2026-05-28 00:00:00",
+      "endDate": "2026-05-31 00:00:00",
+      "rewardCount": 10,
+      "rewards": [
+        {
+          "itemId": "101348",
+          "name": "Personal locker",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101210",
+          "name": "FN SCAR NIGHT STALKER",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "101173",
+          "name": "IMI TAR-21",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "101172",
+          "name": "SIG SAUER 556",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "101348",
+          "name": "Personal locker",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101173",
+          "name": "IMI TAR-21",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "101172",
+          "name": "SIG SAUER 556",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "101348",
+          "name": "Personal locker",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101172",
+          "name": "SIG SAUER 556",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "101348",
+          "name": "Personal locker",
+          "type": "Consumable",
+          "bundle": ""
+        }
+      ]
+    },
+    {
+      "sheetName": "🩵 ล่าท้าผี",
+      "eventName": "ล่าท้าผี",
+      "startDate": "2026-05-28 00:00:00",
+      "endDate": "2026-05-31 00:00:00",
+      "rewardCount": 12,
+      "rewards": [
+        {
+          "itemId": "101055",
+          "name": "M4",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "101002",
+          "name": "M16",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "400017",
+          "name": "STANAG C-Mag",
+          "type": "Ammo",
+          "bundle": ""
+        },
+        {
+          "itemId": "20015",
+          "name": "Custom Guerilla",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20067",
+          "name": "K Style NVG",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20185",
+          "name": "ALICE Rucksack",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "101262",
+          "name": "Bandages DX",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101317",
+          "name": "Wood shield barricade",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "301256",
+          "name": "Premium - 3 Days",
+          "type": "Consumable",
+          "bundle": "Premium - 3 Days"
+        },
+        {
+          "itemId": "101501",
+          "name": "Rod Fishing",
+          "type": "Consumable",
+          "bundle": "Premium - 3 Days"
+        },
+        {
+          "itemId": "101510",
+          "name": "Bait",
+          "type": "Consumable",
+          "bundle": "Premium - 3 Days"
+        },
+        {
+          "itemId": "101511",
+          "name": "Bait Premium",
+          "type": "Consumable",
+          "bundle": "Premium - 3 Days"
+        }
+      ]
+    },
+    {
+      "sheetName": "🩵 นักตกปลาประจำเซิร์ฟ",
+      "eventName": "นักตกปลาประจำเซิร์ฟ",
+      "startDate": "2026-05-28 00:00:00",
+      "endDate": "2026-05-31 00:00:00",
+      "rewardCount": 3,
+      "rewards": [
+        {
+          "itemId": "101501",
+          "name": "Rod Fishing",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101510",
+          "name": "Bait",
+          "type": "Consumable",
+          "bundle": ""
+        },
+        {
+          "itemId": "101511",
+          "name": "Bait Premium",
+          "type": "Consumable",
+          "bundle": ""
+        }
+      ]
+    },
+    {
+      "sheetName": "🩵CBT Gift Box Event",
+      "eventName": "CBT Gift Box Event: รับของรางวัลพิเศษตอน OBT จากการเล่นในช่วงทดสอบ",
+      "startDate": "2026-05-28 00:00:00",
+      "endDate": "2026-05-31 00:00:00",
+      "rewardCount": 7,
+      "rewards": [
+        {
+          "itemId": "101022",
+          "name": "AK-74M",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "400100",
+          "name": "5.45 AK Drum",
+          "type": "Ammo",
+          "bundle": ""
+        },
+        {
+          "itemId": "101336",
+          "name": "Katana",
+          "type": "Weapon",
+          "bundle": ""
+        },
+        {
+          "itemId": "20054",
+          "name": "IBA Sand",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20188",
+          "name": "Night vision civilian",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "20179",
+          "name": "Large Backpack",
+          "type": "Equipment",
+          "bundle": ""
+        },
+        {
+          "itemId": "101256",
+          "name": "Antibiotics",
+          "type": "Consumable",
+          "bundle": ""
+        }
+      ]
+    },
+    {
+      "sheetName": "🩵CBT Daily Task ",
+      "eventName": "CBT Daily Task : ล็อคอิน 3 วัน วันละ 1 ชม. รับสกิน Limited ฟรี ตอน OBT",
+      "startDate": "2026-05-28 00:00:00",
+      "endDate": "2026-05-31 00:00:00",
+      "rewardCount": 0,
+      "rewards": []
+    },
+    {
+      "sheetName": "🩵CBT Daily Drop",
+      "eventName": "CBT Daily Drop : รับไอเทมหน้าเว็บ Reward แล้วไปนัวได้ทันที",
+      "startDate": "2026-05-28 00:00:00",
+      "endDate": "2026-05-31 00:00:00",
+      "rewardCount": 29,
+      "rewards": [
+        {
+          "itemId": "101210",
+          "name": "FN SCAR NIGHT STALKER",
+          "type": "Weapon",
+          "bundle": "Day 1 - 28 May"
+        },
+        {
+          "itemId": "101173",
+          "name": "IMI TAR-21",
+          "type": "Weapon",
+          "bundle": "Day 1 - 28 May"
+        },
+        {
+          "itemId": "101106",
+          "name": "Honey Badger",
+          "type": "Weapon",
+          "bundle": "Day 1 - 28 May"
+        },
+        {
+          "itemId": "101172",
+          "name": "SIG SAUER 556",
+          "type": "Weapon",
+          "bundle": "Day 1 - 28 May"
+        },
+        {
+          "itemId": "101169",
+          "name": "MASADA",
+          "type": "Weapon",
+          "bundle": "Day 1 - 28 May"
+        },
+        {
+          "itemId": "101055",
+          "name": "M4",
+          "type": "Weapon",
+          "bundle": "Day 1 - 28 May"
+        },
+        {
+          "itemId": "101095",
+          "name": "FN M249",
+          "type": "Weapon",
+          "bundle": "Day 1 - 28 May"
+        },
+        {
+          "itemId": "301257",
+          "name": "Premium - 7 Days",
+          "type": "Consumable",
+          "bundle": "Premium - 7 Days"
+        },
+        {
+          "itemId": "101210",
+          "name": "FN SCAR NIGHT STALKER",
+          "type": "Weapon",
+          "bundle": "Day 2 - 29 May"
+        },
+        {
+          "itemId": "101173",
+          "name": "IMI TAR-21",
+          "type": "Weapon",
+          "bundle": "Day 2 - 29 May"
+        },
+        {
+          "itemId": "101106",
+          "name": "Honey Badger",
+          "type": "Weapon",
+          "bundle": "Day 2 - 29 May"
+        },
+        {
+          "itemId": "101172",
+          "name": "SIG SAUER 556",
+          "type": "Weapon",
+          "bundle": "Day 2 - 29 May"
+        },
+        {
+          "itemId": "101169",
+          "name": "MASADA",
+          "type": "Weapon",
+          "bundle": "Day 2 - 29 May"
+        },
+        {
+          "itemId": "101055",
+          "name": "M4",
+          "type": "Weapon",
+          "bundle": "Day 2 - 29 May"
+        },
+        {
+          "itemId": "101095",
+          "name": "FN M249",
+          "type": "Weapon",
+          "bundle": "Day 2 - 29 May"
+        },
+        {
+          "itemId": "101210",
+          "name": "FN SCAR NIGHT STALKER",
+          "type": "Weapon",
+          "bundle": "Day 3 - 30 May"
+        },
+        {
+          "itemId": "101173",
+          "name": "IMI TAR-21",
+          "type": "Weapon",
+          "bundle": "Day 3 - 30 May"
+        },
+        {
+          "itemId": "101106",
+          "name": "Honey Badger",
+          "type": "Weapon",
+          "bundle": "Day 3 - 30 May"
+        },
+        {
+          "itemId": "101172",
+          "name": "SIG SAUER 556",
+          "type": "Weapon",
+          "bundle": "Day 3 - 30 May"
+        },
+        {
+          "itemId": "101169",
+          "name": "MASADA",
+          "type": "Weapon",
+          "bundle": "Day 3 - 30 May"
+        },
+        {
+          "itemId": "101055",
+          "name": "M4",
+          "type": "Weapon",
+          "bundle": "Day 3 - 30 May"
+        },
+        {
+          "itemId": "101095",
+          "name": "FN M249",
+          "type": "Weapon",
+          "bundle": "Day 3 - 30 May"
+        },
+        {
+          "itemId": "101210",
+          "name": "FN SCAR NIGHT STALKER",
+          "type": "Weapon",
+          "bundle": "Day 4 - 31 May"
+        },
+        {
+          "itemId": "101173",
+          "name": "IMI TAR-21",
+          "type": "Weapon",
+          "bundle": "Day 4 - 31 May"
+        },
+        {
+          "itemId": "101106",
+          "name": "Honey Badger",
+          "type": "Weapon",
+          "bundle": "Day 4 - 31 May"
+        },
+        {
+          "itemId": "101172",
+          "name": "SIG SAUER 556",
+          "type": "Weapon",
+          "bundle": "Day 4 - 31 May"
+        },
+        {
+          "itemId": "101169",
+          "name": "MASADA",
+          "type": "Weapon",
+          "bundle": "Day 4 - 31 May"
+        },
+        {
+          "itemId": "101055",
+          "name": "M4",
+          "type": "Weapon",
+          "bundle": "Day 4 - 31 May"
+        },
+        {
+          "itemId": "101095",
+          "name": "FN M249",
+          "type": "Weapon",
+          "bundle": "Day 4 - 31 May"
+        }
+      ]
+    }
+  ],
+  "fameShop": [
+    {
+      "rank": "Unrank",
+      "exp": 0,
+      "costTHB": 0,
+      "costDP": 0
+    },
+    {
+      "rank": "Iron",
+      "exp": 1000,
+      "costTHB": 1000,
+      "costDP": 10000
+    },
+    {
+      "rank": "Bronze",
+      "exp": 5000,
+      "costTHB": 5000,
+      "costDP": 50000
+    },
+    {
+      "rank": "Silver",
+      "exp": 10000,
+      "costTHB": 10000,
+      "costDP": 100000
+    },
+    {
+      "rank": "Gold",
+      "exp": 30000,
+      "costTHB": 30000,
+      "costDP": 300000
+    },
+    {
+      "rank": "Plattinum",
+      "exp": 50000,
+      "costTHB": 50000,
+      "costDP": 500000
+    },
+    {
+      "rank": "Emerald",
+      "exp": 100000,
+      "costTHB": 100000,
+      "costDP": 1000000
+    },
+    {
+      "rank": "Diamond",
+      "exp": 300000,
+      "costTHB": 300000,
+      "costDP": 3000000
+    },
+    {
+      "rank": "Ascendant",
+      "exp": 500000,
+      "costTHB": 500000,
+      "costDP": 5000000
+    },
+    {
+      "rank": "Master",
+      "exp": 1000000,
+      "costTHB": 1000000,
+      "costDP": 10000000
+    },
+    {
+      "rank": "Grand Master",
+      "exp": 2000000,
+      "costTHB": 2000000,
+      "costDP": 20000000
+    },
+    {
+      "rank": "Immortal",
+      "exp": 3000000,
+      "costTHB": 3000000,
+      "costDP": 30000000
+    },
+    {
+      "rank": "Legend",
+      "exp": 4000000,
+      "costTHB": 4000000,
+      "costDP": 40000000
+    },
+    {
+      "rank": "Fameborn",
+      "exp": 5000000,
+      "costTHB": 5000000,
+      "costDP": 50000000
+    }
+  ]
+}

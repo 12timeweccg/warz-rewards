@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | WARZ Limited Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="admin.css?v=20260609m" />
+  </head>
+  <body>
+
+    <!-- ── Login ──────────────────────────────────── -->
+    <div id="login-screen" class="login-screen">
+      <div class="login-box">
+        <img src="../assets/logo-web.png" alt="WARZ" class="login-logo" />
+        <h1>Admin Panel</h1>
+        <p class="login-sub">WARZ Limited Edition</p>
+        <form id="login-form" autocomplete="on">
+          <label class="field-label">
+            Username
+            <input id="login-user" type="text" autocomplete="username" placeholder="admin" />
+          </label>
+          <label class="field-label">
+            Password
+            <input id="login-pass" type="password" autocomplete="current-password" placeholder="••••••••" />
+          </label>
+          <button type="submit" class="btn-primary btn-full">เข้าสู่ระบบ</button>
+          <p id="login-error" class="form-error"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- ── App ───────────────────────────────────── -->
+    <div id="admin-app" class="admin-app hidden">
+
+      <aside class="admin-sidebar">
+        <div class="sidebar-brand">
+          <img src="../assets/logo-web.png" alt="WARZ" />
+          <span>Admin</span>
+        </div>
+        <nav class="admin-nav">
+          <button class="admin-nav-btn is-active" data-view="dashboard">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            Dashboard
+          </button>
+          <button class="admin-nav-btn" data-view="events">
+            <svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+            กิจกรรม
+          </button>
+          <button class="admin-nav-btn" data-view="codes">
+            <svg viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            Master Code
+          </button>
+          <button class="admin-nav-btn" data-view="items">
+            <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Items DB
+          </button>
+          <button class="admin-nav-btn" data-view="export">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export
+          </button>
+          <button class="admin-nav-btn" data-view="settings">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            ตั้งค่า
+          </button>
+        </nav>
+        <div class="sidebar-footer">
+          <button id="undo-btn" class="undo-btn" disabled>↶ ย้อนกลับ</button>
+          <a href="../index.html" class="btn-back-site" target="_blank">← ดูเว็บไซต์</a>
+          <button id="logout-btn" class="logout-btn">ออกจากระบบ</button>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+
+        <!-- Dashboard -->
+        <div id="view-dashboard" class="admin-view is-active">
+          <div class="view-header">
+            <h2>Dashboard</h2>
+            <span id="last-saved-label" class="muted-label"></span>
+          </div>
+          <div class="stats-grid" id="stats-grid"></div>
+          <div class="dash-events" id="dash-events"></div>
+        </div>
+
+        <!-- Events List -->
+        <div id="view-events" class="admin-view">
+          <div class="view-header">
+            <h2>กิจกรรมทั้งหมด</h2>
+            <button class="btn-secondary" id="import-excel-btn">📥 Import Excel</button>
+            <button class="btn-primary" id="add-event-btn">+ เพิ่มกิจกรรม</button>
+          </div>
+          <div id="events-list" class="item-list"></div>
+        </div>
+
+        <!-- Winners (nested) -->
+        <div id="view-winners" class="admin-view">
+          <div class="view-header">
+            <button class="btn-ghost" id="back-to-events">← กลับ</button>
+            <h2 id="winners-event-name"></h2>
+            <button class="btn-secondary" id="check-dupes-btn">🔍 ตรวจหาซ้ำ</button>
+            <button class="btn-secondary" id="paste-winners-btn">📋 วางรายชื่อ</button>
+            <button class="btn-primary" id="add-winner-btn">+ เพิ่มรายชื่อ</button>
+          </div>
+          <div class="toolbar">
+            <input type="search" id="winners-search" class="search-input" placeholder="ค้นหา UID / Facebook..." />
+            <select id="winners-reward-filter" class="filter-select"><option value="all">ทุกรางวัล</option></select>
+            <select id="winners-status-filter" class="filter-select"><option value="all">ทุกสถานะ</option></select>
+            <span id="winners-count-label" class="muted-label"></span>
+          </div>
+          <div id="winners-bulk-bar" class="bulk-bar hidden"></div>
+          <div id="winners-table-wrap" class="table-wrap"></div>
+        </div>
+
+        <!-- Master Codes -->
+        <div id="view-codes" class="admin-view">
+          <div class="view-header">
+            <h2>Master Code</h2>
+            <button class="btn-primary" id="add-code-btn">+ เพิ่มโค้ด</button>
+          </div>
+          <div id="codes-list" class="item-list"></div>
+        </div>
+
+        <!-- Items DB -->
+        <div id="view-items" class="admin-view">
+          <div class="view-header">
+            <h2>Items Database</h2>
+            <span id="items-count-label" class="muted-label"></span>
+            <button class="btn-secondary" id="add-item-btn">+ เพิ่ม Item</button>
+            <button class="btn-ghost" id="reload-items-btn">↻ โหลดใหม่จากไฟล์</button>
+            <button class="btn-ghost" id="export-items-btn">⬇ Export warz_data.json</button>
+          </div>
+          <div class="toolbar">
+            <input type="search" id="items-search" class="search-input" placeholder="ค้นหา ชื่อ / ID / ประเภท..." />
+            <select id="items-type-filter" class="filter-select">
+              <option value="">ทุกประเภท</option>
+            </select>
+          </div>
+          <div id="items-grid" class="items-grid"></div>
+        </div>
+
+        <!-- Export -->
+        <div id="view-export" class="admin-view">
+          <div class="view-header"><h2>เผยแพร่ / Export ข้อมูล</h2></div>
+
+          <div class="publish-card">
+            <div>
+              <h3>🚀 เผยแพร่ขึ้นเว็บเลย</h3>
+              <p class="muted-label">กดปุ่มเดียว ข้อมูลขึ้นเว็บจริงทันที — ผู้เล่นเห็นทันทีโดยไม่ต้อง Export/Deploy เอง</p>
+              <p class="muted-label" id="publish-info" style="margin-top:6px"></p>
+            </div>
+            <button class="btn-primary btn-large" id="publish-btn">🚀 เผยแพร่ขึ้นเว็บเลย</button>
+          </div>
+
+          <div class="export-card">
+            <div class="export-info" id="export-info"></div>
+            <button class="btn-secondary btn-large" id="export-btn">⬇ ดาวน์โหลด events-data.js</button>
+          </div>
+          <div class="export-steps">
+            <h3>วิธีใช้งาน</h3>
+            <ol>
+              <li>กด <strong>ดาวน์โหลด events-data.js</strong></li>
+              <li>นำไฟล์ไปแทนที่ในโฟลเดอร์โปรเจกต์</li>
+              <li>Commit และ Push ขึ้น GitHub</li>
+              <li>Netlify จะ Deploy ใหม่อัตโนมัติ</li>
+            </ol>
+          </div>
+
+          <div class="export-card" style="margin-top:18px">
+            <div>
+              <h3 style="margin-bottom:4px">Backup / กู้คืนข้อมูล</h3>
+              <p class="muted-label">ดาวน์โหลดสำรองข้อมูลทั้งหมด (กิจกรรม + รายชื่อ + โค้ด + Items) หรือกู้คืนจากไฟล์ backup</p>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn-secondary" id="backup-btn">⬇ ดาวน์โหลด Backup</button>
+              <button class="btn-secondary" id="restore-btn">⬆ กู้คืนจากไฟล์</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings -->
+        <div id="view-settings" class="admin-view">
+          <div class="view-header"><h2>ตั้งค่า</h2></div>
+          <div class="settings-card">
+            <h3>เปลี่ยนรหัสผ่าน</h3>
+            <form id="change-pass-form" class="admin-form">
+              <label class="field-label">Username ใหม่ <input type="text" name="user" id="settings-user" /></label>
+              <label class="field-label">Password ใหม่ <input type="password" name="pass" id="settings-pass" /></label>
+              <label class="field-label">ยืนยัน Password <input type="password" name="pass2" id="settings-pass2" /></label>
+              <button type="submit" class="btn-primary">บันทึกรหัสผ่านใหม่</button>
+              <p id="settings-error" class="form-error"></p>
+            </form>
+          </div>
+          <div class="settings-card danger-zone">
+            <h3>Danger Zone</h3>
+            <p class="muted-label">รีเซ็ตข้อมูลทั้งหมดกลับเป็นค่าจาก events-data.js (ไม่สามารถย้อนกลับได้)</p>
+            <button class="btn-danger" id="reset-data-btn">รีเซ็ตข้อมูลทั้งหมด</button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <!-- ── Modal ──────────────────────────────────── -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div class="modal-box" id="modal-box">
+        <button class="modal-close" id="modal-close" aria-label="ปิด">✕</button>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+
+    <!-- ── Toast ─────────────────────────────────── -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <!-- hidden file input for Excel import -->
+    <input type="file" id="excel-file-input" accept=".xlsx,.xls" class="hidden" />
+    <input type="file" id="restore-file-input" accept=".json" class="hidden" />
+
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <script src="../events-data.js?v=20260609m"></script>
+    <script src="admin.js?v=20260609m"></script>
+  </body>
+</html>

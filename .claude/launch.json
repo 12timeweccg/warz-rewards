@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "warz-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5500", "--directory", "C:/Users/almon/OneDrive/Desktop/WARZ WEBSITE PUBLISHED"],
+      "port": 5500
+    }
+  ]
+}

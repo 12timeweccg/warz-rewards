@@ -1,0 +1,10 @@
+{
+  "name": "warz-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "WARZ Limited Edition event rewards site + admin",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

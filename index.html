@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WARZ Limited Edition | ประกาศรายชื่อผู้ได้รับรางวัล</title>
+    <meta name="description" content="ตรวจสอบรายชื่อผู้ได้รับรางวัลกิจกรรม WARZ Limited Edition — ค้นหาด้วย UID หรือชื่อ Facebook พร้อมเช็ค Master Code" />
+    <link rel="icon" type="image/png" href="assets/logo-web.png" />
+    <link rel="apple-touch-icon" href="assets/logo-web.png" />
+    <meta name="theme-color" content="#070808" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="WARZ Limited Edition | ประกาศรายชื่อผู้ได้รับรางวัล" />
+    <meta property="og:description" content="ตรวจสอบรายชื่อผู้ได้รับรางวัลกิจกรรม WARZ — ค้นหาด้วย UID หรือชื่อ Facebook" />
+    <meta property="og:image" content="https://peeranutalmond.github.io/warz-rewards/assets/warz-hero-bg.png" />
+    <meta property="og:url" content="https://peeranutalmond.github.io/warz-rewards/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260609m" />
+  </head>
+  <body>
+    <header class="site-header">
+      <button class="brand page-link" type="button" data-page="home" aria-label="WARZ Limited Edition">
+        <img src="assets/logo-web.png" alt="WARZ Limited Edition" />
+      </button>
+      <button class="nav-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" aria-label="เมนูหลัก">
+        <button class="page-link is-active" type="button" data-page="home">หน้าแรก</button>
+        <button class="page-link" type="button" data-page="rewards">รายชื่อผู้ได้รับรางวัล</button>
+        <button class="page-link" type="button" data-page="rounds">รอบกิจกรรม</button>
+        <button class="page-link" type="button" data-page="codes">Master Code</button>
+        <button class="page-link" type="button" data-page="contact">ติดต่อแอดมิน</button>
+      </nav>
+      <button class="header-cta page-link" type="button" data-page="uid-lookup">
+        <span class="crosshair" aria-hidden="true"></span>
+        ค้นหา UID
+      </button>
+    </header>
+
+    <main>
+      <section id="home" class="page-section hero is-active" aria-labelledby="hero-title">
+        <div class="hero-bg" role="img" aria-label="ฐานทัพกลางคืนในธีมเกมเอาตัวรอด"></div>
+        <div class="hero-content">
+          <div class="brand-lockup">
+            <img src="assets/logo-web.png" alt="WARZ Limited Edition" />
+          </div>
+          <h1 id="hero-title">
+            <span>ประกาศรายชื่อ</span>
+            <span>ผู้ได้รับรางวัล</span>
+            <span>กิจกรรม WARZ</span>
+          </h1>
+          <p>
+            ค้นหาชื่อ Facebook หรือ UID เพื่อตรวจสอบรางวัลที่ได้รับในแต่ละกิจกรรม
+          </p>
+          <div class="hero-actions">
+            <button class="primary-action page-link" type="button" data-page="rewards">ดูรายชื่อผู้ได้รับรางวัล</button>
+            <button class="secondary-action page-link" type="button" data-page="codes">ดู Master Code</button>
+          </div>
+          <div class="hero-stats" id="hero-stats"></div>
+          <div class="hero-recent" id="hero-recent"></div>
+        </div>
+      </section>
+
+      <section id="rewards" class="page-section section shell winner-section" aria-labelledby="winner-title">
+        <div class="section-heading split">
+          <div>
+            <h2 id="winner-title">รายชื่อผู้ได้รับรางวัล</h2>
+            <p>เลือก tab กิจกรรม แล้วค้นหาชื่อ Facebook หรือ UID ของตัวเอง</p>
+          </div>
+          <a href="https://warzth.gg/Reward" class="primary-action claim-btn" target="_blank" rel="noopener noreferrer">
+            รับของรางวัล
+          </a>
+        </div>
+
+        <div class="event-tabs-wrap">
+          <div class="tab-strip-head">
+            <strong>กิจกรรมทั้งหมด</strong>
+            <span>กด tab เพื่อเปลี่ยนกิจกรรม ข้อมูลรางวัลจะแสดงด้านขวา</span>
+          </div>
+          <div class="tabs event-tabs" id="event-tabs" aria-label="เลือกกิจกรรม"></div>
+        </div>
+
+        <div class="winner-layout checker-layout">
+          <div class="winner-main panel checker-panel">
+            <div class="checker-head">
+              <div>
+                <span id="current-event-meta" class="event-meta"></span>
+                <h3 id="current-event-name">กิจกรรม</h3>
+              </div>
+              <button id="clear-search" class="copy-btn" type="button">ล้างคำค้น</button>
+            </div>
+
+            <div id="event-extra" class="event-extra"></div>
+
+            <label class="search-box big-search">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10.8 18.1a7.3 7.3 0 1 1 0-14.6 7.3 7.3 0 0 1 0 14.6Zm5.2-1.9 4.5 4.5" />
+              </svg>
+              <input id="winner-search" type="search" placeholder="ค้นหาชื่อ Facebook / UID" autocomplete="off" />
+            </label>
+            <div class="search-mode-tabs" id="search-mode-tabs" aria-label="เลือกรูปแบบการค้นหา">
+              <button class="is-active" type="button" data-search-mode="uid">ค้นหา UID</button>
+              <button type="button" data-search-mode="facebook">ค้นหาชื่อ Facebook</button>
+            </div>
+
+            <div id="search-result" class="search-result"></div>
+
+            <div class="table-wrap public-list">
+              <div class="list-head">
+                <h3>รายชื่อที่ประกาศในกิจกรรมนี้</h3>
+                <div class="list-head-right">
+                  <span id="winner-count-label"></span>
+                  <button id="export-csv-btn" class="csv-btn" type="button" title="ดาวน์โหลดรายชื่อเป็น CSV">⬇ CSV</button>
+                </div>
+              </div>
+              <div class="filter-bar" aria-label="ตัวกรองรายชื่อรางวัล">
+                <label>
+                  <span>สถานะ</span>
+                  <select id="status-filter"></select>
+                </label>
+                <label>
+                  <span>รางวัลที่ได้รับ</span>
+                  <select id="reward-filter"></select>
+                </label>
+              </div>
+              <table class="sortable-table">
+                <thead>
+                  <tr>
+                    <th>ลำดับ</th>
+                    <th class="sortable" data-sort="facebook">Facebook / UID <span class="sort-ind"></span></th>
+                    <th class="sortable" data-sort="reward">รางวัลที่ได้รับ <span class="sort-ind"></span></th>
+                    <th class="sortable" data-sort="status">สถานะ <span class="sort-ind"></span></th>
+                    <th class="sortable" data-sort="updated">อัปเดต <span class="sort-ind"></span></th>
+                  </tr>
+                </thead>
+                <tbody id="winner-rows"></tbody>
+              </table>
+            </div>
+            <div id="winners-pagination" class="winners-pagination"></div>
+          </div>
+
+          <aside class="event-status panel" aria-labelledby="status-title">
+            <div id="event-cover-banner" class="event-cover-banner"></div>
+            <h3 id="status-title">ของรางวัลกิจกรรมนี้</h3>
+            <div id="reward-announcement" class="reward-announcement"></div>
+            <h3 class="side-subtitle">ข้อมูลรอบกิจกรรม</h3>
+            <dl id="event-summary"></dl>
+          </aside>
+        </div>
+      </section>
+
+      <section id="rounds" class="page-section section shell" aria-labelledby="activity-title">
+        <div class="section-heading split">
+          <div>
+            <h2 id="activity-title">รอบกิจกรรม</h2>
+            <p>รวมกิจกรรมจากแต่ละ sheet ใน Excel พร้อมจำนวนรายชื่อและสถานะล่าสุด</p>
+          </div>
+          <button class="text-link page-link" type="button" data-page="rewards">ดูรายชื่อผู้ได้รับรางวัล</button>
+        </div>
+        <div class="activity-grid" id="activity-cards"></div>
+      </section>
+
+      <section id="codes" class="page-section section shell code-section" aria-labelledby="code-title">
+        <div class="section-heading split">
+          <div>
+            <h2 id="code-title">Master Code</h2>
+            <p>คัดลอกโค้ดแล้วไปกรอกในเกม · 1 โค้ดต่อ 1 บัญชี · หมดแล้วหมดเลย</p>
+          </div>
+          <a href="https://warzth.gg/Reward" class="primary-action claim-btn" target="_blank" rel="noopener noreferrer">
+            รับของรางวัล
+          </a>
+        </div>
+        <div id="code-list" class="code-cards-grid"></div>
+      </section>
+
+      <section id="uid-lookup" class="page-section section shell uid-lookup-section" aria-labelledby="uid-lookup-title">
+        <div class="section-heading">
+          <h2 id="uid-lookup-title">ค้นหา UID</h2>
+          <p>กรอก UID เพื่อดูว่าได้รับรางวัลจากกิจกรรมไหนบ้าง</p>
+        </div>
+
+        <label class="search-box big-search uid-main-input">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10.8 18.1a7.3 7.3 0 1 1 0-14.6 7.3 7.3 0 0 1 0 14.6Zm5.2-1.9 4.5 4.5" />
+          </svg>
+          <input id="uid-lookup-input" type="search" placeholder="กรอก UID เช่น 024VHD, XB9Y20" autocomplete="off" spellcheck="false" />
+        </label>
+
+        <div id="uid-lookup-result" class="uid-lookup-result"></div>
+      </section>
+
+      <section id="contact" class="page-section section shell contact-section" aria-labelledby="contact-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="contact-title">ติดต่อแอดมิน</h2>
+            <p>ช่องทางช่วยเหลือและลิงก์สำคัญ WARZ Limited Edition</p>
+          </div>
+          <img src="assets/logo-web.png" alt="WARZ Limited Edition" class="contact-logo" />
+        </div>
+        <div class="contact-links-grid">
+          <a href="https://warzth.gg/Reward" class="contact-link-card" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link-icon">🎁</span>
+            <div>
+              <strong>รับของรางวัล</strong>
+              <span>warzth.gg/Reward</span>
+            </div>
+          </a>
+          <a href="https://warzth.gg/Redeem-Code" class="contact-link-card" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link-icon">🔑</span>
+            <div>
+              <strong>เติมโค้ด</strong>
+              <span>warzth.gg/Redeem-Code</span>
+            </div>
+          </a>
+          <a href="https://warzth.gg/Survivor-Shop" class="contact-link-card" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link-icon">🛒</span>
+            <div>
+              <strong>ร้านค้า</strong>
+              <span>warzth.gg/Survivor-Shop</span>
+            </div>
+          </a>
+          <a href="https://warzth.gg/Bob-Support-Ticket" class="contact-link-card" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link-icon">🎫</span>
+            <div>
+              <strong>แจ้งปัญหา</strong>
+              <span>warzth.gg/Bob-Support-Ticket</span>
+            </div>
+          </a>
+          <a href="https://warzth.thehof.gg/" class="contact-link-card" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link-icon">🌐</span>
+            <div>
+              <strong>เว็บไซต์หลัก</strong>
+              <span>warzth.thehof.gg</span>
+            </div>
+          </a>
+          <a href="https://warzth.thehof.gg/news/Support-FAQ-th" class="contact-link-card" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link-icon">❓</span>
+            <div>
+              <strong>Q&amp;A ปัญหาที่พบบ่อย</strong>
+              <span>warzth.thehof.gg/news/Support-FAQ-th</span>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="assets/op-production.png" alt="OP Production" class="footer-logo" />
+      <div class="footer-socials">
+        <a href="https://discord.com/invite/B8evHGmh6x" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.04.03.052a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          <span>Discord</span>
+        </a>
+        <a href="https://www.facebook.com/thehof.warzth/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Facebook</span>
+        </a>
+        <a href="https://page.line.me/062pdpuq?oat__id=6608855&openQrModal=true" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="LINE">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          <span>LINE</span>
+        </a>
+        <a href="https://www.tiktok.com/@thehof.warzth" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          <span>TikTok</span>
+        </a>
+        <a href="https://www.youtube.com/@thehof.warzth" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>YouTube</span>
+        </a>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="events-data.js?v=20260609m"></script>
+    <script src="script.js?v=20260609m"></script>
+  </body>
+</html>
