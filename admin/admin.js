@@ -551,7 +551,7 @@ function eventRewardSetsHtml() {
         <select id="reward-set-cat" class="status-select">
           ${REWARD_CATEGORIES.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}
         </select>
-        <input type="text" id="reward-set-search" class="search-input" placeholder="ค้นหา item เพิ่มเข้าหมวดนี้..." autocomplete="off" oninput="renderRewardSetResults()" />
+        <input type="text" id="reward-set-search" class="search-input" placeholder="ค้นหา / วาง Item ID (ก๊อปจาก Excel หลายตัวได้)..." autocomplete="off" oninput="renderRewardSetResults()" onpaste="handleRewardSetPaste(event)" onkeydown="handleRewardSetKey(event)" />
       </div>
       <div id="reward-set-results" class="item-picker-results"></div>
     </div>
@@ -658,6 +658,55 @@ function addRewardSetItem(itemId) {
   const results = document.getElementById('reward-set-results');
   if (search) search.value = '';
   if (results) results.innerHTML = '';
+}
+
+// Add many Item IDs at once (e.g. pasted from an Excel column) into the selected category
+function addRewardSetIds(ids) {
+  const cat = document.getElementById('reward-set-cat')?.value || 'อื่นๆ';
+  let set = _editingSets.find(s => s.category === cat);
+  if (!set) { set = { category: cat, items: [] }; _editingSets.push(set); }
+  let added = 0, dup = 0, notfound = 0;
+  for (const raw of ids) {
+    const key = String(raw).trim();
+    if (!key) continue;
+    if (set.items.find(i => String(i.id) === key)) { dup++; continue; }
+    const item = state.itemMap.get(key);
+    if (!item) { notfound++; continue; }
+    set.items.push({ id: String(item.id), name: item.name, image: item.image || '', type: item.type || '', amount: '1' });
+    added++;
+  }
+  renderRewardSets();
+  const search = document.getElementById('reward-set-search');
+  const results = document.getElementById('reward-set-results');
+  if (search) search.value = '';
+  if (results) results.innerHTML = '';
+  toast(`เพิ่ม ${added} ไอเทมเข้า "${cat}"${dup ? ` · ซ้ำ ${dup}` : ''}${notfound ? ` · ไม่พบใน DB ${notfound}` : ''}`);
+}
+
+function handleRewardSetPaste(e) {
+  const text = (e.clipboardData || window.clipboardData)?.getData('text') || '';
+  const ids = text.split(/[\s,;\t\r\n]+/).map(s => s.trim()).filter(Boolean);
+  if (!ids.length) return;
+  // Intercept if it's a list, or any token matches a known Item ID
+  const anyKnown = ids.some(id => state.itemMap.has(String(id)));
+  if (ids.length > 1 || anyKnown) {
+    e.preventDefault();
+    addRewardSetIds(ids);
+  }
+}
+
+function handleRewardSetKey(e) {
+  if (e.key !== 'Enter') return;
+  e.preventDefault();
+  const val = (e.target.value || '').trim();
+  if (!val) return;
+  // Exact Item ID → add it; otherwise add the first search result if any
+  if (state.itemMap.has(val)) {
+    addRewardSetIds([val]);
+  } else {
+    const firstResult = document.querySelector('#reward-set-results .item-picker-result');
+    if (firstResult) firstResult.click();
+  }
 }
 
 function setRewardSetAmount(si, ii, value) {
