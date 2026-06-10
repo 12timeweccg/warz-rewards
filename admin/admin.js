@@ -1464,7 +1464,7 @@ function itemPickerHtml(listId, label) {
       <label class="field-label" style="margin-bottom:6px">${esc(label || 'Items / รางวัล')}</label>
       <div id="${listId}-list" class="editing-items-list"></div>
       <div class="item-picker-row">
-        <input type="text" id="${listId}-search" class="search-input" placeholder="ค้นหา ID / ชื่อ item..." autocomplete="off" oninput="renderItemPickerResults('${listId}')" />
+        <input type="text" id="${listId}-search" class="search-input" placeholder="ค้นหา / วาง Item ID (ก๊อปจาก Excel หลายตัวได้)..." autocomplete="off" oninput="renderItemPickerResults('${listId}')" onpaste="handleItemPickerPaste(event,'${listId}')" onkeydown="handleItemPickerKey(event,'${listId}')" />
       </div>
       <div id="${listId}-results" class="item-picker-results"></div>
     </div>
@@ -1530,6 +1530,50 @@ function addEditingItem(itemId, listId) {
   const results = document.getElementById(`${listId}-results`);
   if (search)  search.value = '';
   if (results) results.innerHTML = '';
+}
+
+// Add many Item IDs at once (pasted from an Excel column) to the shared picker
+function addEditingItemIds(ids, listId) {
+  let added = 0, dup = 0, notfound = 0;
+  for (const raw of ids) {
+    const key = String(raw).trim();
+    if (!key) continue;
+    if (_editingItems.find(i => String(i.id) === key)) { dup++; continue; }
+    const item = state.itemMap.get(key);
+    if (!item) { notfound++; continue; }
+    _editingItems.push({ id: String(item.id), name: item.name, image: item.image || '', type: item.type || '', amount: '1' });
+    added++;
+  }
+  renderEditingItemsList(listId);
+  const search = document.getElementById(`${listId}-search`);
+  const results = document.getElementById(`${listId}-results`);
+  if (search)  search.value = '';
+  if (results) results.innerHTML = '';
+  toast(`เพิ่ม ${added} ไอเทม${dup ? ` · ซ้ำ ${dup}` : ''}${notfound ? ` · ไม่พบใน DB ${notfound}` : ''}`);
+}
+
+function handleItemPickerPaste(e, listId) {
+  const text = (e.clipboardData || window.clipboardData)?.getData('text') || '';
+  const ids = text.split(/[\s,;\t\r\n]+/).map(s => s.trim()).filter(Boolean);
+  if (!ids.length) return;
+  const anyKnown = ids.some(id => state.itemMap.has(String(id)));
+  if (ids.length > 1 || anyKnown) {
+    e.preventDefault();
+    addEditingItemIds(ids, listId);
+  }
+}
+
+function handleItemPickerKey(e, listId) {
+  if (e.key !== 'Enter') return;
+  e.preventDefault();
+  const val = (e.target.value || '').trim();
+  if (!val) return;
+  if (state.itemMap.has(val)) {
+    addEditingItemIds([val], listId);
+  } else {
+    const first = document.querySelector(`#${listId}-results .item-picker-result`);
+    if (first) first.click();
+  }
 }
 
 function setEditingItemAmount(idx, value) {
