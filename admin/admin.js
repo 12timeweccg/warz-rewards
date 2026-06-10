@@ -1786,7 +1786,32 @@ function doExportItems() {
 // ── Publish (live, via Netlify function) ──────────────
 const PUBLISH_TOKEN_KEY = 'warz_publish_token';
 
+function isStaticHost() {
+  // GitHub Pages / file:// have no serverless functions → use Export flow
+  return location.hostname.includes('github.io') ||
+         location.protocol === 'file:' ||
+         location.hostname === 'localhost';
+}
+
 async function publishLive() {
+  // On GitHub Pages there is no publish function — download events-data.js + guide
+  if (isStaticHost()) {
+    doExport();
+    localStorage.setItem('warz_last_published', new Date().toISOString());
+    renderExport();
+    showModal('📤 เผยแพร่ขึ้น GitHub Pages', `
+      <p style="margin-bottom:10px">ดาวน์โหลด <strong>events-data.js</strong> แล้ว ✓</p>
+      <p class="muted-label" style="margin-bottom:10px">GitHub Pages ไม่มีปุ่มขึ้นทันที — ทำตามนี้เพื่อให้ข้อมูลขึ้นเว็บจริง:</p>
+      <ol style="font-size:0.86rem;line-height:1.9;padding-left:18px">
+        <li>ไฟล์อยู่ในโฟลเดอร์ <strong>Downloads</strong> (ชื่อ events-data.js)</li>
+        <li>นำไปวางทับในโฟลเดอร์โปรเจกต์ แล้วบอกทีม/Claude ว่า <strong>"push"</strong></li>
+        <li>เว็บจะอัปเดตเองใน ~1 นาที</li>
+      </ol>
+      <div class="form-actions"><button class="btn-primary" onclick="closeModal()">เข้าใจแล้ว</button></div>
+    `);
+    return;
+  }
+
   let token = localStorage.getItem(PUBLISH_TOKEN_KEY);
   if (!token) {
     token = prompt('ใส่ Publish Token (ตั้งไว้ใน Netlify) — ใส่ครั้งเดียว ระบบจะจำไว้:');
