@@ -21450,170 +21450,44 @@ window.WARZ_MASTER_CODES = [
       {
         "itemEn": "AK-74M",
         "itemId": "101022",
+        "itemType": "",
         "amount": "1",
         "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/ak_74m.png"
       },
       {
         "itemEn": "5.45 AK Drum",
         "itemId": "400100",
+        "itemType": "",
         "amount": "2",
         "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/5.45AK_drum.png"
       },
       {
         "itemEn": "Katana",
         "itemId": "101336",
+        "itemType": "",
         "amount": "1",
         "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/katana.png"
-      },
-      {
-        "itemEn": "M9 Helmet Forest 1",
-        "itemId": "20006",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/k._style_helmet.png"
-      },
-      {
-        "itemEn": "MTV Forest",
-        "itemId": "20015",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/custom_guerilla.png"
-      },
-      {
-        "itemEn": "Antibiotics",
-        "itemId": "101262",
-        "amount": "3",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/bandages_dx.png"
-      }
-    ]
-  },
-  {
-    "code": "WARZINWZA",
-    "eventName": "4 STEPS",
-    "status": "⚙️ กำลังดำเนินการ",
-    "expiresAt": "17 มิ.ย. 69 เวลา 23.59 น.",
-    "items": [
-      {
-        "itemEn": "AK-74M",
-        "itemId": "101022",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/ak_74m.png"
-      },
-      {
-        "itemEn": "5.45 AK Drum",
-        "itemId": "400100",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/5.45AK_drum.png"
-      },
-      {
-        "itemEn": "K Style NVG",
-        "itemId": "20067",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/nvg_goggles.png"
-      },
-      {
-        "itemEn": "Custom Guerilla",
-        "itemId": "20015",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/custom_guerilla.png"
-      },
-      {
-        "itemEn": "ALICE Rucksack",
-        "itemId": "20185",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/alice_rucksack.png"
-      },
-      {
-        "itemEn": "Bandages DX",
-        "itemId": "101262",
-        "amount": "3",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/bandages_dx.png"
-      },
-      {
-        "itemEn": "Rod Fishing",
-        "itemId": "101501",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/rod_fishing_01.png"
-      },
-      {
-        "itemEn": "Premium - 1 Days",
-        "itemId": "301255",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/1Days.png"
-      }
-    ]
-  },
-  {
-    "code": "FBWARZZA",
-    "eventName": "4 STEPS",
-    "status": "⚙️ กำลังดำเนินการ",
-    "expiresAt": "17 มิ.ย. 69 เวลา 23.59 น.",
-    "items": [
-      {
-        "itemEn": "Pain killers",
-        "itemId": "101300",
-        "amount": "5",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/pain_killers.png"
       },
       {
         "itemEn": "Antibiotics",
         "itemId": "101256",
+        "itemType": "Consumable",
         "amount": "3",
         "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/anitibiotics.png"
       },
       {
-        "itemEn": "Bag MRE",
-        "itemId": "101284",
+        "itemEn": "M9 Helmet Forest 1",
+        "itemId": "20049",
+        "itemType": "Equipment",
         "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/mre.png"
+        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/m9_helmet_forest1.png"
       },
       {
-        "itemEn": "Electro-AID",
-        "itemId": "101295",
+        "itemEn": "MTV Forest",
+        "itemId": "20056",
+        "itemType": "Equipment",
         "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/electro_aid.png"
-      },
-      {
-        "itemEn": "Blueprints Skin K Style NVG HOF",
-        "itemId": "220003",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/blueprint__hgear_kstyle_nvg_HOF_SET.png"
-      }
-    ]
-  },
-  {
-    "code": "THEHOFWARZTH",
-    "eventName": "4 STEPS",
-    "status": "⚙️ กำลังดำเนินการ",
-    "expiresAt": "17 มิ.ย. 69 เวลา 23.59 น.",
-    "items": [
-      {
-        "itemEn": "Katana",
-        "itemId": "101336",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/katana.png"
-      },
-      {
-        "itemEn": "IBA Sand",
-        "itemId": "20054",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/iba_sand.png"
-      },
-      {
-        "itemEn": "K. Style Helmet",
-        "itemId": "20006",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/k._style_helmet.png"
-      },
-      {
-        "itemEn": "Large Backpack",
-        "itemId": "20179",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/large_backpack.png"
-      },
-      {
-        "itemEn": "Blueprints Skin ALICE Rucksack HOF",
-        "itemId": "230002",
-        "amount": "1",
-        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/blueprint__gear_backpack_med_HOF_SET.png"
+        "imageUrl": "https://cdn.exe.in.th/marketing/WarzTH_LE/Item%20Dict/mtv_forest.png"
       }
     ]
   }
