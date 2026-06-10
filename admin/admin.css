@@ -396,6 +396,34 @@ code {
   white-space: nowrap;
 }
 
+/* ── Dashboard: delivery stat + per-event breakdown ──── */
+.stat-card.done .stat-num { color: #6cd06d; }
+
+.dash-mini-bar {
+  height: 6px;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.4);
+  overflow: hidden;
+  margin: 6px 0;
+}
+.dash-mini-fill { height: 100%; background: linear-gradient(90deg, #4ea64f, #6cd06d); }
+.dash-counts { display: flex; gap: 10px; font-size: 0.78rem; flex-wrap: wrap; }
+.dc-done { color: #6cd06d; }
+.dc-pending { color: var(--muted); }
+.dc-problem { color: #e47b6f; }
+.dc-total { color: var(--dim); margin-left: auto; }
+
+/* ── Global cross-event search ───────────────────────── */
+.global-search-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+.global-search-results { margin-top: 12px; max-height: 360px; overflow-y: auto; }
+.global-search-results:empty { display: none; }
+
 /* ── Bulk actions ─────────────────────────────────────── */
 .bulk-bar {
   display: flex;

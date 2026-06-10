@@ -426,32 +426,96 @@ function showView(name) {
 }
 
 // ── Dashboard ─────────────────────────────────────────
+function isDeliveredStatus(status) {
+  const s = String(status || '').toLowerCase();
+  return s.includes('จัดส่งแล้ว') || s.includes('รับรางวัลแล้ว');
+}
+
+function eventStats(ev) {
+  const total = ev.winners.length;
+  const done = ev.winners.filter(w => isDeliveredStatus(w.claimStatus)).length;
+  const problem = ev.winners.filter(w => w.note).length;
+  return { total, done, pending: total - done, problem, pct: total ? Math.round(done / total * 100) : 0 };
+}
+
 function renderDashboard() {
   updateSavedLabel();
   const totalWinners   = state.events.reduce((s, e) => s + e.winners.length, 0);
+  const totalDone      = state.events.reduce((s, e) => s + e.winners.filter(w => isDeliveredStatus(w.claimStatus)).length, 0);
   const problemWinners = state.events.reduce((s, e) => s + e.winners.filter(w => w.note).length, 0);
 
   document.getElementById('stats-grid').innerHTML = `
     <div class="stat-card"><span class="stat-num">${state.events.length}</span><span class="stat-label">กิจกรรม</span></div>
     <div class="stat-card"><span class="stat-num">${totalWinners}</span><span class="stat-label">รายชื่อทั้งหมด</span></div>
+    <div class="stat-card done"><span class="stat-num">${totalDone}</span><span class="stat-label">จัดส่งแล้ว</span></div>
     <div class="stat-card warn"><span class="stat-num">${problemWinners}</span><span class="stat-label">มีปัญหา</span></div>
     <div class="stat-card"><span class="stat-num">${state.codes.length}</span><span class="stat-label">Master Code</span></div>
-    <div class="stat-card"><span class="stat-num">${state.items.length}</span><span class="stat-label">Items DB</span></div>
   `;
 
   document.getElementById('dash-events').innerHTML = `
     <h3 class="dash-section-title">สรุปรายกิจกรรม</h3>
     <div class="dash-event-grid">
-      ${state.events.map(ev => `
+      ${state.events.map(ev => {
+        const st = eventStats(ev);
+        return `
         <div class="dash-event-card">
           <strong>${esc(ev.name)}</strong>
-          <span>${ev.winners.length} รายชื่อ</span>
-          <span class="status-badge">${esc(ev.status)}</span>
+          <div class="dash-mini-bar"><div class="dash-mini-fill" style="width:${st.pct}%"></div></div>
+          <div class="dash-counts">
+            <span class="dc-done">✓ ${st.done}</span>
+            <span class="dc-pending">รอ ${st.pending}</span>
+            ${st.problem ? `<span class="dc-problem">⚠ ${st.problem}</span>` : ''}
+            <span class="dc-total">/ ${st.total}</span>
+          </div>
           <button class="btn-sm btn-ghost" onclick="openWinnersView('${ev.id}')">จัดการ →</button>
-        </div>
-      `).join('')}
+        </div>`;
+      }).join('')}
     </div>
   `;
+}
+
+// ── Cross-event winner search (dashboard) ─────────────
+function renderGlobalSearch() {
+  const resultsEl = document.getElementById('global-search-results');
+  if (!resultsEl) return;
+  const q = (document.getElementById('global-search')?.value || '').toLowerCase().trim();
+  if (!q) { resultsEl.innerHTML = ''; return; }
+
+  const matches = [];
+  for (const ev of state.events) {
+    for (const w of ev.winners) {
+      const hay = `${w.uid || ''} ${w.facebook || ''} ${w.guild || ''}`.toLowerCase();
+      if (hay.includes(q)) matches.push({ ev, w });
+      if (matches.length >= 40) break;
+    }
+    if (matches.length >= 40) break;
+  }
+
+  if (!matches.length) { resultsEl.innerHTML = '<p class="muted-label" style="padding:8px 0">ไม่พบ</p>'; return; }
+
+  resultsEl.innerHTML = `
+    <table class="admin-table">
+      <thead><tr><th>กิจกรรม</th><th>${'UID / กิลด์'}</th><th>Facebook</th><th>รางวัล</th><th>สถานะ</th><th></th></tr></thead>
+      <tbody>
+        ${matches.map(({ ev, w }) => {
+          const idx = ev.winners.indexOf(w);
+          return `<tr class="${w.note ? 'row-problem' : ''}">
+            <td>${esc(ev.shortName || ev.name)}</td>
+            <td><code>${esc(w.guild || w.uid || '-')}</code></td>
+            <td>${esc(w.facebook || '-')}</td>
+            <td><span class="status-badge">${esc(winnerCategory(w))}</span></td>
+            <td><span class="status-badge ${statusBadgeClass(w.claimStatus)}">${esc(normalizeStatus(w.claimStatus))}</span></td>
+            <td><button class="btn-xs btn-secondary" onclick="jumpToWinner('${ev.id}',${idx})">แก้ไข →</button></td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table>
+  `;
+}
+
+function jumpToWinner(eventId, idx) {
+  openWinnersView(eventId);
+  setTimeout(() => openEditWinnerModal(eventId, idx), 100);
 }
 
 // ── Events ────────────────────────────────────────────
@@ -2102,6 +2166,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Winners live search
   document.getElementById('winners-search').addEventListener('input', renderWinners);
+  document.getElementById('global-search').addEventListener('input', renderGlobalSearch);
   document.getElementById('winners-reward-filter').addEventListener('change', renderWinners);
   document.getElementById('winners-status-filter').addEventListener('change', renderWinners);
 

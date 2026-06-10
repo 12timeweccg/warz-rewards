@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="admin.css?v=20260610b" />
+    <link rel="stylesheet" href="admin.css?v=20260610d" />
   </head>
   <body>
 
@@ -82,6 +82,10 @@
             <span id="last-saved-label" class="muted-label"></span>
           </div>
           <div class="stats-grid" id="stats-grid"></div>
+          <div class="global-search-card">
+            <input type="search" id="global-search" class="search-input" placeholder="🔎 ค้นหา UID / ชื่อ / กิลด์ — ข้ามทุกกิจกรรม..." />
+            <div id="global-search-results" class="global-search-results"></div>
+          </div>
           <div class="dash-events" id="dash-events"></div>
         </div>
 
@@ -219,7 +223,7 @@
     <input type="file" id="restore-file-input" accept=".json" class="hidden" />
 
     <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
-    <script src="../events-data.js?v=20260610b"></script>
-    <script src="admin.js?v=20260610b"></script>
+    <script src="../events-data.js?v=20260610d"></script>
+    <script src="admin.js?v=20260610d"></script>
   </body>
 </html>

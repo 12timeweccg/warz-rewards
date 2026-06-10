@@ -45,6 +45,7 @@ const clearSearch = document.querySelector("#clear-search");
 const rewardAnnouncement = document.querySelector("#reward-announcement");
 const eventCoverBanner = document.querySelector("#event-cover-banner");
 const eventExtra = document.querySelector("#event-extra");
+const deliveryProgress = document.querySelector("#delivery-progress");
 const pageSections = document.querySelectorAll(".page-section");
 const pageLinks = document.querySelectorAll(".page-link");
 const searchModeTabs = document.querySelector("#search-mode-tabs");
@@ -299,11 +300,22 @@ function renderSearchResult() {
           <div class="result-status">
             <span class="status ${statusClass(winnerStatus(winner))}">${escapeHtml(winnerStatus(winner))}</span>
             <small>อัปเดต ${escapeHtml(winner.updatedAt || event.latest)}</small>
+            <button type="button" class="share-result-btn" onclick="shareResult('${escapeHtml(winner.guild || winner.uid || winner.character || winner.facebook || "")}')">🔗 แชร์/คัดลอกลิงก์</button>
           </div>
         </article>
       `
     )
     .join("");
+}
+
+function shareResult(value) {
+  if (!value) return;
+  const url = `${location.origin}${location.pathname}?q=${encodeURIComponent(value)}`;
+  if (navigator.share) {
+    navigator.share({ title: "WARZ — ผลรางวัล", text: `ผลรางวัล WARZ ของ ${value}`, url }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(url).then(() => showToast("คัดลอกลิงก์แล้ว ✓")).catch(() => showToast(url));
+  }
 }
 
 function renderFilterOptions() {
@@ -601,6 +613,28 @@ function renderEventExtra() {
   }
 }
 
+function isDeliveredStatus(status) {
+  const s = normalize(status);
+  return s.includes("จัดส่งแล้ว") || s.includes("รับรางวัลแล้ว");
+}
+
+function renderDeliveryProgress() {
+  if (!deliveryProgress) return;
+  const winners = activeEvent.winners || [];
+  const total = winners.length;
+  if (!total) { deliveryProgress.innerHTML = ""; deliveryProgress.style.display = "none"; return; }
+  const done = winners.filter((w) => isDeliveredStatus(winnerStatus(w))).length;
+  const pct = Math.round((done / total) * 100);
+  deliveryProgress.style.display = "block";
+  deliveryProgress.innerHTML = `
+    <div class="dp-head">
+      <span class="dp-label">ความคืบหน้าการจัดส่ง</span>
+      <span class="dp-count"><strong>${done.toLocaleString("th-TH")}</strong> / ${total.toLocaleString("th-TH")} (${pct}%)</span>
+    </div>
+    <div class="dp-bar"><div class="dp-fill" style="width:${pct}%"></div></div>
+  `;
+}
+
 function renderEventCover() {
   if (!eventCoverBanner) return;
   const cover = activeEvent && activeEvent.coverImage;
@@ -888,6 +922,7 @@ function renderAll() {
   renderSearchModeTabs();
   renderEventCover();
   renderEventExtra();
+  renderDeliveryProgress();
   renderSummary();
   renderRewardAnnouncement();
   renderFilterOptions();
@@ -995,10 +1030,22 @@ function renderContent() {
   renderUidLookupResult();
 }
 
+function applyDeepLink() {
+  const q = new URLSearchParams(location.search).get("q");
+  if (!q) return false;
+  searchMode = "uid";
+  renderSearchModeTabs();
+  searchInput.value = q;
+  renderSearchResult();
+  showPage("rewards");
+  setTimeout(() => searchResult.scrollIntoView({ behavior: "smooth", block: "center" }), 200);
+  return true;
+}
+
 (async function bootstrap() {
   // Render baked-in data immediately (no blank wait), then refresh if live data exists
   renderContent();
-  showPage(location.hash.replace("#", "") || "home");
+  if (!applyDeepLink()) showPage(location.hash.replace("#", "") || "home");
   const changed = await loadLiveData();
-  if (changed) renderContent();
+  if (changed) { renderContent(); applyDeepLink(); }
 })();
