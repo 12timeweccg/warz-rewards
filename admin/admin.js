@@ -242,6 +242,12 @@ function logout() {
 }
 
 // ── Data ──────────────────────────────────────────────
+function cleanLoadedStatuses() {
+  state.events.forEach(ev => (ev.winners || []).forEach(w => {
+    if (w.claimStatus) w.claimStatus = normalizeStatus(w.claimStatus);
+  }));
+}
+
 function loadData() {
   const raw = localStorage.getItem(DATA_KEY);
   if (raw) {
@@ -249,11 +255,13 @@ function loadData() {
       const parsed = JSON.parse(raw);
       state.events = parsed.events ?? [];
       state.codes  = parsed.codes  ?? [];
+      cleanLoadedStatuses();
       return;
     } catch (_) {}
   }
   state.events = JSON.parse(JSON.stringify(window.WARZ_EVENTS        ?? []));
   state.codes  = JSON.parse(JSON.stringify(window.WARZ_MASTER_CODES  ?? []));
+  cleanLoadedStatuses();
 }
 
 let _undoStack = [];
@@ -1153,7 +1161,7 @@ function statusBadgeClass(status) {
 }
 
 function inlineStatusHtml(realIdx, current) {
-  const cur = current || 'กำลังดำเนินการ';
+  const cur = normalizeStatus(current);
   const known = WINNER_STATUSES.includes(cur);
   return `
     <select class="inline-status ${statusBadgeClass(cur)}" onchange="setWinnerStatus(${realIdx}, this.value, this)" onclick="event.stopPropagation()">
@@ -1216,10 +1224,26 @@ function setWinnerReward(realIdx, value) {
   persistData(true);
 }
 
-const WINNER_STATUSES = ['กำลังดำเนินการ', 'จัดส่งแล้ว', 'รับรางวัลแล้ว', 'รอกดรับ', 'ติดต่อแก้ข้อมูล', 'หมดเขต'];
+const WINNER_STATUSES = ['กำลังดำเนินการ', 'จัดส่งแล้ว', 'รับรางวัลแล้ว', 'รอกดรับ', 'ติดต่อแก้ไขข้อมูล', 'หมดเขต'];
+
+// Map any status value (with emoji prefixes / spelling variants) to a clean standard status
+function normalizeStatus(status) {
+  let s = String(status || '').replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}]/gu, '').trim();
+  if (!s) return 'กำลังดำเนินการ';
+  if (WINNER_STATUSES.includes(s)) return s;
+  if (s.includes('ติดต่อ'))     return 'ติดต่อแก้ไขข้อมูล';
+  if (s.includes('จัดส่ง'))     return 'จัดส่งแล้ว';
+  if (s.includes('รับรางวัล'))  return 'รับรางวัลแล้ว';
+  if (s.includes('รอกด'))       return 'รอกดรับ';
+  if (s.includes('หมดเขต') || s.includes('ใช้แล้ว')) return 'หมดเขต';
+  if (s.includes('ดำเนินการ'))  return 'กำลังดำเนินการ';
+  return s; // truly custom value → keep as-is
+}
 
 function statusSelectHtml(name, current, options) {
-  const cur = current || options[0];
+  let cur = current || options[0];
+  if (options === WINNER_STATUSES) cur = normalizeStatus(cur);
+  else if (typeof REWARD_CATEGORIES !== 'undefined' && options === REWARD_CATEGORIES) cur = normalizeRewardCategory(cur);
   const known = options.includes(cur);
   return `
     <select name="${name}" class="status-select">
@@ -1227,6 +1251,18 @@ function statusSelectHtml(name, current, options) {
       <option value="${esc(cur)}" ${!known ? 'selected' : ''}>${known ? 'อื่นๆ (กำหนดเอง)' : esc(cur) + ' (กำหนดเอง)'}</option>
     </select>
   `;
+}
+
+const CS_NOTE = 'ข้อมูลไม่ถูกต้อง กรุณาติดต่อ CS ผ่าน Ticket';
+
+function toggleCsNote(checked) {
+  const noteInput = document.getElementById('wf-note');
+  if (!noteInput) return;
+  if (checked) {
+    noteInput.value = CS_NOTE;
+  } else if (noteInput.value === CS_NOTE) {
+    noteInput.value = '';
+  }
 }
 
 function winnerFormHtml(w, guild) {
@@ -1247,7 +1283,11 @@ function winnerFormHtml(w, guild) {
       <label class="field-label">วันที่อัปเดต <input type="text" name="updatedAt" value="${esc(w?.updatedAt || '')}" /></label>
       <label class="field-label">
         หมายเหตุ / ปัญหา
-        <input type="text" name="note" value="${esc(w?.note || '')}" placeholder="ถ้ามีปัญหาใส่ที่นี่ (แถวจะแดง)" />
+        <input type="text" name="note" id="wf-note" value="${esc(w?.note || '')}" placeholder="ถ้ามีปัญหาใส่ที่นี่ (แถวจะแดง)" />
+      </label>
+      <label class="field-label" style="flex-direction:row;align-items:center;gap:8px;margin-top:-4px">
+        <input type="checkbox" id="wf-cs-flag" style="width:auto" ${(w?.note || '') === CS_NOTE ? 'checked' : ''} onchange="toggleCsNote(this.checked)" />
+        ⚠️ ข้อมูลไม่ถูกต้อง — แจ้งให้ติดต่อ CS ผ่าน Ticket
       </label>
       ${guild ? '' : itemPickerHtml('winner-items', 'ไอเทมที่ได้รับ (รูป + จำนวน)')}
       <div class="form-actions">

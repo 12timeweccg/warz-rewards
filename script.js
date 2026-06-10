@@ -463,7 +463,7 @@ function renderWinners() {
               <td>${escapeHtml(winnerRewardItems(winner).join(", "))}</td>
               <td>
                 <span class="status ${statusClass(winnerStatus(winner))}">${escapeHtml(winnerStatus(winner))}</span>
-                ${winner.note ? `<small class="problem-note">${escapeHtml(winner.note)}</small>` : ""}
+                ${winner.note ? renderWinnerNote(winner.note) : ""}
               </td>
               <td>${escapeHtml(winner.updatedAt || activeEvent.latest)}</td>
             </tr>
@@ -474,6 +474,16 @@ function renderWinners() {
 
   renderPagination(totalPages);
   renderSortIndicators();
+}
+
+const TICKET_URL = "https://liff.thehof.gg/th/warzth/ticket/home";
+
+function renderWinnerNote(note) {
+  // If the note tells the user to contact CS / open a ticket, make it a clickable link
+  if (/ติดต่อ\s*cs|ticket|ติดต่อทีมงาน/i.test(note)) {
+    return `<a class="problem-note problem-note-link" href="${TICKET_URL}" target="_blank" rel="noopener noreferrer">⚠ ${escapeHtml(note)} →</a>`;
+  }
+  return `<small class="problem-note">${escapeHtml(note)}</small>`;
 }
 
 function sortWinnersBy(key) {
