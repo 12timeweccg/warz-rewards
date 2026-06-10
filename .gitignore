@@ -7,3 +7,4 @@ tools/__pycache__/
 .DS_Store
 *.xlsx
 *.xls
+_published_pull.json
