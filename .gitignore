@@ -8,3 +8,4 @@ tools/__pycache__/
 *.xlsx
 *.xls
 _published_pull.json
+warz_admin_data.json
