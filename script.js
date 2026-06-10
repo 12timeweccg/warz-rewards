@@ -262,7 +262,8 @@ function renderSearchResult() {
     searchResult.innerHTML = `
       <div class="empty-result is-warning">
         <strong>ไม่พบข้อมูลรางวัล</strong>
-        <span>คุณไม่ได้รางวัลจากกิจกรรมในอาทิตย์นี้นะ เล่นใหม่รอบหน้านะ</span>
+        <span>ไม่พบชื่อ/UID นี้ในกิจกรรม — ถ้าคิดว่าผิดพลาด ติดต่อทีมงานได้เลย</span>
+        <a class="support-inline-btn" href="https://liff.thehof.gg/th/warzth/ticket/home" target="_blank" rel="noopener noreferrer">💬 ติดต่อ Customer Support</a>
       </div>
     `;
     return;
