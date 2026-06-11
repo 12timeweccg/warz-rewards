@@ -1036,7 +1036,10 @@ function renderWinners() {
               ${idCols}
               <td>${inlineRewardHtml(realIdx, winnerCategory(w))}</td>
               <td>${inlineStatusHtml(realIdx, w.claimStatus)}</td>
-              <td>${w.note ? `<span class="problem-note">${esc(w.note)}</span>` : '<span class="muted-label">-</span>'}</td>
+              <td class="note-cell">
+                ${w.note ? `<span class="problem-note">${esc(w.note)}</span>` : ''}
+                <button type="button" class="cs-toggle ${w.note === CS_NOTE ? 'is-on' : ''}" onclick="toggleWinnerCsNote(${realIdx})" title="ติ๊กเพื่อแจ้งให้ติดต่อ CS ผ่าน Ticket">⚠ CS</button>
+              </td>
               <td class="action-cell">
                 <button class="btn-xs btn-secondary" onclick="openEditWinnerModal('${ev.id}',${realIdx})">แก้ไข</button>
                 <button class="btn-xs btn-danger"    onclick="deleteWinner('${ev.id}',${realIdx})">ลบ</button>
@@ -1286,6 +1289,16 @@ function setWinnerReward(realIdx, value) {
   if (!ev || !ev.winners[realIdx]) return;
   ev.winners[realIdx].rewardCategory = value;
   persistData(true);
+}
+
+// One-click toggle: flag a winner as "contact CS via Ticket" (sets/clears the note)
+function toggleWinnerCsNote(realIdx) {
+  const ev = state.events.find(e => e.id === state.currentEventId);
+  if (!ev || !ev.winners[realIdx]) return;
+  const w = ev.winners[realIdx];
+  w.note = (w.note === CS_NOTE) ? '' : CS_NOTE;
+  persistData(true);
+  renderWinners();
 }
 
 const WINNER_STATUSES = ['กำลังดำเนินการ', 'จัดส่งแล้ว', 'รับรางวัลแล้ว', 'รอกดรับ', 'ติดต่อแก้ไขข้อมูล', 'หมดเขต'];

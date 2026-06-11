@@ -1,7 +1,7 @@
 // POST /api/save  → save shared data to KV (requires x-publish-token == PUBLISH_TOKEN)
 export async function onRequestPost(context) {
-  const token = context.request.headers.get('x-publish-token');
-  const expected = context.env.PUBLISH_TOKEN;
+  const token = (context.request.headers.get('x-publish-token') || '').trim();
+  const expected = (context.env.PUBLISH_TOKEN || '').trim();
   if (!expected || token !== expected) {
     return new Response(JSON.stringify({ error: 'unauthorized' }), {
       status: 401, headers: { 'content-type': 'application/json' },

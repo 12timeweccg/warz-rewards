@@ -663,6 +663,27 @@ tr.row-selected td { background: rgba(179,128,91,0.1) !important; }
   font-style: italic;
 }
 
+.note-cell { white-space: nowrap; }
+.cs-toggle {
+  display: inline-block;
+  margin-top: 3px;
+  padding: 2px 9px;
+  border-radius: 12px;
+  border: 1px solid rgba(225,52,34,0.4);
+  background: rgba(255,255,255,0.03);
+  color: var(--muted);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.cs-toggle:hover { color: #e47b6f; }
+.cs-toggle.is-on {
+  background: rgba(225,52,34,0.22);
+  border-color: rgba(225,52,34,0.6);
+  color: #ff6a58;
+  font-weight: 700;
+}
+
 /* ── Export ───────────────────────────────────────────── */
 .export-card {
   background: var(--surface);
