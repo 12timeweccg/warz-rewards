@@ -1005,7 +1005,7 @@ async function loadLiveData() {
   try {
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), 4000);
-    const res = await fetch("/.netlify/functions/data", { signal: ctrl.signal, cache: "no-store" });
+    const res = await fetch("/api/data", { signal: ctrl.signal, cache: "no-store" });
     clearTimeout(timer);
     if (!res.ok) return false; // 204 = nothing published yet
     const data = await res.json();

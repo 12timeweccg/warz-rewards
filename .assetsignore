@@ -1,0 +1,17 @@
+node_modules
+.git
+.netlify
+netlify
+netlify.toml
+tools
+package.json
+package-lock.json
+wrangler.toml
+.assetsignore
+.gitignore
+*.xlsx
+*.xls
+*.zip
+_published_pull.json
+warz_admin_data.json
+deploy-debug.txt

@@ -9,3 +9,4 @@ tools/__pycache__/
 *.xls
 _published_pull.json
 warz_admin_data.json
+_seed.json
