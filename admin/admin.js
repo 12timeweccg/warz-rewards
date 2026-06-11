@@ -423,6 +423,81 @@ function showView(name) {
   if (name === 'items')     renderItems();
   if (name === 'export')    renderExport();
   if (name === 'settings')  renderSettings();
+  if (name === 'help')      renderHelp();
+}
+
+// ── Revert to last published (reload shared data from cloud) ──
+async function revertToPublished() {
+  if (!confirm('ดึงข้อมูลที่เผยแพร่ล่าสุดจากเว็บกลับมา?\nการแก้ไขที่ค้างไว้ (ยังไม่ได้เผยแพร่) จะหายไป')) return;
+  toast('กำลังดึงข้อมูลที่เผยแพร่ล่าสุด...');
+  const ok = await loadSharedData();
+  if (ok) {
+    localStorage.setItem(DATA_KEY, JSON.stringify({ events: state.events, codes: state.codes }));
+    refreshActiveView();
+    toast('ดึงข้อมูลที่เผยแพร่ล่าสุดแล้ว ✓');
+  } else {
+    toast('ดึงข้อมูลไม่ได้ (ยังไม่มีข้อมูลที่เผยแพร่ หรือเชื่อมต่อไม่ได้)');
+  }
+}
+
+// ── Help / วิธีใช้ ─────────────────────────────────────
+function renderHelp() {
+  const el = document.getElementById('help-content');
+  if (!el) return;
+  el.innerHTML = `
+    <div class="help-section">
+      <h3>🚀 ขั้นตอนใช้งานหลัก</h3>
+      <ol>
+        <li>เข้าหลังบ้าน → ระบบโหลด<strong>ข้อมูลล่าสุดจาก cloud</strong>ให้อัตโนมัติ</li>
+        <li>แก้ไขข้อมูล (รายชื่อ/สถานะ/รางวัล/โค้ด) — ขั้นนี้เก็บในเครื่องก่อน <em>ยังไม่ขึ้นเว็บจริง</em></li>
+        <li>กด <strong>"🚀 เผยแพร่ขึ้นเว็บเลย"</strong> (เมนู Export) → ทุกคน + ผู้เล่นเห็นทันที</li>
+      </ol>
+      <p class="help-note">⚠️ ถ้าปิดหน้าก่อนกดเผยแพร่ การแก้ไขจะหาย — กดเผยแพร่ทุกครั้งที่แก้เสร็จ</p>
+    </div>
+
+    <div class="help-section">
+      <h3>📋 จัดการรายชื่อ (เมนู กิจกรรม → รายชื่อ)</h3>
+      <ul>
+        <li><strong>เปลี่ยนสถานะ/รางวัล:</strong> คลิก dropdown ในตารางได้เลย (เปลี่ยนทันที)</li>
+        <li><strong>เลือกหลายคน:</strong> ติ๊ก checkbox หน้าแถว → ใช้แถบด้านบนเปลี่ยนสถานะ/รางวัล/ลบ ทีเดียวหลายคน</li>
+        <li><strong>กรอง:</strong> ใช้ dropdown "ทุกสถานะ/ทุกรางวัล" เพื่อดูเฉพาะกลุ่ม</li>
+        <li><strong>วางทีละเยอะ:</strong> ปุ่ม "📋 วางรายชื่อ" → ก๊อปจาก Excel มาวางได้เลย</li>
+        <li><strong>⚠ CS:</strong> ปุ่มในคอลัมน์หมายเหตุ — คลิกเพื่อแจ้งให้ผู้เล่นติดต่อ CS ผ่าน Ticket (แถวจะแดง + บนเว็บกดเป็นลิงก์ได้)</li>
+        <li><strong>ตรวจซ้ำ:</strong> ปุ่ม "🔍 ตรวจหาซ้ำ" หา UID/กิลด์ซ้ำในกิจกรรม</li>
+      </ul>
+    </div>
+
+    <div class="help-section">
+      <h3>🎁 จัดการรางวัล + ไอเทม</h3>
+      <ul>
+        <li>แก้กิจกรรม → ส่วน "รางวัลแยกตามหมวด" → เลือกหมวด (Luckydraw/ได้ทุกคน/อันดับ) แล้วเพิ่มไอเทม</li>
+        <li><strong>วาง Item ID หลายตัว:</strong> ก๊อป ID จาก Excel ทั้งคอลัมน์ มาวางในช่องค้นหา → เพิ่มทีเดียว</li>
+        <li>ถ้าหา item ไม่เจอ → เมนู Items DB → กด "↻ โหลดใหม่จากไฟล์"</li>
+      </ul>
+    </div>
+
+    <div class="help-section">
+      <h3>🖼️ รูป Cover + วันเวลา + ลิงก์</h3>
+      <ul>
+        <li>แก้กิจกรรม → ใส่รูป Cover (ระบบย่อให้พอดี), ตั้ง "หมดเขตกดรับ" (มี countdown บนเว็บ), ใส่ลิงก์โพสต์ Facebook</li>
+        <li>กิจกรรมแบบ <strong>กิลด์</strong>: เปลี่ยน "ประเภทกิจกรรม" เป็นกิลด์ → ใส่ชื่อกิลด์แทน UID</li>
+      </ul>
+    </div>
+
+    <div class="help-section">
+      <h3>↺ พลาด/อยากย้อน</h3>
+      <ul>
+        <li>ปุ่ม <strong>"↶ ย้อนกลับ"</strong> (ซ้ายล่าง) — ย้อนการแก้ทีละขั้น</li>
+        <li>เมนู Export → <strong>"↺ ดึงข้อมูลที่เผยแพร่ล่าสุด"</strong> — โหลดข้อมูลบนเว็บจริงกลับมา (ทิ้งที่แก้ค้างไว้)</li>
+        <li>เมนู Export → <strong>Backup</strong> — ดาวน์โหลด/กู้คืนไฟล์สำรอง</li>
+      </ul>
+    </div>
+
+    <div class="help-section">
+      <h3>👥 ทำงานหลายคน</h3>
+      <p>ทุกคนใช้ login + Publish Token เดียวกัน เปิดหลังบ้านจะเห็นข้อมูลชุดเดียวกัน — <strong>เลี่ยงแก้พร้อมกัน 2 คนเวลาเดียว</strong> (กันทับกัน) ใครเผยแพร่ทีหลังจะทับของก่อนหน้า</p>
+    </div>
+  `;
 }
 
 // ── Dashboard ─────────────────────────────────────────
@@ -1331,6 +1406,7 @@ function statusSelectHtml(name, current, options) {
 }
 
 const CS_NOTE = 'ข้อมูลไม่ถูกต้อง กรุณาติดต่อ CS ผ่าน Ticket';
+const NOTE_PRESETS = [CS_NOTE, 'ที่อยู่ไม่ครบ', 'รอติดต่อกลับ', 'ข้อมูลซ้ำ', 'กรอกข้อมูลผิด'];
 
 function toggleCsNote(checked) {
   const noteInput = document.getElementById('wf-note');
@@ -1340,6 +1416,14 @@ function toggleCsNote(checked) {
   } else if (noteInput.value === CS_NOTE) {
     noteInput.value = '';
   }
+}
+
+// Quick-fill the note field from a preset chip
+function setNoteValue(val) {
+  const noteInput = document.getElementById('wf-note');
+  if (noteInput) noteInput.value = val;
+  const cs = document.getElementById('wf-cs-flag');
+  if (cs) cs.checked = (val === CS_NOTE);
 }
 
 function winnerFormHtml(w, guild) {
@@ -1366,6 +1450,11 @@ function winnerFormHtml(w, guild) {
         <input type="checkbox" id="wf-cs-flag" style="width:auto" ${(w?.note || '') === CS_NOTE ? 'checked' : ''} onchange="toggleCsNote(this.checked)" />
         ⚠️ ข้อมูลไม่ถูกต้อง — แจ้งให้ติดต่อ CS ผ่าน Ticket
       </label>
+      <div class="note-presets">
+        <span class="note-presets-label">หมายเหตุด่วน:</span>
+        ${NOTE_PRESETS.map(n => `<button type="button" class="note-preset-chip" onclick="setNoteValue('${esc(n)}')">${esc(n)}</button>`).join('')}
+        <button type="button" class="note-preset-chip note-clear" onclick="setNoteValue('')">ล้าง</button>
+      </div>
       ${guild ? '' : itemPickerHtml('winner-items', 'ไอเทมที่ได้รับ (รูป + จำนวน)')}
       <div class="form-actions">
         <button type="submit" class="btn-primary">บันทึก</button>
@@ -1686,11 +1775,11 @@ function codeFormHtml(c) {
   return `
     <form id="cf" class="admin-form">
       <label class="field-label">Code <input type="text" name="code" value="${esc(c?.code || '')}" required class="mono-input" /></label>
-      <label class="field-label">ชื่อกิจกรรม
-        <select name="eventName">
-          ${state.events.map(ev => `<option value="${esc(ev.name)}" ${c?.eventName === ev.name ? 'selected' : ''}>${esc(ev.name)}</option>`).join('')}
-          <option value="${esc(c?.eventName || '')}" ${!state.events.find(e=>e.name===c?.eventName) ? 'selected':''}>อื่นๆ</option>
-        </select>
+      <label class="field-label">ชื่อกิจกรรม (พิมพ์เองได้ หรือเลือกจากรายการ)
+        <input type="text" name="eventName" list="code-event-names" value="${esc(c?.eventName || '')}" placeholder="พิมพ์ชื่อกิจกรรม..." autocomplete="off" />
+        <datalist id="code-event-names">
+          ${state.events.map(ev => `<option value="${esc(ev.name)}"></option>`).join('')}
+        </datalist>
       </label>
       <div class="form-row-2">
         <label class="field-label">สถานะ <input type="text" name="status" value="${esc(c?.status || 'พร้อมใช้')}" /></label>
@@ -1948,15 +2037,20 @@ async function publishLive() {
 // ── Export ────────────────────────────────────────────
 function renderExport() {
   const total = state.events.reduce((s, e) => s + e.winners.length, 0);
-  document.getElementById('export-info').innerHTML = `
-    <div class="export-stat"><span>${state.events.length}</span> กิจกรรม</div>
-    <div class="export-stat"><span>${total}</span> รายชื่อ</div>
-    <div class="export-stat"><span>${state.codes.length}</span> Master Code</div>
-  `;
+  const infoEl = document.getElementById('export-info');
+  if (infoEl) {
+    infoEl.innerHTML = `
+      <div class="export-stat"><span>${state.events.length}</span> กิจกรรม</div>
+      <div class="export-stat"><span>${total}</span> รายชื่อ</div>
+      <div class="export-stat"><span>${state.codes.length}</span> Master Code</div>
+    `;
+  }
   const pubEl = document.getElementById('publish-info');
   if (pubEl) {
     const last = localStorage.getItem('warz_last_published');
-    pubEl.textContent = last ? `เผยแพร่ล่าสุด: ${new Date(last).toLocaleString('th-TH')}` : 'ยังไม่เคยเผยแพร่';
+    pubEl.textContent = last
+      ? `เผยแพร่ล่าสุด: ${new Date(last).toLocaleString('th-TH')} · ${state.events.length} กิจกรรม · ${total} รายชื่อ`
+      : `${state.events.length} กิจกรรม · ${total} รายชื่อ · ${state.codes.length} โค้ด`;
   }
 }
 
@@ -2206,14 +2300,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     toast('เปลี่ยนรหัสผ่านแล้ว ✓');
   };
 
-  // Reset data
-  document.getElementById('reset-data-btn').addEventListener('click', () => {
-    if (!confirm('รีเซ็ตข้อมูลทั้งหมดกลับเป็น events-data.js?\nการเปลี่ยนแปลงทั้งหมดจะหายไป')) return;
-    localStorage.removeItem(DATA_KEY);
-    loadData();
-    toast('รีเซ็ตแล้ว');
-    showView('dashboard');
-  });
+  // Revert to last published (re-load shared data from cloud)
+  document.getElementById('revert-published-btn').addEventListener('click', revertToPublished);
 
   // Auto-start if session is active
   if (isLoggedIn()) {

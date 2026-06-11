@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="admin.css?v=20260610f" />
+    <link rel="stylesheet" href="admin.css?v=20260610g" />
   </head>
   <body>
 
@@ -60,6 +60,10 @@
           <button class="admin-nav-btn" data-view="export">
             <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Export
+          </button>
+          <button class="admin-nav-btn" data-view="help">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12" y2="17"/></svg>
+            วิธีใช้
           </button>
           <button class="admin-nav-btn" data-view="settings">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -158,18 +162,20 @@
             <button class="btn-primary btn-large" id="publish-btn">🚀 เผยแพร่ขึ้นเว็บเลย</button>
           </div>
 
-          <div class="export-card">
-            <div class="export-info" id="export-info"></div>
-            <button class="btn-secondary btn-large" id="export-btn">⬇ ดาวน์โหลด events-data.js</button>
+          <div class="export-card" style="margin-top:18px">
+            <div>
+              <h3 style="margin-bottom:4px">↺ ดึงข้อมูลที่เผยแพร่ล่าสุด</h3>
+              <p class="muted-label">โหลดข้อมูลชุดที่อยู่บนเว็บจริงกลับมา (ยกเลิกการแก้ที่ค้างไว้แต่ยังไม่ได้เผยแพร่)</p>
+            </div>
+            <button class="btn-secondary btn-large" id="revert-published-btn">↺ ดึงข้อมูลที่เผยแพร่ล่าสุด</button>
           </div>
-          <div class="export-steps">
-            <h3>วิธีใช้งาน</h3>
-            <ol>
-              <li>กด <strong>ดาวน์โหลด events-data.js</strong></li>
-              <li>นำไฟล์ไปแทนที่ในโฟลเดอร์โปรเจกต์</li>
-              <li>Commit และ Push ขึ้น GitHub</li>
-              <li>Netlify จะ Deploy ใหม่อัตโนมัติ</li>
-            </ol>
+
+          <div class="export-card" style="margin-top:18px">
+            <div>
+              <h3 style="margin-bottom:4px">สำรองไฟล์ (ขั้นสูง)</h3>
+              <p class="muted-label">ดาวน์โหลด events-data.js เก็บไว้เอง</p>
+            </div>
+            <button class="btn-secondary" id="export-btn">⬇ ดาวน์โหลด events-data.js</button>
           </div>
 
           <div class="export-card" style="margin-top:18px">
@@ -197,11 +203,12 @@
               <p id="settings-error" class="form-error"></p>
             </form>
           </div>
-          <div class="settings-card danger-zone">
-            <h3>Danger Zone</h3>
-            <p class="muted-label">รีเซ็ตข้อมูลทั้งหมดกลับเป็นค่าจาก events-data.js (ไม่สามารถย้อนกลับได้)</p>
-            <button class="btn-danger" id="reset-data-btn">รีเซ็ตข้อมูลทั้งหมด</button>
-          </div>
+        </div>
+
+        <!-- Help / วิธีใช้ -->
+        <div id="view-help" class="admin-view">
+          <div class="view-header"><h2>📖 วิธีใช้งานหลังบ้าน</h2></div>
+          <div id="help-content" class="help-content"></div>
         </div>
 
       </main>
@@ -223,7 +230,7 @@
     <input type="file" id="restore-file-input" accept=".json" class="hidden" />
 
     <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
-    <script src="../events-data.js?v=20260610f"></script>
-    <script src="admin.js?v=20260610f"></script>
+    <script src="../events-data.js?v=20260610g"></script>
+    <script src="admin.js?v=20260610g"></script>
   </body>
 </html>
