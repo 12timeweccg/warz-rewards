@@ -600,25 +600,40 @@ function renderEvents() {
 
   el.innerHTML = state.events.map((ev, i) => {
     const guild = isGuildEvent(ev);
+    const vis = ev.visibility || 'public';
     const thumb = ev.coverImage
-      ? `<img src="${esc(ev.coverImage)}" class="event-row-thumb" alt="" />`
-      : `<div class="event-row-thumb event-row-noimg">${esc((ev.shortName || ev.name || '?')[0])}</div>`;
+      ? `<img src="${esc(ev.coverImage)}" class="event-row-thumb ${vis !== 'public' ? 'dimmed' : ''}" alt="" />`
+      : `<div class="event-row-thumb event-row-noimg ${vis !== 'public' ? 'dimmed' : ''}">${esc((ev.shortName || ev.name || '?')[0])}</div>`;
     const deadline = ev.claimDeadline ? formatDeadlineShort(ev.claimDeadline) : '';
     return `
-    <div class="list-row">
+    <div class="list-row ${vis !== 'public' ? 'row-hidden' : ''}">
       ${thumb}
       <div class="list-row-info">
         <strong>${esc(ev.name)} <span class="type-tag ${guild ? 'tag-guild' : ''}">${guild ? 'กิลด์' : 'ผู้เล่น'}</span></strong>
-        <span>${ev.winners.length} ${guild ? 'กิลด์' : 'รายชื่อ'}${deadline ? ` · ⏰ ${deadline}` : ''}${ev.fbPostUrl ? ' · 🔗 มีลิงก์ FB' : ''}</span>
+        <span>${ev.winners.length} ${guild ? 'กิลด์' : 'รายชื่อ'}${deadline ? ` · ⏰ ${deadline}` : ''}${ev.fbPostUrl ? ' · 🔗 FB' : ''}</span>
         <span class="status-badge">${esc(ev.status)}</span>
       </div>
       <div class="list-row-actions">
+        <select class="vis-select vis-${vis}" onchange="setEventVisibility(${i}, this.value)" title="การแสดงผลบนเว็บ">
+          <option value="public"  ${vis==='public'  ? 'selected':''}>🌐 เผยแพร่</option>
+          <option value="private" ${vis==='private' ? 'selected':''}>🔒 ส่วนตัว</option>
+          <option value="archived" ${vis==='archived'? 'selected':''}>📦 เก็บ</option>
+        </select>
         <button class="btn-sm btn-ghost" onclick="openWinnersView('${ev.id}')">รายชื่อ</button>
         <button class="btn-sm btn-secondary" onclick="openEditEventModal(${i})">แก้ไข</button>
         <button class="btn-sm btn-danger"    onclick="deleteEvent(${i})">ลบ</button>
       </div>
     </div>`;
   }).join('');
+}
+
+function setEventVisibility(i, value) {
+  if (!state.events[i]) return;
+  state.events[i].visibility = value;
+  persistData(true);
+  renderEvents();
+  const label = value === 'public' ? 'เผยแพร่' : value === 'private' ? 'ส่วนตัว (ซ่อน)' : 'เก็บ (ซ่อน)';
+  toast(`ตั้งเป็น "${label}" แล้ว — กดเผยแพร่เพื่อให้มีผลบนเว็บ`);
 }
 
 // Combine the date + time inputs into a "YYYY-MM-DDTHH:mm" deadline string
@@ -654,6 +669,13 @@ function eventFormHtml(ev) {
         </label>
         <label class="field-label">สถานะ <input type="text" name="status" value="${esc(ev?.status || 'กำลังดำเนินการ')}" /></label>
       </div>
+      <label class="field-label">👁️ การแสดงผลบนเว็บ
+        <select name="visibility" class="status-select">
+          <option value="public"  ${(ev?.visibility || 'public') === 'public'  ? 'selected' : ''}>🌐 เผยแพร่ (แสดงบนเว็บ)</option>
+          <option value="private" ${ev?.visibility === 'private' ? 'selected' : ''}>🔒 ส่วนตัว (ซ่อน — เตรียมไว้ก่อนประกาศ)</option>
+          <option value="archived" ${ev?.visibility === 'archived' ? 'selected' : ''}>📦 เก็บ (จบแล้ว — ซ่อนจากเว็บ เก็บไว้ในระบบ)</option>
+        </select>
+      </label>
       <label class="field-label">ช่วงเวลากิจกรรม <input type="text" name="period" value="${esc(ev?.period || '')}" placeholder="DD/MM/YYYY - DD/MM/YYYY" /></label>
       <label class="field-label">⏰ หมดเขตกดรับรางวัล
         <div class="deadline-inputs">
@@ -951,6 +973,7 @@ function openAddEventModal() {
       latest: f.get('latest') || 'รออัปเดต',
       status: f.get('status') || 'กำลังดำเนินการ',
       eventType: f.get('eventType') || 'player',
+      visibility: f.get('visibility') || 'public',
       claimDeadline: buildDeadline(f),
       fbPostUrl: (f.get('fbPostUrl') || '').trim(),
       owner: '', reward: 'ดูรางวัลในรายชื่อผู้ได้รับรางวัล',
@@ -994,6 +1017,7 @@ function openEditEventModal(i) {
       period: f.get('period'), latest: f.get('latest'),
       status: f.get('status'), resetDate: f.get('resetDate'),
       eventType: f.get('eventType') || 'player',
+      visibility: f.get('visibility') || 'public',
       claimDeadline: buildDeadline(f),
       fbPostUrl: (f.get('fbPostUrl') || '').trim(),
       coverImage: _editingCover,

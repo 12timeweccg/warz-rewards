@@ -15,7 +15,13 @@ const fallbackEvents = [
   },
 ];
 
-let events = Array.isArray(window.WARZ_EVENTS) && window.WARZ_EVENTS.length ? window.WARZ_EVENTS : fallbackEvents;
+function isPublicEvent(e) {
+  return e && (!e.visibility || e.visibility === "public");
+}
+
+const _rawEvents = Array.isArray(window.WARZ_EVENTS) && window.WARZ_EVENTS.length ? window.WARZ_EVENTS : fallbackEvents;
+let events = _rawEvents.filter(isPublicEvent);
+if (!events.length) events = fallbackEvents;
 let masterCodes = Array.isArray(window.WARZ_MASTER_CODES) ? window.WARZ_MASTER_CODES : [];
 
 let activeEvent = events[0];
@@ -1010,7 +1016,8 @@ async function loadLiveData() {
     if (!res.ok) return false; // 204 = nothing published yet
     const data = await res.json();
     if (Array.isArray(data.events) && data.events.length) {
-      events = data.events;
+      const pub = data.events.filter(isPublicEvent);
+      events = pub.length ? pub : fallbackEvents;
       masterCodes = Array.isArray(data.codes) ? data.codes : masterCodes;
       activeEvent = events.find((e) => e.id === activeEvent?.id) || events[0];
       return true;

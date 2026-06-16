@@ -538,6 +538,23 @@ code {
 }
 .type-tag.tag-guild { background: rgba(179,128,91,0.18); color: var(--gold, #d7a86a); }
 
+/* Event visibility selector + hidden-row styling */
+.vis-select {
+  padding: 5px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-2, #181c1c);
+  color: var(--text);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.vis-select.vis-public  { border-color: rgba(92,186,93,0.45);  color: #6cd06d; }
+.vis-select.vis-private { border-color: rgba(224,163,49,0.45); color: #e0a331; }
+.vis-select.vis-archived{ border-color: rgba(255,255,255,0.18); color: var(--muted); }
+.vis-select option { background: var(--surface); color: var(--text); }
+.list-row.row-hidden { opacity: 0.72; border-style: dashed; }
+.event-row-thumb.dimmed { filter: grayscale(0.6) brightness(0.7); }
+
 /* Deadline date + time pickers */
 .deadline-inputs { display: flex; gap: 8px; }
 .deadline-inputs input[type="date"] { flex: 2; }
