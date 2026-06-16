@@ -710,6 +710,15 @@ tr.row-selected td { background: rgba(179,128,91,0.1) !important; }
   font-style: italic;
 }
 
+.reorder-btns { display: inline-flex; flex-direction: column; gap: 1px; vertical-align: middle; margin-right: 4px; }
+.reorder-btn {
+  padding: 0 5px; line-height: 1.2; font-size: 0.62rem;
+  border: 1px solid var(--border); background: rgba(255,255,255,0.04);
+  color: var(--muted); border-radius: 4px; cursor: pointer;
+}
+.reorder-btn:hover:not(:disabled) { color: var(--gold, #d7a86a); border-color: rgba(179,128,91,0.5); }
+.reorder-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+
 .note-cell { white-space: nowrap; }
 .cs-toggle {
   display: inline-block;

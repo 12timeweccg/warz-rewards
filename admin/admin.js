@@ -1112,6 +1112,11 @@ function renderWinners() {
 
   const allChecked = list.every(w => _selectedWinners.has(ev.winners.indexOf(w)));
   const guild = isGuildEvent(ev);
+  // Reorder only makes sense when showing the full list in order (no search/filter)
+  const q = (document.getElementById('winners-search')?.value || '').trim();
+  const rewardF = document.getElementById('winners-reward-filter')?.value || 'all';
+  const statusF = document.getElementById('winners-status-filter')?.value || 'all';
+  const canReorder = !q && rewardF === 'all' && statusF === 'all';
 
   wrap.innerHTML = `
     <table class="admin-table">
@@ -1140,6 +1145,10 @@ function renderWinners() {
                 <button type="button" class="cs-toggle ${w.note === CS_NOTE ? 'is-on' : ''}" onclick="toggleWinnerCsNote(${realIdx})" title="ติ๊กเพื่อแจ้งให้ติดต่อ CS ผ่าน Ticket">⚠ CS</button>
               </td>
               <td class="action-cell">
+                ${canReorder ? `<span class="reorder-btns">
+                  <button class="btn-xs reorder-btn" ${realIdx === 0 ? 'disabled' : ''} onclick="moveWinner(${realIdx},-1)" title="เลื่อนขึ้น">▲</button>
+                  <button class="btn-xs reorder-btn" ${realIdx === ev.winners.length - 1 ? 'disabled' : ''} onclick="moveWinner(${realIdx},1)" title="เลื่อนลง">▼</button>
+                </span>` : ''}
                 <button class="btn-xs btn-secondary" onclick="openEditWinnerModal('${ev.id}',${realIdx})">แก้ไข</button>
                 <button class="btn-xs btn-danger"    onclick="deleteWinner('${ev.id}',${realIdx})">ลบ</button>
               </td>
@@ -1434,6 +1443,18 @@ function setWinnerReward(realIdx, value) {
   persistData(true);
 }
 
+// Move a winner up/down in the list order
+function moveWinner(realIdx, dir) {
+  const ev = state.events.find(e => e.id === state.currentEventId);
+  if (!ev) return;
+  const j = realIdx + dir;
+  if (j < 0 || j >= ev.winners.length) return;
+  const arr = ev.winners;
+  [arr[realIdx], arr[j]] = [arr[j], arr[realIdx]];
+  persistData(true);
+  renderWinners();
+}
+
 // One-click toggle: flag a winner as "contact CS via Ticket" (sets/clears the note)
 function toggleWinnerCsNote(realIdx) {
   const ev = state.events.find(e => e.id === state.currentEventId);
@@ -1569,7 +1590,6 @@ function openAddWinnerModal() {
   document.getElementById('wf').onsubmit = e => {
     e.preventDefault();
     ev.winners.push(buildWinner(new FormData(e.target), {}, guild));
-    ev.winners.sort((a, b) => (a.note ? 1 : 0) - (b.note ? 1 : 0));
     persistData(); closeModal(); renderWinners();
   };
 }
@@ -1584,7 +1604,6 @@ function openEditWinnerModal(eventId, idx) {
   document.getElementById('wf').onsubmit = e => {
     e.preventDefault();
     ev.winners[idx] = buildWinner(new FormData(e.target), w, guild);
-    ev.winners.sort((a, b) => (a.note ? 1 : 0) - (b.note ? 1 : 0));
     persistData(); closeModal(); renderWinners();
   };
 }
