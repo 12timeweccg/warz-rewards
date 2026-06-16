@@ -1232,16 +1232,13 @@ function openPasteWinnersModal() {
   const ev = state.events.find(e => e.id === state.currentEventId);
   if (!ev) return;
   const guild = isGuildEvent(ev);
-  const cols = guild
-    ? '<strong>ชื่อกิลด์ · รางวัล · สถานะ · หมายเหตุ</strong>'
-    : '<strong>UID · Facebook · รางวัล · สถานะ · หมายเหตุ</strong>';
   const placeholder = guild
     ? "Guild Alpha&#9;อันดับ 1&#9;จัดส่งแล้ว\nGuild Bravo&#9;อันดับ 2&#9;กำลังดำเนินการ"
-    : "024VHD&#9;Sarada Ken&#9;Luckydraw&#9;จัดส่งแล้ว\nHFL131&#9;Jui Na Ja&#9;ได้ทุกคน&#9;กำลังดำเนินการ";
+    : "Mos Wattana&#9;5PE89F&#9;เว็บไซต์&#9;จัดส่งแล้ว\nดอง เจ&#9;O6B16U&#9;เว็บไซต์&#9;จัดส่งแล้ว";
   showModal(`${guild ? 'วางรายชื่อกิลด์' : 'วางรายชื่อ'} — ${ev.name}`, `
     <p class="muted-label" style="margin-bottom:8px">
-      ก๊อปจาก Excel / Google Sheets แล้ววางด้านล่าง — แต่ละแถว 1 ${guild ? 'กิลด์' : 'คน'} เรียงคอลัมน์:
-      ${cols} (คั่นด้วย Tab หรือ , ก็ได้ / เว้นว่างได้)
+      <strong>ก๊อปจาก Google Sheets / Excel มาวางได้เลย</strong> — แต่ละแถว 1 ${guild ? 'กิลด์' : 'คน'}<br/>
+      คอลัมน์เรียงยังไงก็ได้ ระบบจับ ${guild ? '<strong>ชื่อกิลด์ / รางวัล / สถานะ</strong>' : '<strong>UID / ชื่อ Facebook / สถานะ / วิธีรับ</strong>'} ให้อัตโนมัติ (มี header ก็ได้)
     </p>
     <textarea id="paste-box" class="paste-box" rows="10" placeholder="${placeholder}"></textarea>
     <label class="field-label" style="flex-direction:row;align-items:center;gap:8px;margin-top:10px">
@@ -1255,32 +1252,79 @@ function openPasteWinnersModal() {
   setTimeout(() => document.getElementById('paste-box')?.focus(), 50);
 }
 
+const _PASTE_STATUS_RE = /(จัดส่งแล้ว|รับรางวัลแล้ว|รอกดรับ|กำลังดำเนินการ|ติดต่อ|หมดเขต|ใช้แล้ว)/;
+const _PASTE_REWARD_RE = /(lucky\s*draw|luckydraw|ได้ทุกคน|ถูกใจ|อันดับ)/i;
+const _PASTE_METHOD_RE = /(เว็บ|website|web|line|ไลน์|ในเกม|in-?game|discord|ดิส)/i;
+
+function looksLikeUid(s) {
+  return /^[A-Za-z0-9]{4,14}$/.test(s) && /[0-9]/.test(s); // alnum token w/ a digit, no spaces
+}
+
+// Detect a header row → column-name map (handles any column order from Google Sheets/Excel)
+function parsePasteHeader(cells) {
+  const map = {}; let matched = 0;
+  cells.forEach((c, i) => {
+    const s = c.toLowerCase().trim();
+    if (/^uid$/.test(s)) { map.uid = i; matched++; }
+    else if (/(facebook|^fb$|ชื่อ|name)/.test(s)) { map.facebook = i; matched++; }
+    else if (/(กิลด์|guild|แคลน|clan)/.test(s)) { map.guild = i; matched++; }
+    else if (/(วิธี|method|ช่องทาง)/.test(s)) { map.method = i; matched++; }  // before reward ("วิธีรับรางวัล" has รางวัล)
+    else if (/(สถานะ|status|จัดส่ง)/.test(s)) { map.status = i; matched++; }
+    else if (/(รางวัล|reward)/.test(s)) { map.reward = i; matched++; }
+    else if (/(หมายเหตุ|note|remark)/.test(s)) { map.note = i; matched++; }
+  });
+  return matched >= 2 ? map : null;
+}
+
+// Flexible paste: works with any column order, with or without a header row.
+// Without a header it classifies each cell (UID / status / reward / method / name) automatically.
 function parsePastedWinners(text, workStatus, guild = false) {
-  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  const rawLines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  if (!rawLines.length) return [];
+  const split = l => (l.includes('\t') ? l.split('\t') : l.split(',')).map(c => c.trim());
+
+  const headerMap = parsePasteHeader(split(rawLines[0]));
+  const dataLines = headerMap ? rawLines.slice(1) : rawLines;
+
   const winners = [];
-  for (const line of lines) {
-    const cols = (line.includes('\t') ? line.split('\t') : line.split(',')).map(c => c.trim());
+  for (const line of dataLines) {
+    const cols = split(line);
+    let uid = '', facebook = '', guildName = '', reward = '', status = '', method = '', note = '';
+
+    if (headerMap) {
+      const g = k => (headerMap[k] != null ? (cols[headerMap[k]] || '').trim() : '');
+      uid = g('uid'); facebook = g('facebook'); guildName = g('guild');
+      reward = g('reward'); status = g('status'); method = g('method'); note = g('note');
+    } else {
+      for (const cell of cols) {
+        if (!cell) continue;
+        if (!status && _PASTE_STATUS_RE.test(cell)) { status = cell; continue; }
+        if (!reward && _PASTE_REWARD_RE.test(cell)) { reward = cell; continue; }
+        if (!method && _PASTE_METHOD_RE.test(cell)) { method = cell; continue; }
+        if (!uid && looksLikeUid(cell)) { uid = cell; continue; }
+        if (guild) { if (!guildName) guildName = cell; }
+        else if (!facebook) facebook = cell;
+      }
+    }
+
     if (guild) {
-      const [name, reward, status, note] = cols;
-      if (!name) continue;
-      if (name.toLowerCase() === 'guild' || name === 'ชื่อกิลด์') continue;
+      const name = (guildName || '').trim();
+      if (!name || /^guild$/i.test(name) || name === 'ชื่อกิลด์') continue;
       winners.push({
         guild: name, uid: '', facebook: '-', character: name,
-        claimMethod: '', claimStatus: status || workStatus || 'กำลังดำเนินการ',
+        claimMethod: method || '', claimStatus: status || workStatus || 'กำลังดำเนินการ',
         updatedAt: '', note: note || '',
-        rewardCategory: normalizeRewardCategory(reward),
-        rewards: [],
+        rewardCategory: normalizeRewardCategory(reward), rewards: [],
       });
     } else {
-      const [uid, facebook, reward, status, note] = cols;
+      uid = (uid || '').trim(); facebook = (facebook || '').trim();
       if (!uid && !facebook) continue;
-      if ((uid || '').toLowerCase() === 'uid') continue;
+      if (uid.toLowerCase() === 'uid' || facebook.toLowerCase() === 'facebook') continue;
       winners.push({
-        uid: uid || '', facebook: facebook || '-', character: uid || '-',
-        claimMethod: '', claimStatus: status || workStatus || 'กำลังดำเนินการ',
+        uid, facebook: facebook || '-', character: uid || '-',
+        claimMethod: method || '', claimStatus: status || workStatus || 'กำลังดำเนินการ',
         updatedAt: '', note: note || '',
-        rewardCategory: normalizeRewardCategory(reward),
-        rewards: [],
+        rewardCategory: normalizeRewardCategory(reward), rewards: [],
       });
     }
   }
