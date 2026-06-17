@@ -611,6 +611,7 @@ function renderEvents() {
       <div class="list-row-info">
         <strong>${esc(ev.name)} <span class="type-tag ${guild ? 'tag-guild' : ''}">${guild ? 'กิลด์' : 'ผู้เล่น'}</span></strong>
         <span>${ev.winners.length} ${guild ? 'กิลด์' : 'รายชื่อ'}${deadline ? ` · ⏰ ${deadline}` : ''}${ev.fbPostUrl ? ' · 🔗 FB' : ''}${esc(scheduleHint(ev))}</span>
+        <span class="sched-pill" style="display:none"></span>
         <span class="status-badge">${esc(ev.status)}</span>
       </div>
       <div class="list-row-actions">
@@ -626,6 +627,7 @@ function renderEvents() {
       </div>
     </div>`;
   }).join('');
+  refreshScheduleBadges();
 }
 
 function setEventVisibility(i, value) {
@@ -716,6 +718,49 @@ function scheduleHint(item) {
   if (item.hideAt)    parts.push(`🔴 ลง ${formatDeadlineShort(item.hideAt)}`);
   return parts.length ? ` · ⏱ ${parts.join(' · ')}` : '';
 }
+
+// What the schedule is doing *right now* (by Thai time), so the admin list can
+// reflect the real on-site state even though the dropdown only holds the manual setting.
+function scheduleState(item) {
+  const now = thaiNowMs();
+  if (item.hideAt && dtToMs(item.hideAt) <= now) return 'expired';   // hide time passed → off the site
+  if (item.publishAt && dtToMs(item.publishAt) > now) return 'pending'; // before publish → not shown yet
+  if (item.publishAt || item.hideAt) return 'live';                  // inside the window → showing
+  return 'none';
+}
+function scheduleStateLabel(item) {
+  switch (scheduleState(item)) {
+    case 'pending': return '⏳ รอขึ้น (ยังไม่แสดงบนเว็บ)';
+    case 'expired': return '🗄 ลงแล้ว (ซ่อนจากเว็บอัตโนมัติ)';
+    case 'live':    return '🟢 กำลังแสดงบนเว็บ';
+    default:        return '';
+  }
+}
+// Update one list row's state pill + dimming in place (no full re-render, so
+// open dropdowns aren't reset). Called on render and on a ticking interval.
+function applyScheduleUI(row, item) {
+  const vis = item.visibility || 'public';
+  const st = scheduleState(item);
+  const effHidden = vis !== 'public' || st === 'pending' || st === 'expired';
+  row.classList.toggle('row-hidden', effHidden);
+  const thumb = row.querySelector('.event-row-thumb');
+  if (thumb) thumb.classList.toggle('dimmed', effHidden);
+  const pill = row.querySelector('.sched-pill');
+  if (pill) {
+    const label = scheduleStateLabel(item);
+    pill.textContent = label;
+    pill.className = 'sched-pill' + (st !== 'none' ? ' sched-' + st : '');
+    pill.style.display = label ? '' : 'none';
+  }
+}
+function refreshScheduleBadges() {
+  const evRows = document.querySelectorAll('#events-list .list-row');
+  state.events.forEach((ev, i) => { if (evRows[i]) applyScheduleUI(evRows[i], ev); });
+  const cRows = document.querySelectorAll('#codes-list .list-row');
+  state.codes.forEach((c, i) => { if (cRows[i]) applyScheduleUI(cRows[i], c); });
+}
+// Keep effective on-site state current as time crosses publish/hide boundaries.
+setInterval(refreshScheduleBadges, 15000);
 
 // ===== Thailand time helpers (UTC+7, no DST) =====
 // publishAt/hideAt are stored as bare wall-clock strings ("YYYY-MM-DDTHH:mm")
@@ -2008,6 +2053,7 @@ function renderCodes() {
       <div class="list-row-info">
         <strong class="code-mono">${esc(c.code)} ${vis === 'private' ? '<span class="type-tag">🔒 ซ่อน</span>' : ''}</strong>
         <span>${esc(c.eventName)} · หมดอายุ: ${esc(c.expiresAt)}${esc(scheduleHint(c))}</span>
+        <span class="sched-pill" style="display:none"></span>
         <span class="status-badge">${esc(c.status)}</span>
       </div>
       <div class="list-row-actions">
@@ -2021,6 +2067,7 @@ function renderCodes() {
       </div>
     </div>`;
   }).join('');
+  refreshScheduleBadges();
 }
 
 function codeFormHtml(c) {

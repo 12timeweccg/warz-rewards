@@ -578,6 +578,20 @@ code {
 .thai-now-line { font-size: 0.78rem; margin: 0 0 10px; color: var(--gold, #d7a86a); }
 .thai-now-ref { font-weight: 700; font-variant-numeric: tabular-nums; }
 
+/* Live "what the schedule is doing now" pill in list rows */
+.sched-pill {
+  align-self: flex-start;
+  margin-top: 3px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 999px;
+  line-height: 1.5;
+}
+.sched-pill.sched-pending { background: rgba(215,168,106,0.16); color: #e0b878; }
+.sched-pill.sched-live    { background: rgba(74,170,90,0.18);  color: #6fcf80; }
+.sched-pill.sched-expired { background: rgba(228,123,111,0.18); color: #e9897e; }
+
 /* Form section titles */
 .form-section-title {
   font-size: 0.78rem;
