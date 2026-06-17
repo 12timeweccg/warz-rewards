@@ -618,6 +618,7 @@ function renderEvents() {
           <option value="public"  ${vis==='public'  ? 'selected':''}>🌐 เผยแพร่</option>
           <option value="private" ${vis==='private' ? 'selected':''}>🔒 ส่วนตัว</option>
           <option value="archived" ${vis==='archived'? 'selected':''}>📦 เก็บ</option>
+          <option value="schedule">⏱ ตั้งเวลา…</option>
         </select>
         <button class="btn-sm btn-ghost" onclick="openWinnersView('${ev.id}')">รายชื่อ</button>
         <button class="btn-sm btn-secondary" onclick="openEditEventModal(${i})">แก้ไข</button>
@@ -629,11 +630,69 @@ function renderEvents() {
 
 function setEventVisibility(i, value) {
   if (!state.events[i]) return;
+  if (value === 'schedule') { renderEvents(); openScheduleModal('event', i); return; }
   state.events[i].visibility = value;
   persistData(true);
   renderEvents();
   const label = value === 'public' ? 'เผยแพร่' : value === 'private' ? 'ส่วนตัว (ซ่อน)' : 'เก็บ (ซ่อน)';
   toast(`ตั้งเป็น "${label}" แล้ว — กดเผยแพร่เพื่อให้มีผลบนเว็บ`);
+}
+
+function setCodeVisibility(i, value) {
+  if (!state.codes[i]) return;
+  if (value === 'schedule') { renderCodes(); openScheduleModal('code', i); return; }
+  state.codes[i].visibility = value;
+  persistData(true);
+  renderCodes();
+  const label = value === 'public' ? 'เผยแพร่' : 'ส่วนตัว (ซ่อน)';
+  toast(`ตั้งเป็น "${label}" แล้ว — กดเผยแพร่เพื่อให้มีผลบนเว็บ`);
+}
+
+// Quick schedule popup opened straight from the list dropdown — set publish/hide
+// times and apply instantly, no need to open the full edit form.
+function openScheduleModal(type, i) {
+  const item = type === 'event' ? state.events[i] : state.codes[i];
+  if (!item) return;
+  const title = type === 'event' ? item.name : item.code;
+  const html = `
+    <form id="schf" class="admin-form">
+      <p class="muted-label" style="font-size:0.82rem;margin:0">ตั้งเวลาให้ <strong>"${esc(title)}"</strong> ขึ้น/ลงเองอัตโนมัติ — ตั้งแล้วมีผลทันที ไม่ต้องเข้าไปแก้ไข</p>
+      <p class="thai-now-line">🕒 ตอนนี้ (เวลาไทย): <span class="thai-now-ref">${thaiNowLabel()}</span></p>
+      <label class="field-label">🟢 ขึ้นเอง (เผยแพร่) เมื่อ ${dtInputs('publishDate', 'publishTime', item.publishAt)}</label>
+      <label class="field-label">🔴 ลงเอง (ซ่อน) เมื่อ ${dtInputs('hideDate', 'hideTime', item.hideAt)}</label>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">⏱ ตั้งเวลา</button>
+        <button type="button" class="btn-secondary" onclick="clearSchedule('${type}', ${i})">ล้างเวลา</button>
+        <button type="button" class="btn-ghost" onclick="closeModal()">ยกเลิก</button>
+      </div>
+    </form>`;
+  showModal('⏱️ ตั้งเวลาแสดงผล', html);
+  document.getElementById('schf').onsubmit = e => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const pub = buildDT(f, 'publishDate', 'publishTime', '00:00');
+    const hide = buildDT(f, 'hideDate', 'hideTime', '23:59');
+    const err = validateSchedule(pub, hide, item);
+    if (err) { alert(err); return; }
+    item.publishAt = pub;
+    item.hideAt = hide;
+    if ((pub || hide) && item.visibility !== 'public') item.visibility = 'public'; // schedule needs public
+    persistData(true);
+    closeModal();
+    type === 'event' ? renderEvents() : renderCodes();
+    toast('ตั้งเวลาแล้ว — กดเผยแพร่เพื่อให้มีผลบนเว็บจริง');
+  };
+}
+
+function clearSchedule(type, i) {
+  const item = type === 'event' ? state.events[i] : state.codes[i];
+  if (!item) return;
+  item.publishAt = '';
+  item.hideAt = '';
+  persistData(true);
+  closeModal();
+  type === 'event' ? renderEvents() : renderCodes();
+  toast('ล้างเวลาแล้ว');
 }
 
 // Combine the date + time inputs into a "YYYY-MM-DDTHH:mm" deadline string
@@ -1942,19 +2001,26 @@ function renderCodes() {
   const el = document.getElementById('codes-list');
   if (!state.codes.length) { el.innerHTML = '<p class="empty-msg">ยังไม่มี Master Code</p>'; return; }
 
-  el.innerHTML = state.codes.map((c, i) => `
-    <div class="list-row">
+  el.innerHTML = state.codes.map((c, i) => {
+    const vis = c.visibility || 'public';
+    return `
+    <div class="list-row ${vis !== 'public' ? 'row-hidden' : ''}">
       <div class="list-row-info">
-        <strong class="code-mono">${esc(c.code)} ${c.visibility === 'private' ? '<span class="type-tag">🔒 ซ่อน</span>' : ''}</strong>
+        <strong class="code-mono">${esc(c.code)} ${vis === 'private' ? '<span class="type-tag">🔒 ซ่อน</span>' : ''}</strong>
         <span>${esc(c.eventName)} · หมดอายุ: ${esc(c.expiresAt)}${esc(scheduleHint(c))}</span>
         <span class="status-badge">${esc(c.status)}</span>
       </div>
       <div class="list-row-actions">
+        <select class="vis-select vis-${vis}" onchange="setCodeVisibility(${i}, this.value)" title="การแสดงผลบนเว็บ">
+          <option value="public"  ${vis==='public'  ? 'selected':''}>🌐 เผยแพร่</option>
+          <option value="private" ${vis==='private' ? 'selected':''}>🔒 ส่วนตัว</option>
+          <option value="schedule">⏱ ตั้งเวลา…</option>
+        </select>
         <button class="btn-sm btn-secondary" onclick="openEditCodeModal(${i})">แก้ไข</button>
         <button class="btn-sm btn-danger"    onclick="deleteCode(${i})">ลบ</button>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
 function codeFormHtml(c) {
