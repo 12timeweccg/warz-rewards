@@ -610,7 +610,7 @@ function renderEvents() {
       ${thumb}
       <div class="list-row-info">
         <strong>${esc(ev.name)} <span class="type-tag ${guild ? 'tag-guild' : ''}">${guild ? 'กิลด์' : 'ผู้เล่น'}</span></strong>
-        <span>${ev.winners.length} ${guild ? 'กิลด์' : 'รายชื่อ'}${deadline ? ` · ⏰ ${deadline}` : ''}${ev.fbPostUrl ? ' · 🔗 FB' : ''}</span>
+        <span>${ev.winners.length} ${guild ? 'กิลด์' : 'รายชื่อ'}${deadline ? ` · ⏰ ${deadline}` : ''}${ev.fbPostUrl ? ' · 🔗 FB' : ''}${esc(scheduleHint(ev))}</span>
         <span class="status-badge">${esc(ev.status)}</span>
       </div>
       <div class="list-row-actions">
@@ -650,6 +650,35 @@ function formatDeadlineShort(dl) {
   return d.toLocaleString('th-TH', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
 }
 
+// Short schedule hint for admin lists, e.g. "⏱ ขึ้น 17 มิ.ย. 12:00 · ลง 20 มิ.ย. 23:59"
+function scheduleHint(item) {
+  const parts = [];
+  if (item.publishAt) parts.push(`🟢 ขึ้น ${formatDeadlineShort(item.publishAt)}`);
+  if (item.hideAt)    parts.push(`🔴 ลง ${formatDeadlineShort(item.hideAt)}`);
+  return parts.length ? ` · ⏱ ${parts.join(' · ')}` : '';
+}
+
+// Split "YYYY-MM-DDTHH:mm" → { date, time } for date/time inputs
+function splitDT(s) {
+  s = s || '';
+  return s.includes('T') ? { date: s.split('T')[0], time: s.split('T')[1].slice(0, 5) } : { date: '', time: '' };
+}
+// Build "YYYY-MM-DDTHH:mm" from a date + time form field pair
+function buildDT(f, dateField, timeField, defaultTime) {
+  const date = (f.get(dateField) || '').trim();
+  if (!date) return '';
+  const time = (f.get(timeField) || '').trim() || defaultTime || '00:00';
+  return `${date}T${time}`;
+}
+// Reusable date+time picker pair (returns HTML)
+function dtInputs(dateName, timeName, val) {
+  const { date, time } = splitDT(val);
+  return `<div class="deadline-inputs">
+    <input type="date" name="${dateName}" value="${esc(date)}" />
+    <input type="time" name="${timeName}" value="${esc(time)}" />
+  </div>`;
+}
+
 let _editingCover = '';
 
 function eventFormHtml(ev) {
@@ -676,6 +705,12 @@ function eventFormHtml(ev) {
           <option value="archived" ${ev?.visibility === 'archived' ? 'selected' : ''}>📦 เก็บ (จบแล้ว — ซ่อนจากเว็บ เก็บไว้ในระบบ)</option>
         </select>
       </label>
+      <div class="schedule-box">
+        <div class="form-section-title" style="border:none;margin:0 0 4px">⏱️ ตั้งเวลาแสดงผลอัตโนมัติ (ไม่บังคับ)</div>
+        <p class="muted-label" style="font-size:0.76rem;margin-bottom:8px">เว้นว่าง = แสดงทันที / ตั้งเวลา = ขึ้น-ลงเองตามเวลา (ต้องตั้ง "เผยแพร่" + กดเผยแพร่ไว้ก่อน)</p>
+        <label class="field-label">🟢 ขึ้นเองเมื่อ ${dtInputs('publishDate', 'publishTime', ev?.publishAt)}</label>
+        <label class="field-label">🔴 ลงเอง (ซ่อน) เมื่อ ${dtInputs('hideDate', 'hideTime', ev?.hideAt)}</label>
+      </div>
       <label class="field-label">ช่วงเวลากิจกรรม <input type="text" name="period" value="${esc(ev?.period || '')}" placeholder="DD/MM/YYYY - DD/MM/YYYY" /></label>
       <label class="field-label">⏰ หมดเขตกดรับรางวัล
         <div class="deadline-inputs">
@@ -974,6 +1009,8 @@ function openAddEventModal() {
       status: f.get('status') || 'กำลังดำเนินการ',
       eventType: f.get('eventType') || 'player',
       visibility: f.get('visibility') || 'public',
+      publishAt: buildDT(f, 'publishDate', 'publishTime', '00:00'),
+      hideAt: buildDT(f, 'hideDate', 'hideTime', '23:59'),
       claimDeadline: buildDeadline(f),
       fbPostUrl: (f.get('fbPostUrl') || '').trim(),
       owner: '', reward: 'ดูรางวัลในรายชื่อผู้ได้รับรางวัล',
@@ -1018,6 +1055,8 @@ function openEditEventModal(i) {
       status: f.get('status'), resetDate: f.get('resetDate'),
       eventType: f.get('eventType') || 'player',
       visibility: f.get('visibility') || 'public',
+      publishAt: buildDT(f, 'publishDate', 'publishTime', '00:00'),
+      hideAt: buildDT(f, 'hideDate', 'hideTime', '23:59'),
       claimDeadline: buildDeadline(f),
       fbPostUrl: (f.get('fbPostUrl') || '').trim(),
       coverImage: _editingCover,
@@ -1846,8 +1885,8 @@ function renderCodes() {
   el.innerHTML = state.codes.map((c, i) => `
     <div class="list-row">
       <div class="list-row-info">
-        <strong class="code-mono">${esc(c.code)}</strong>
-        <span>${esc(c.eventName)} · หมดอายุ: ${esc(c.expiresAt)}</span>
+        <strong class="code-mono">${esc(c.code)} ${c.visibility === 'private' ? '<span class="type-tag">🔒 ซ่อน</span>' : ''}</strong>
+        <span>${esc(c.eventName)} · หมดอายุ: ${esc(c.expiresAt)}${esc(scheduleHint(c))}</span>
         <span class="status-badge">${esc(c.status)}</span>
       </div>
       <div class="list-row-actions">
@@ -1872,6 +1911,17 @@ function codeFormHtml(c) {
         <label class="field-label">สถานะ <input type="text" name="status" value="${esc(c?.status || 'พร้อมใช้')}" /></label>
         <label class="field-label">หมดอายุ <input type="text" name="expiresAt" value="${esc(c?.expiresAt || '-')}" /></label>
       </div>
+      <label class="field-label">👁️ การแสดงผลบนเว็บ
+        <select name="visibility" class="status-select">
+          <option value="public"  ${(c?.visibility || 'public') === 'public'  ? 'selected' : ''}>🌐 เผยแพร่</option>
+          <option value="private" ${c?.visibility === 'private' ? 'selected' : ''}>🔒 ส่วนตัว (ซ่อน)</option>
+        </select>
+      </label>
+      <div class="schedule-box">
+        <div class="form-section-title" style="border:none;margin:0 0 4px">⏱️ ตั้งเวลาแสดงผลอัตโนมัติ (ไม่บังคับ)</div>
+        <label class="field-label">🟢 ขึ้นเองเมื่อ ${dtInputs('publishDate', 'publishTime', c?.publishAt)}</label>
+        <label class="field-label">🔴 ลงเอง (ซ่อน) เมื่อ ${dtInputs('hideDate', 'hideTime', c?.hideAt)}</label>
+      </div>
       ${itemPickerHtml('code-items')}
       <div class="form-actions">
         <button type="submit" class="btn-primary">บันทึก</button>
@@ -1888,7 +1938,7 @@ function openAddCodeModal() {
   document.getElementById('cf').onsubmit = e => {
     e.preventDefault();
     const f = new FormData(e.target);
-    state.codes.push({ code: f.get('code').toUpperCase().trim(), eventName: f.get('eventName'), status: f.get('status'), expiresAt: f.get('expiresAt'), items: _editingItems.map(editItemToCodeItem) });
+    state.codes.push({ code: f.get('code').toUpperCase().trim(), eventName: f.get('eventName'), status: f.get('status'), expiresAt: f.get('expiresAt'), visibility: f.get('visibility') || 'public', publishAt: buildDT(f, 'publishDate', 'publishTime', '00:00'), hideAt: buildDT(f, 'hideDate', 'hideTime', '23:59'), items: _editingItems.map(editItemToCodeItem) });
     persistData(); closeModal(); renderCodes();
   };
 }
@@ -1901,7 +1951,7 @@ function openEditCodeModal(i) {
   document.getElementById('cf').onsubmit = e => {
     e.preventDefault();
     const f = new FormData(e.target);
-    state.codes[i] = { ...c, code: f.get('code').toUpperCase().trim(), eventName: f.get('eventName'), status: f.get('status'), expiresAt: f.get('expiresAt'), items: _editingItems.map(editItemToCodeItem) };
+    state.codes[i] = { ...c, code: f.get('code').toUpperCase().trim(), eventName: f.get('eventName'), status: f.get('status'), expiresAt: f.get('expiresAt'), visibility: f.get('visibility') || 'public', publishAt: buildDT(f, 'publishDate', 'publishTime', '00:00'), hideAt: buildDT(f, 'hideDate', 'hideTime', '23:59'), items: _editingItems.map(editItemToCodeItem) };
     persistData(); closeModal(); renderCodes();
   };
 }

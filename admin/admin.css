@@ -555,6 +555,14 @@ code {
 .list-row.row-hidden { opacity: 0.72; border-style: dashed; }
 .event-row-thumb.dimmed { filter: grayscale(0.6) brightness(0.7); }
 
+/* Schedule (auto show/hide) box */
+.schedule-box {
+  border: 1px solid rgba(179,128,91,0.25);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  background: var(--bg-2);
+}
+
 /* Deadline date + time pickers */
 .deadline-inputs { display: flex; gap: 8px; }
 .deadline-inputs input[type="date"] { flex: 2; }

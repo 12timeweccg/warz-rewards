@@ -15,12 +15,25 @@ const fallbackEvents = [
   },
 ];
 
-function isPublicEvent(e) {
-  return e && (!e.visibility || e.visibility === "public");
+// Visible now = not manually hidden, AND within the scheduled time window (if set)
+function isVisibleNow(item) {
+  if (!item) return false;
+  if (item.visibility === "private" || item.visibility === "archived") return false;
+  const now = Date.now();
+  if (item.publishAt) {
+    const t = new Date(item.publishAt).getTime();
+    if (!isNaN(t) && now < t) return false; // not yet time to show
+  }
+  if (item.hideAt) {
+    const t = new Date(item.hideAt).getTime();
+    if (!isNaN(t) && now >= t) return false; // past hide time
+  }
+  return true;
 }
+function isPublicEvent(e) { return isVisibleNow(e); }
 
-const _rawEvents = Array.isArray(window.WARZ_EVENTS) && window.WARZ_EVENTS.length ? window.WARZ_EVENTS : fallbackEvents;
-let events = _rawEvents.filter(isPublicEvent);
+let _allEventsRaw = Array.isArray(window.WARZ_EVENTS) && window.WARZ_EVENTS.length ? window.WARZ_EVENTS : fallbackEvents;
+let events = _allEventsRaw.filter(isVisibleNow);
 if (!events.length) events = fallbackEvents;
 let masterCodes = Array.isArray(window.WARZ_MASTER_CODES) ? window.WARZ_MASTER_CODES : [];
 
@@ -850,7 +863,7 @@ function normalizeMasterCode(entry) {
 }
 
 function renderCodes() {
-  const codes = masterCodes.map(normalizeMasterCode).filter((entry) => entry.code);
+  const codes = masterCodes.filter(isVisibleNow).map(normalizeMasterCode).filter((entry) => entry.code);
 
   if (!codes.length) {
     codeList.innerHTML = `
@@ -1016,7 +1029,8 @@ async function loadLiveData() {
     if (!res.ok) return false; // 204 = nothing published yet
     const data = await res.json();
     if (Array.isArray(data.events) && data.events.length) {
-      const pub = data.events.filter(isPublicEvent);
+      _allEventsRaw = data.events;
+      const pub = _allEventsRaw.filter(isVisibleNow);
       events = pub.length ? pub : fallbackEvents;
       masterCodes = Array.isArray(data.codes) ? data.codes : masterCodes;
       activeEvent = events.find((e) => e.id === activeEvent?.id) || events[0];
@@ -1049,10 +1063,26 @@ function applyDeepLink() {
   return true;
 }
 
+// Re-check scheduled visibility while the page is open, so events/codes flip
+// on/off automatically at their publishAt / hideAt time without a manual reload.
+function recomputeScheduledVisibility() {
+  const pub = _allEventsRaw.filter(isVisibleNow);
+  const next = pub.length ? pub : fallbackEvents;
+  const changed = next.length !== events.length || next.some((e, i) => e.id !== events[i]?.id);
+  if (changed) {
+    events = next;
+    activeEvent = events.find((e) => e.id === activeEvent?.id) || events[0];
+    renderContent();
+  } else {
+    renderCodes(); // codes filter live; cheap to refresh in case a code flipped
+  }
+}
+
 (async function bootstrap() {
   // Render baked-in data immediately (no blank wait), then refresh if live data exists
   renderContent();
   if (!applyDeepLink()) showPage(location.hash.replace("#", "") || "home");
   const changed = await loadLiveData();
   if (changed) { renderContent(); applyDeepLink(); }
+  setInterval(recomputeScheduledVisibility, 30000); // every 30s
 })();
