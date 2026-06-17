@@ -658,24 +658,75 @@ function scheduleHint(item) {
   return parts.length ? ` · ⏱ ${parts.join(' · ')}` : '';
 }
 
+// ===== Thailand time helpers (UTC+7, no DST) =====
+// publishAt/hideAt are stored as bare wall-clock strings ("YYYY-MM-DDTHH:mm")
+// meaning Thai time. We compare them as "wall-clock interpreted as UTC".
+function thaiNowMs() { return Date.now() + 7 * 3600000; }
+function dtToMs(s) { return s ? Date.parse(s + ':00Z') : NaN; }
+const TH_MONTHS = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
+function thaiNowParts() {
+  const d = new Date(thaiNowMs());
+  const p2 = n => String(n).padStart(2, '0');
+  return {
+    dateStr: `${d.getUTCFullYear()}-${p2(d.getUTCMonth() + 1)}-${p2(d.getUTCDate())}`,
+    timeStr: `${p2(d.getUTCHours())}:${p2(d.getUTCMinutes())}`,
+    d,
+  };
+}
+function thaiNowLabel() {
+  const { d, timeStr } = thaiNowParts();
+  return `${d.getUTCDate()} ${TH_MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()} · ${timeStr} น.`;
+}
+// Keep every visible "current Thai time" label ticking.
+setInterval(() => {
+  document.querySelectorAll('.thai-now-ref').forEach(el => { el.textContent = thaiNowLabel(); });
+}, 1000);
+// Validate a publish/hide pair. Returns a Thai error string, or '' if ok.
+// A time only counts as "past" when it changed from what was saved, so
+// re-saving an event whose publish time already arrived is still allowed.
+function validateSchedule(publishAt, hideAt, prev) {
+  const now = thaiNowMs();
+  if (publishAt && publishAt !== (prev?.publishAt || '') && dtToMs(publishAt) < now)
+    return '🟢 เวลาขึ้นต้องเป็นเวลาในอนาคต (หลังเวลาปัจจุบัน)';
+  if (hideAt && hideAt !== (prev?.hideAt || '') && dtToMs(hideAt) < now)
+    return '🔴 เวลาลงต้องเป็นเวลาในอนาคต (หลังเวลาปัจจุบัน)';
+  if (publishAt && hideAt && dtToMs(hideAt) <= dtToMs(publishAt))
+    return 'เวลาลง (ซ่อน) ต้องอยู่หลังเวลาขึ้น';
+  return '';
+}
+
 // Split "YYYY-MM-DDTHH:mm" → { date, time } for date/time inputs
 function splitDT(s) {
   s = s || '';
   return s.includes('T') ? { date: s.split('T')[0], time: s.split('T')[1].slice(0, 5) } : { date: '', time: '' };
 }
-// Build "YYYY-MM-DDTHH:mm" from a date + time form field pair
+// Build "YYYY-MM-DDTHH:mm" from a date input + hour/minute selects (24h)
 function buildDT(f, dateField, timeField, defaultTime) {
   const date = (f.get(dateField) || '').trim();
   if (!date) return '';
-  const time = (f.get(timeField) || '').trim() || defaultTime || '00:00';
-  return `${date}T${time}`;
+  let h = (f.get(timeField + 'H') || '').trim();
+  let m = (f.get(timeField + 'M') || '').trim();
+  if (h === '' && m === '') { const dft = (defaultTime || '00:00').split(':'); h = dft[0]; m = dft[1]; }
+  const p2 = n => String(parseInt(n, 10) || 0).padStart(2, '0');
+  return `${date}T${p2(h)}:${p2(m)}`;
 }
-// Reusable date+time picker pair (returns HTML)
+// Reusable date + 24h time picker — date input + hour/minute selects (no AM/PM)
 function dtInputs(dateName, timeName, val) {
   const { date, time } = splitDT(val);
+  const cur = (time || '').split(':');
+  const curH = cur[0] ? parseInt(cur[0], 10) : (cur[0] === '0' || cur[0] === '00' ? 0 : null);
+  const curM = cur[1] ? parseInt(cur[1], 10) : (cur[1] === '0' || cur[1] === '00' ? 0 : null);
+  const today = thaiNowParts().dateStr;
+  let hOpts = '<option value="">ชม.</option>';
+  for (let i = 0; i < 24; i++) hOpts += `<option value="${i}" ${curH === i ? 'selected' : ''}>${String(i).padStart(2, '0')}</option>`;
+  let mOpts = '<option value="">นาที</option>';
+  for (let i = 0; i < 60; i++) mOpts += `<option value="${i}" ${curM === i ? 'selected' : ''}>${String(i).padStart(2, '0')}</option>`;
   return `<div class="deadline-inputs">
-    <input type="date" name="${dateName}" value="${esc(date)}" />
-    <input type="time" name="${timeName}" value="${esc(time)}" />
+    <input type="date" name="${dateName}" value="${esc(date)}" min="${today}" />
+    <select name="${timeName}H" class="time-sel">${hOpts}</select>
+    <span class="time-colon">:</span>
+    <select name="${timeName}M" class="time-sel">${mOpts}</select>
+    <span class="time-unit">น.</span>
   </div>`;
 }
 
@@ -707,7 +758,8 @@ function eventFormHtml(ev) {
       </label>
       <div class="schedule-box">
         <div class="form-section-title" style="border:none;margin:0 0 4px">⏱️ ตั้งเวลาแสดงผลอัตโนมัติ (ไม่บังคับ)</div>
-        <p class="muted-label" style="font-size:0.76rem;margin-bottom:8px">เว้นว่าง = แสดงทันที / ตั้งเวลา = ขึ้น-ลงเองตามเวลา (ต้องตั้ง "เผยแพร่" + กดเผยแพร่ไว้ก่อน)</p>
+        <p class="muted-label" style="font-size:0.76rem;margin-bottom:6px">เว้นว่าง = แสดงทันที / ตั้งเวลา = ขึ้น-ลงเองตามเวลา (ต้องตั้ง "เผยแพร่" + กดเผยแพร่ไว้ก่อน)</p>
+        <p class="thai-now-line">🕒 ตอนนี้ (เวลาไทย): <span class="thai-now-ref">${thaiNowLabel()}</span></p>
         <label class="field-label">🟢 ขึ้นเองเมื่อ ${dtInputs('publishDate', 'publishTime', ev?.publishAt)}</label>
         <label class="field-label">🔴 ลงเอง (ซ่อน) เมื่อ ${dtInputs('hideDate', 'hideTime', ev?.hideAt)}</label>
       </div>
@@ -997,6 +1049,10 @@ function openAddEventModal() {
     const f = new FormData(e.target);
     const num = state.events.length + 1;
     const { rewardSets, pendingRewards } = editingSetsToStored();
+    const _pub = buildDT(f, 'publishDate', 'publishTime', '00:00');
+    const _hide = buildDT(f, 'hideDate', 'hideTime', '23:59');
+    const _err = validateSchedule(_pub, _hide, null);
+    if (_err) { alert(_err); return; }
     state.events.push({
       id: `event-${Date.now()}`,
       name: f.get('name'),
@@ -1009,8 +1065,8 @@ function openAddEventModal() {
       status: f.get('status') || 'กำลังดำเนินการ',
       eventType: f.get('eventType') || 'player',
       visibility: f.get('visibility') || 'public',
-      publishAt: buildDT(f, 'publishDate', 'publishTime', '00:00'),
-      hideAt: buildDT(f, 'hideDate', 'hideTime', '23:59'),
+      publishAt: _pub,
+      hideAt: _hide,
       claimDeadline: buildDeadline(f),
       fbPostUrl: (f.get('fbPostUrl') || '').trim(),
       owner: '', reward: 'ดูรางวัลในรายชื่อผู้ได้รับรางวัล',
@@ -1048,6 +1104,10 @@ function openEditEventModal(i) {
     e.preventDefault();
     const f = new FormData(e.target);
     const { rewardSets, pendingRewards } = editingSetsToStored();
+    const _pub = buildDT(f, 'publishDate', 'publishTime', '00:00');
+    const _hide = buildDT(f, 'hideDate', 'hideTime', '23:59');
+    const _err = validateSchedule(_pub, _hide, ev);
+    if (_err) { alert(_err); return; }
     state.events[i] = {
       ...ev,
       name: f.get('name'), shortName: f.get('name').slice(0, 18),
@@ -1055,8 +1115,8 @@ function openEditEventModal(i) {
       status: f.get('status'), resetDate: f.get('resetDate'),
       eventType: f.get('eventType') || 'player',
       visibility: f.get('visibility') || 'public',
-      publishAt: buildDT(f, 'publishDate', 'publishTime', '00:00'),
-      hideAt: buildDT(f, 'hideDate', 'hideTime', '23:59'),
+      publishAt: _pub,
+      hideAt: _hide,
       claimDeadline: buildDeadline(f),
       fbPostUrl: (f.get('fbPostUrl') || '').trim(),
       coverImage: _editingCover,
@@ -1919,6 +1979,8 @@ function codeFormHtml(c) {
       </label>
       <div class="schedule-box">
         <div class="form-section-title" style="border:none;margin:0 0 4px">⏱️ ตั้งเวลาแสดงผลอัตโนมัติ (ไม่บังคับ)</div>
+        <p class="muted-label" style="font-size:0.76rem;margin-bottom:6px">เว้นว่าง = แสดงทันที / ตั้งเวลา = ขึ้น-ลงเองตามเวลา (ต้องตั้ง "เผยแพร่" + กดเผยแพร่ไว้ก่อน)</p>
+        <p class="thai-now-line">🕒 ตอนนี้ (เวลาไทย): <span class="thai-now-ref">${thaiNowLabel()}</span></p>
         <label class="field-label">🟢 ขึ้นเองเมื่อ ${dtInputs('publishDate', 'publishTime', c?.publishAt)}</label>
         <label class="field-label">🔴 ลงเอง (ซ่อน) เมื่อ ${dtInputs('hideDate', 'hideTime', c?.hideAt)}</label>
       </div>
@@ -1938,7 +2000,11 @@ function openAddCodeModal() {
   document.getElementById('cf').onsubmit = e => {
     e.preventDefault();
     const f = new FormData(e.target);
-    state.codes.push({ code: f.get('code').toUpperCase().trim(), eventName: f.get('eventName'), status: f.get('status'), expiresAt: f.get('expiresAt'), visibility: f.get('visibility') || 'public', publishAt: buildDT(f, 'publishDate', 'publishTime', '00:00'), hideAt: buildDT(f, 'hideDate', 'hideTime', '23:59'), items: _editingItems.map(editItemToCodeItem) });
+    const _pub = buildDT(f, 'publishDate', 'publishTime', '00:00');
+    const _hide = buildDT(f, 'hideDate', 'hideTime', '23:59');
+    const _err = validateSchedule(_pub, _hide, null);
+    if (_err) { alert(_err); return; }
+    state.codes.push({ code: f.get('code').toUpperCase().trim(), eventName: f.get('eventName'), status: f.get('status'), expiresAt: f.get('expiresAt'), visibility: f.get('visibility') || 'public', publishAt: _pub, hideAt: _hide, items: _editingItems.map(editItemToCodeItem) });
     persistData(); closeModal(); renderCodes();
   };
 }
@@ -1951,7 +2017,11 @@ function openEditCodeModal(i) {
   document.getElementById('cf').onsubmit = e => {
     e.preventDefault();
     const f = new FormData(e.target);
-    state.codes[i] = { ...c, code: f.get('code').toUpperCase().trim(), eventName: f.get('eventName'), status: f.get('status'), expiresAt: f.get('expiresAt'), visibility: f.get('visibility') || 'public', publishAt: buildDT(f, 'publishDate', 'publishTime', '00:00'), hideAt: buildDT(f, 'hideDate', 'hideTime', '23:59'), items: _editingItems.map(editItemToCodeItem) };
+    const _pub = buildDT(f, 'publishDate', 'publishTime', '00:00');
+    const _hide = buildDT(f, 'hideDate', 'hideTime', '23:59');
+    const _err = validateSchedule(_pub, _hide, c);
+    if (_err) { alert(_err); return; }
+    state.codes[i] = { ...c, code: f.get('code').toUpperCase().trim(), eventName: f.get('eventName'), status: f.get('status'), expiresAt: f.get('expiresAt'), visibility: f.get('visibility') || 'public', publishAt: _pub, hideAt: _hide, items: _editingItems.map(editItemToCodeItem) };
     persistData(); closeModal(); renderCodes();
   };
 }
