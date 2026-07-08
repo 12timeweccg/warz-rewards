@@ -4,7 +4,7 @@
     {
       "name": "warz-site",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "5500", "--directory", "C:/Users/almon/OneDrive/Desktop/WARZ WEBSITE PUBLISHED"],
+      "runtimeArgs": ["-m", "http.server", "5500"],
       "port": 5500
     }
   ]

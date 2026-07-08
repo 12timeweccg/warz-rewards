@@ -122,9 +122,10 @@ const REWARD_CATEGORIES = [
 ];
 
 function normalizeRewardCategory(str) {
-  const s = String(str || "").toLowerCase();
-  if (!s) return "อื่นๆ";
-  if (REWARD_CATEGORIES.includes(str)) return str;
+  const raw = String(str || "").trim();
+  const s = raw.toLowerCase();
+  if (!raw) return "อื่นๆ";
+  if (REWARD_CATEGORIES.includes(raw)) return raw;
   if (s.includes("lucky")) return "Luckydraw";
   if (s.includes("ทุกคน")) return "ได้ทุกคน";
   if (s.includes("ถูกใจ")) return "ถูกใจทีมงาน";
@@ -134,7 +135,7 @@ function normalizeRewardCategory(str) {
     if (s.includes("2")) return "อันดับ 2";
     if (s.includes("3")) return "อันดับ 3";
   }
-  return "อื่นๆ";
+  return raw; // free-form reward → keep exactly as typed
 }
 
 function winnerCategory(winner) {

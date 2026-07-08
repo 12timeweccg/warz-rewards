@@ -908,9 +908,11 @@ function eventRewardSetsHtml() {
       <label class="field-label" style="margin-bottom:6px">รางวัลแยกตามหมวด</label>
       <div id="reward-sets-list"></div>
       <div class="reward-set-add">
-        <select id="reward-set-cat" class="status-select">
-          ${REWARD_CATEGORIES.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}
-        </select>
+        <input type="text" id="reward-set-cat" class="search-input" list="reward-set-cat-list"
+               value="Luckydraw" placeholder="หมวดรางวัล (พิมพ์เองได้)..." autocomplete="off" style="max-width:170px" />
+        <datalist id="reward-set-cat-list">
+          ${REWARD_CATEGORIES.map(c => `<option value="${esc(c)}"></option>`).join('')}
+        </datalist>
         <input type="text" id="reward-set-search" class="search-input" placeholder="ค้นหา / วาง Item ID (ก๊อปจาก Excel หลายตัวได้)..." autocomplete="off" oninput="renderRewardSetResults()" onpaste="handleRewardSetPaste(event)" onkeydown="handleRewardSetKey(event)" />
       </div>
       <div id="reward-set-results" class="item-picker-results"></div>
@@ -949,8 +951,9 @@ function deriveEventRewardSets(ev) {
 }
 
 function orderSets(sets) {
+  const rank = c => { const i = REWARD_CATEGORIES.indexOf(c); return i === -1 ? 999 : i; };
   return sets.slice().sort((a, b) =>
-    REWARD_CATEGORIES.indexOf(a.category) - REWARD_CATEGORIES.indexOf(b.category));
+    rank(a.category) - rank(b.category) || String(a.category).localeCompare(String(b.category), 'th'));
 }
 
 function renderRewardSets() {
@@ -1004,7 +1007,7 @@ function renderRewardSetResults() {
 }
 
 function addRewardSetItem(itemId) {
-  const cat = document.getElementById('reward-set-cat')?.value || 'อื่นๆ';
+  const cat = (document.getElementById('reward-set-cat')?.value || '').trim() || 'อื่นๆ';
   const item = state.itemMap.get(String(itemId));
   const editItem = item
     ? { id: String(item.id), name: item.name, image: item.image || '', type: item.type || '', amount: '1' }
@@ -1022,7 +1025,7 @@ function addRewardSetItem(itemId) {
 
 // Add many Item IDs at once (e.g. pasted from an Excel column) into the selected category
 function addRewardSetIds(ids) {
-  const cat = document.getElementById('reward-set-cat')?.value || 'อื่นๆ';
+  const cat = (document.getElementById('reward-set-cat')?.value || '').trim() || 'อื่นๆ';
   let set = _editingSets.find(s => s.category === cat);
   if (!set) { set = { category: cat, items: [] }; _editingSets.push(set); }
   let added = 0, dup = 0, notfound = 0;
@@ -1285,23 +1288,33 @@ function populateWinnerFilters(ev) {
   const rewardSel = document.getElementById('winners-reward-filter');
   const statusSel = document.getElementById('winners-status-filter');
   if (rewardSel) {
+    const keep = rewardSel.value;
     const cats = [...new Set(ev.winners.map(winnerCategory))]
-      .sort((a, b) => REWARD_CATEGORIES.indexOf(a) - REWARD_CATEGORIES.indexOf(b));
+      .sort((a, b) => {
+        const ia = REWARD_CATEGORIES.indexOf(a), ib = REWARD_CATEGORIES.indexOf(b);
+        // known categories first (in fixed order), then custom rewards alphabetically
+        return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib) || String(a).localeCompare(String(b), 'th');
+      });
     rewardSel.innerHTML = '<option value="all">ทุกรางวัล</option>' +
       cats.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('');
-    rewardSel.value = 'all';
+    rewardSel.value = cats.includes(keep) ? keep : 'all';
   }
   if (statusSel) {
+    const keep = statusSel.value;
     const sts = [...new Set(ev.winners.map(w => w.claimStatus || 'กำลังดำเนินการ'))];
     statusSel.innerHTML = '<option value="all">ทุกสถานะ</option>' +
       sts.map(s => `<option value="${esc(s)}">${esc(s)}</option>`).join('');
-    statusSel.value = 'all';
+    statusSel.value = sts.includes(keep) ? keep : 'all';
   }
 }
 
 function renderWinners() {
   const { ev, list } = getFilteredWinnerList();
   if (!ev) return;
+
+  // Keep filter dropdowns in sync with the data (new custom rewards/statuses
+  // appear right away after paste/edit); current selection is preserved
+  populateWinnerFilters(ev);
 
   // Drop selections no longer in the current filtered view
   const visibleIdx = new Set(list.map(w => ev.winners.indexOf(w)));
@@ -1381,6 +1394,7 @@ function renderBulkBar() {
       <button class="btn-sm btn-primary" onclick="applyBulkStatus()">เปลี่ยนสถานะ</button>
       <select id="bulk-reward-select" class="status-select">
         ${REWARD_CATEGORIES.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}
+        <option value="__custom__">✏️ พิมพ์เอง…</option>
       </select>
       <button class="btn-sm btn-primary" onclick="applyBulkReward()">เปลี่ยนรางวัล</button>
       <button class="btn-sm btn-danger" onclick="bulkDeleteWinners()">ลบที่เลือก</button>
@@ -1446,11 +1460,12 @@ function openPasteWinnersModal() {
   const guild = isGuildEvent(ev);
   const placeholder = guild
     ? "Guild Alpha&#9;อันดับ 1&#9;จัดส่งแล้ว\nGuild Bravo&#9;อันดับ 2&#9;กำลังดำเนินการ"
-    : "Mos Wattana&#9;5PE89F&#9;เว็บไซต์&#9;จัดส่งแล้ว\nดอง เจ&#9;O6B16U&#9;เว็บไซต์&#9;จัดส่งแล้ว";
+    : "🕹 Lucky Draw&#9;Noy Arnan&#9;P2LR96&#9;🌐 เว็บไซต์&#9;✅ จัดส่งแล้ว\nWARZ Stream Party&#9;2GW5N3&#9;D E D U C K";
   showModal(`${guild ? 'วางรายชื่อกิลด์' : 'วางรายชื่อ'} — ${ev.name}`, `
     <p class="muted-label" style="margin-bottom:8px">
       <strong>ก๊อปจาก Google Sheets / Excel มาวางได้เลย</strong> — แต่ละแถว 1 ${guild ? 'กิลด์' : 'คน'}<br/>
-      คอลัมน์เรียงยังไงก็ได้ ระบบจับ ${guild ? '<strong>ชื่อกิลด์ / รางวัล / สถานะ</strong>' : '<strong>UID / ชื่อ Facebook / สถานะ / วิธีรับ</strong>'} ให้อัตโนมัติ (มี header ก็ได้)
+      คอลัมน์เรียงยังไงก็ได้ ระบบจับ ${guild ? '<strong>ชื่อกิลด์ / รางวัล / สถานะ</strong>' : '<strong>UID / ชื่อ Facebook / รางวัล / สถานะ / วิธีรับ</strong>'} ให้อัตโนมัติ (มี header ก็ได้)<br/>
+      💡 คอลัมน์รางวัลเป็นชื่ออะไรก็ได้ — ถ้าค่าซ้ำกันทุกแถว (เช่นชื่อกิจกรรม) ระบบจะถือเป็นรางวัลให้เอง
     </p>
     <textarea id="paste-box" class="paste-box" rows="10" placeholder="${placeholder}"></textarea>
     <label class="field-label" style="flex-direction:row;align-items:center;gap:8px;margin-top:10px">
@@ -1473,23 +1488,61 @@ function looksLikeUid(s) {
 }
 
 // Detect a header row → column-name map (handles any column order from Google Sheets/Excel)
+// Regexes are label-shaped on purpose: data rows like "Guild Alpha" or "จัดส่งแล้ว"
+// must NOT count as header cells, or the first pasted row silently disappears.
 function parsePasteHeader(cells) {
   const map = {}; let matched = 0;
   cells.forEach((c, i) => {
     const s = c.toLowerCase().trim();
     if (/^uid$/.test(s)) { map.uid = i; matched++; }
+    else if (/^(ชื่อ\s*)?(กิลด์|guild|แคลน|clan)(\s*name)?$/.test(s)) { map.guild = i; matched++; } // before facebook ("ชื่อกิลด์" has ชื่อ)
     else if (/(facebook|^fb$|ชื่อ|name)/.test(s)) { map.facebook = i; matched++; }
-    else if (/(กิลด์|guild|แคลน|clan)/.test(s)) { map.guild = i; matched++; }
     else if (/(วิธี|method|ช่องทาง)/.test(s)) { map.method = i; matched++; }  // before reward ("วิธีรับรางวัล" has รางวัล)
-    else if (/(สถานะ|status|จัดส่ง)/.test(s)) { map.status = i; matched++; }
+    else if (/(สถานะ|^status$)/.test(s)) { map.status = i; matched++; }      // NOT "จัดส่ง" — that's a data value
     else if (/(รางวัล|reward)/.test(s)) { map.reward = i; matched++; }
     else if (/(หมายเหตุ|note|remark)/.test(s)) { map.note = i; matched++; }
   });
   return matched >= 2 ? map : null;
 }
 
+// Column-wise classification for header-less pastes (needs ≥2 rows with the
+// same column count). Looks at whole columns instead of single cells, so it
+// survives names that look like UIDs ("IP1250") and free-form reward columns:
+//   [🕹 Lucky Draw][Noy Arnan][P2LR96][🌐 เว็บไซต์][✅ จัดส่งแล้ว]
+//   [WARZ Stream Party June][2GW5N3][D E D U C K]
+function classifyPasteColumns(rows) {
+  if (rows.length < 2) return null;
+  const n = rows[0].length;
+  if (n < 2 || !rows.every(r => r.length === n)) return null;
+  const colVals = i => rows.map(r => (r[i] || '').trim()).filter(Boolean);
+  const allMatch = (i, fn) => { const v = colVals(i); return v.length > 0 && v.every(fn); };
+  const map = {}; const used = new Set();
+  const claim = (k, i) => { map[k] = i; used.add(i); };
+
+  for (let i = 0; i < n; i++) if (!used.has(i) && allMatch(i, c => _PASTE_STATUS_RE.test(c))) { claim('status', i); break; }
+  for (let i = 0; i < n; i++) if (!used.has(i) && allMatch(i, c => _PASTE_METHOD_RE.test(c) && !_PASTE_STATUS_RE.test(c))) { claim('method', i); break; }
+  for (let i = 0; i < n; i++) if (!used.has(i) && allMatch(i, c => looksLikeUid(c))) { claim('uid', i); break; }
+  // reward column: every cell matches a known reward word…
+  for (let i = 0; i < n; i++) if (!used.has(i) && allMatch(i, c => _PASTE_REWARD_RE.test(c))) { claim('reward', i); break; }
+  // …or (free-form reward / event label) a constant column — but only when
+  // another free column remains to be the name, so a lone name column is never eaten
+  if (map.reward == null) {
+    const free = [...Array(n).keys()].filter(i => !used.has(i));
+    if (free.length >= 2) {
+      const constCol = free.find(i => {
+        const v = colVals(i);
+        return v.length >= 2 && new Set(v).size === 1 && !looksLikeUid(v[0]);
+      });
+      if (constCol != null) claim('reward', constCol);
+    }
+  }
+  const rest = [...Array(n).keys()].filter(i => !used.has(i));
+  if (rest.length) map.name = rest[0];
+  return (map.uid != null || map.name != null) ? map : null;
+}
+
 // Flexible paste: works with any column order, with or without a header row.
-// Without a header it classifies each cell (UID / status / reward / method / name) automatically.
+// With ≥2 rows it classifies whole columns; otherwise per-cell heuristics.
 function parsePastedWinners(text, workStatus, guild = false) {
   const rawLines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
   if (!rawLines.length) return [];
@@ -1497,6 +1550,7 @@ function parsePastedWinners(text, workStatus, guild = false) {
 
   const headerMap = parsePasteHeader(split(rawLines[0]));
   const dataLines = headerMap ? rawLines.slice(1) : rawLines;
+  const colMap = headerMap ? null : classifyPasteColumns(dataLines.map(split));
 
   const winners = [];
   for (const line of dataLines) {
@@ -1507,6 +1561,10 @@ function parsePastedWinners(text, workStatus, guild = false) {
       const g = k => (headerMap[k] != null ? (cols[headerMap[k]] || '').trim() : '');
       uid = g('uid'); facebook = g('facebook'); guildName = g('guild');
       reward = g('reward'); status = g('status'); method = g('method'); note = g('note');
+    } else if (colMap) {
+      const g = k => (colMap[k] != null ? (cols[colMap[k]] || '').trim() : '');
+      uid = g('uid'); reward = g('reward'); status = g('status'); method = g('method');
+      if (guild) guildName = g('name'); else facebook = g('name');
     } else {
       for (const cell of cols) {
         if (!cell) continue;
@@ -1564,7 +1622,12 @@ function applyPasteWinners() {
 function applyBulkReward() {
   const { ev } = getFilteredWinnerList();
   if (!ev || !_selectedWinners.size) return;
-  const category = document.getElementById('bulk-reward-select')?.value;
+  let category = document.getElementById('bulk-reward-select')?.value;
+  if (category === '__custom__') {
+    const v = prompt('พิมพ์ชื่อรางวัล (อะไรก็ได้)');
+    if (v === null || !v.trim()) return;
+    category = v.trim();
+  }
   if (!category) return;
   if (!confirm(`เปลี่ยนรางวัลของ ${_selectedWinners.size} รายการเป็น "${category}"?`)) return;
   _selectedWinners.forEach(i => { if (ev.winners[i]) ev.winners[i].rewardCategory = category; });
@@ -1609,9 +1672,10 @@ const REWARD_CATEGORIES = [
 ];
 
 function normalizeRewardCategory(str) {
-  const s = String(str || '').toLowerCase();
-  if (!s) return 'อื่นๆ';
-  if (REWARD_CATEGORIES.includes(str)) return str;
+  const raw = String(str || '').trim();
+  const s = raw.toLowerCase();
+  if (!raw) return 'อื่นๆ';
+  if (REWARD_CATEGORIES.includes(raw)) return raw;
   if (s.includes('lucky')) return 'Luckydraw';
   if (s.includes('ทุกคน')) return 'ได้ทุกคน';
   if (s.includes('ถูกใจ')) return 'ถูกใจทีมงาน';
@@ -1621,7 +1685,7 @@ function normalizeRewardCategory(str) {
     if (s.includes('2')) return 'อันดับ 2';
     if (s.includes('3')) return 'อันดับ 3';
   }
-  return 'อื่นๆ';
+  return raw; // free-form reward → keep exactly as typed
 }
 
 function winnerCategory(w) {
@@ -1631,10 +1695,13 @@ function winnerCategory(w) {
 }
 
 function inlineRewardHtml(realIdx, current) {
-  const cur = REWARD_CATEGORIES.includes(current) ? current : 'อื่นๆ';
+  const cur = (current || '').trim() || 'อื่นๆ';
+  const known = REWARD_CATEGORIES.includes(cur);
   return `
     <select class="inline-reward" onchange="setWinnerReward(${realIdx}, this.value)" onclick="event.stopPropagation()">
       ${REWARD_CATEGORIES.map(c => `<option value="${esc(c)}" ${c === cur ? 'selected' : ''}>${esc(c)}</option>`).join('')}
+      ${known ? '' : `<option value="${esc(cur)}" selected>${esc(cur)}</option>`}
+      <option value="__custom__">✏️ พิมพ์เอง…</option>
     </select>
   `;
 }
@@ -1642,6 +1709,16 @@ function inlineRewardHtml(realIdx, current) {
 function setWinnerReward(realIdx, value) {
   const ev = state.events.find(e => e.id === state.currentEventId);
   if (!ev || !ev.winners[realIdx]) return;
+  if (value === '__custom__') {
+    const w = ev.winners[realIdx];
+    const cur = winnerCategory(w);
+    const v = prompt('พิมพ์ชื่อรางวัล (อะไรก็ได้)', REWARD_CATEGORIES.includes(cur) ? '' : cur);
+    if (v === null || !v.trim()) { renderWinners(); return; } // cancelled → restore select
+    ev.winners[realIdx].rewardCategory = v.trim();
+    persistData(true);
+    renderWinners();
+    return;
+  }
   ev.winners[realIdx].rewardCategory = value;
   persistData(true);
 }
@@ -1729,7 +1806,10 @@ function winnerFormHtml(w, guild) {
     <form id="wf" class="admin-form">
       ${idFields}
       <div class="form-row-2">
-        <label class="field-label">รางวัล ${statusSelectHtml('reward', winnerCategory(w || {}), REWARD_CATEGORIES)}</label>
+        <label class="field-label">รางวัล (พิมพ์เองได้ หรือเลือกจากรายการ)
+          <input type="text" name="reward" list="reward-cat-list" value="${esc(winnerCategory(w || {}))}" placeholder="เช่น Luckydraw, อันดับ 1, ชื่อรางวัลอะไรก็ได้..." autocomplete="off" />
+          <datalist id="reward-cat-list">${REWARD_CATEGORIES.map(c => `<option value="${esc(c)}"></option>`).join('')}</datalist>
+        </label>
         <label class="field-label">สถานะ ${statusSelectHtml('status', w?.claimStatus || 'กำลังดำเนินการ', WINNER_STATUSES)}</label>
       </div>
       ${guild ? '' : `<label class="field-label">วิธีรับรางวัล <input type="text" name="method" value="${esc(w?.claimMethod || '')}" /></label>`}
@@ -1757,7 +1837,7 @@ function winnerFormHtml(w, guild) {
 }
 
 function buildWinner(fd, existing = {}, guild = false) {
-  const category = fd.get('reward') || 'อื่นๆ';
+  const category = String(fd.get('reward') || '').trim() || 'อื่นๆ';
   const rewards = guild ? (existing.rewards || []) : _editingItems.map(editItemToReward);
   if (guild) {
     return {
