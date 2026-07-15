@@ -674,6 +674,65 @@ code {
 }
 .paste-box:focus { outline: none; border-color: rgba(255,255,255,0.22); }
 
+/* Excel-like column paste grid */
+.modal-box.modal-wide { max-width: 1040px; }
+.paste-mode-tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.paste-mode-btn {
+  padding: 7px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+.paste-mode-btn.is-active {
+  background: rgba(215, 168, 106, 0.14);
+  border-color: rgba(215, 168, 106, 0.5);
+  color: var(--gold, #d7a86a);
+}
+.paste-grid { display: grid; gap: 8px; }
+.paste-col { display: flex; flex-direction: column; min-width: 0; }
+.paste-col-head {
+  padding: 6px 8px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--gold, #d7a86a);
+  background: rgba(215, 168, 106, 0.1);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.paste-col-box {
+  width: 100%;
+  padding: 8px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 0 0 var(--radius) var(--radius);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  line-height: 1.6;
+  resize: vertical;
+  white-space: pre;
+  overflow-x: auto;
+}
+.paste-col-box:focus { outline: none; border-color: rgba(215, 168, 106, 0.5); }
+.paste-col-count {
+  margin-top: 3px;
+  font-size: 0.7rem;
+  text-align: right;
+  color: var(--dim, #716b63);
+}
+@media (max-width: 900px) {
+  .paste-grid { grid-template-columns: 1fr 1fr !important; }
+}
+
 /* Undo button */
 .undo-btn {
   width: 100%;

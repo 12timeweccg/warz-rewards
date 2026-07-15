@@ -1454,20 +1454,64 @@ function bulkDeleteWinners() {
 }
 
 // ── Paste import (winners) ────────────────────────────
+// Column layout of the Excel-like paste grid (matches the team's sheet order)
+function pasteGridColumns(guild) {
+  return guild
+    ? [
+        { key: 'guild',  label: 'ชื่อกิลด์',   ph: 'Guild Alpha\nGuild Bravo' },
+        { key: 'reward', label: 'รางวัล',      ph: 'อันดับ 1\nอันดับ 2' },
+        { key: 'status', label: 'สถานะ',       ph: 'จัดส่งแล้ว' },
+      ]
+    : [
+        { key: 'reward',   label: 'Reward (รางวัล)',   ph: '🕹 Lucky Draw' },
+        { key: 'facebook', label: 'Facebook',           ph: 'อาร์ม\' ว้าว\'วว\nM Theerapong' },
+        { key: 'uid',      label: 'UID',                ph: '00GF5N\n04FU1O' },
+        { key: 'method',   label: 'วิธีการรับรางวัล',  ph: '🌐 เว็บไซต์' },
+        { key: 'status',   label: 'สถานะการจัดส่ง',    ph: '✅ จัดส่งแล้ว' },
+      ];
+}
+
 function openPasteWinnersModal() {
   const ev = state.events.find(e => e.id === state.currentEventId);
   if (!ev) return;
   const guild = isGuildEvent(ev);
-  const placeholder = guild
+  const cols = pasteGridColumns(guild);
+  const freePlaceholder = guild
     ? "Guild Alpha&#9;อันดับ 1&#9;จัดส่งแล้ว\nGuild Bravo&#9;อันดับ 2&#9;กำลังดำเนินการ"
     : "🕹 Lucky Draw&#9;Noy Arnan&#9;P2LR96&#9;🌐 เว็บไซต์&#9;✅ จัดส่งแล้ว\nWARZ Stream Party&#9;2GW5N3&#9;D E D U C K";
   showModal(`${guild ? 'วางรายชื่อกิลด์' : 'วางรายชื่อ'} — ${ev.name}`, `
-    <p class="muted-label" style="margin-bottom:8px">
-      <strong>ก๊อปจาก Google Sheets / Excel มาวางได้เลย</strong> — แต่ละแถว 1 ${guild ? 'กิลด์' : 'คน'}<br/>
-      คอลัมน์เรียงยังไงก็ได้ ระบบจับ ${guild ? '<strong>ชื่อกิลด์ / รางวัล / สถานะ</strong>' : '<strong>UID / ชื่อ Facebook / รางวัล / สถานะ / วิธีรับ</strong>'} ให้อัตโนมัติ (มี header ก็ได้)<br/>
-      💡 คอลัมน์รางวัลเป็นชื่ออะไรก็ได้ — ถ้าค่าซ้ำกันทุกแถว (เช่นชื่อกิจกรรม) ระบบจะถือเป็นรางวัลให้เอง
-    </p>
-    <textarea id="paste-box" class="paste-box" rows="10" placeholder="${placeholder}"></textarea>
+    <div class="paste-mode-tabs">
+      <button type="button" id="paste-mode-grid-btn" class="paste-mode-btn is-active" onclick="switchPasteMode('grid')">📊 วางทีละคอลัมน์ (${cols.length} ช่อง)</button>
+      <button type="button" id="paste-mode-free-btn" class="paste-mode-btn" onclick="switchPasteMode('free')">🧠 วางทั้งตาราง (ช่องเดียว)</button>
+    </div>
+
+    <div id="paste-grid-pane">
+      <p class="muted-label" style="margin-bottom:8px">
+        ก๊อปจาก Sheets <strong>ทีละคอลัมน์</strong> มาวางลงช่องของมัน — 1 บรรทัด = 1 ${guild ? 'กิลด์' : 'คน'}<br/>
+        💡 ช่องไหนใส่ <strong>ค่าเดียว</strong> ระบบจะใช้ค่านั้นกับทุกแถว (เช่น รางวัล/วิธีรับ/สถานะ เหมือนกันหมด)<br/>
+        💡 วางข้อมูล<strong>หลายคอลัมน์</strong> (ก๊อปทีเดียวทั้งตาราง) ลงช่องไหนก็ได้ ระบบกระจายลงช่องถัดไปให้เอง
+      </p>
+      <div class="paste-grid" style="grid-template-columns:repeat(${cols.length},1fr)">
+        ${cols.map((c, i) => `
+          <div class="paste-col">
+            <div class="paste-col-head">${esc(c.label)}</div>
+            <textarea id="pg-col-${i}" class="paste-col-box" rows="10" placeholder="${esc(c.ph)}"
+              oninput="updatePasteGridCounts()" onpaste="handleGridPaste(event, ${i})" wrap="off"></textarea>
+            <div class="paste-col-count" id="pg-count-${i}">0 แถว</div>
+          </div>
+        `).join('')}
+      </div>
+      <p class="muted-label" id="paste-grid-summary" style="margin-top:6px"></p>
+    </div>
+
+    <div id="paste-free-pane" class="hidden">
+      <p class="muted-label" style="margin-bottom:8px">
+        <strong>ก๊อปทั้งตารางจาก Google Sheets / Excel มาวางก้อนเดียว</strong> — แต่ละแถว 1 ${guild ? 'กิลด์' : 'คน'}<br/>
+        คอลัมน์เรียงยังไงก็ได้ ระบบจับ ${guild ? '<strong>ชื่อกิลด์ / รางวัล / สถานะ</strong>' : '<strong>UID / ชื่อ Facebook / รางวัล / สถานะ / วิธีรับ</strong>'} ให้อัตโนมัติ (มี header ก็ได้)
+      </p>
+      <textarea id="paste-box" class="paste-box" rows="10" placeholder="${freePlaceholder}"></textarea>
+    </div>
+
     <label class="field-label" style="flex-direction:row;align-items:center;gap:8px;margin-top:10px">
       <input type="checkbox" id="paste-replace" style="width:auto" /> แทนที่รายการเดิมทั้งหมด (ไม่ติ๊ก = เพิ่มต่อท้าย)
     </label>
@@ -1475,8 +1519,97 @@ function openPasteWinnersModal() {
       <button class="btn-primary" onclick="applyPasteWinners()">เพิ่มรายการ</button>
       <button class="btn-ghost" onclick="closeModal()">ยกเลิก</button>
     </div>
-  `);
-  setTimeout(() => document.getElementById('paste-box')?.focus(), 50);
+  `, { wide: true });
+  _pasteGuildMode = guild;
+  updatePasteGridCounts();
+  setTimeout(() => document.getElementById('pg-col-0')?.focus(), 50);
+}
+
+let _pasteGuildMode = false;
+
+function switchPasteMode(mode) {
+  document.getElementById('paste-grid-pane')?.classList.toggle('hidden', mode !== 'grid');
+  document.getElementById('paste-free-pane')?.classList.toggle('hidden', mode !== 'free');
+  document.getElementById('paste-mode-grid-btn')?.classList.toggle('is-active', mode === 'grid');
+  document.getElementById('paste-mode-free-btn')?.classList.toggle('is-active', mode === 'free');
+  const focus = mode === 'grid' ? 'pg-col-0' : 'paste-box';
+  setTimeout(() => document.getElementById(focus)?.focus(), 30);
+}
+
+// Paste with tabs (a whole table copied in one go) into any grid box →
+// split the columns across this box and the ones after it.
+function handleGridPaste(e, startIdx) {
+  const text = (e.clipboardData || window.clipboardData)?.getData('text') || '';
+  if (!text.includes('\t')) return; // single column → let the browser paste normally
+  e.preventDefault();
+  const rows = text.split(/\r?\n/).filter(l => l.trim() !== '').map(l => l.split('\t'));
+  const nCols = Math.max(...rows.map(r => r.length));
+  const total = pasteGridColumns(_pasteGuildMode).length;
+  for (let c = 0; c < nCols && startIdx + c < total; c++) {
+    const box = document.getElementById(`pg-col-${startIdx + c}`);
+    if (box) box.value = rows.map(r => (r[c] || '').trim()).join('\n');
+  }
+  updatePasteGridCounts();
+}
+
+function pasteGridLines(i) {
+  const v = document.getElementById(`pg-col-${i}`)?.value || '';
+  const lines = v.split(/\r?\n/).map(s => s.trim());
+  while (lines.length && lines[lines.length - 1] === '') lines.pop(); // drop trailing blanks
+  return lines;
+}
+
+function updatePasteGridCounts() {
+  const cols = pasteGridColumns(_pasteGuildMode);
+  const counts = cols.map((_, i) => pasteGridLines(i).filter(Boolean).length);
+  cols.forEach((_, i) => {
+    const el = document.getElementById(`pg-count-${i}`);
+    if (el) el.textContent = `${counts[i]} แถว`;
+  });
+  const keyIdx = cols.findIndex(c => c.key === (_pasteGuildMode ? 'guild' : 'uid'));
+  const fbIdx = cols.findIndex(c => c.key === 'facebook');
+  const n = Math.max(counts[keyIdx] || 0, fbIdx >= 0 ? counts[fbIdx] : 0);
+  const summary = document.getElementById('paste-grid-summary');
+  if (summary) summary.innerHTML = n ? `จะเพิ่ม <strong>${n}</strong> รายการ` : '';
+}
+
+// Build winners from the column boxes. A column with exactly one value is
+// broadcast to every row (same reward/method/status for the whole batch).
+function collectPasteGridWinners(workStatus) {
+  const cols = pasteGridColumns(_pasteGuildMode);
+  const data = cols.map((_, i) => pasteGridLines(i));
+  const rowCount = Math.max(...data.map(l => l.length), 0);
+  const get = (key, row) => {
+    const idx = cols.findIndex(c => c.key === key);
+    if (idx === -1) return '';
+    const lines = data[idx];
+    const nonEmpty = lines.filter(Boolean);
+    if (nonEmpty.length === 1 && rowCount > 1) return nonEmpty[0]; // fill-down
+    return (lines[row] || '').trim();
+  };
+  const winners = [];
+  for (let r = 0; r < rowCount; r++) {
+    if (_pasteGuildMode) {
+      const name = get('guild', r);
+      if (!name) continue;
+      winners.push({
+        guild: name, uid: '', facebook: '-', character: name,
+        claimMethod: '', claimStatus: get('status', r) || workStatus || 'กำลังดำเนินการ',
+        updatedAt: '', note: '',
+        rewardCategory: normalizeRewardCategory(get('reward', r)), rewards: [],
+      });
+    } else {
+      const uid = get('uid', r), facebook = get('facebook', r);
+      if (!uid && !facebook) continue;
+      winners.push({
+        uid, facebook: facebook || '-', character: uid || '-',
+        claimMethod: get('method', r), claimStatus: get('status', r) || workStatus || 'กำลังดำเนินการ',
+        updatedAt: '', note: '',
+        rewardCategory: normalizeRewardCategory(get('reward', r)), rewards: [],
+      });
+    }
+  }
+  return winners;
 }
 
 const _PASTE_STATUS_RE = /(จัดส่งแล้ว|รับรางวัลแล้ว|รอกดรับ|กำลังดำเนินการ|ติดต่อ|หมดเขต|ใช้แล้ว)/;
@@ -1604,9 +1737,11 @@ function parsePastedWinners(text, workStatus, guild = false) {
 function applyPasteWinners() {
   const ev = state.events.find(e => e.id === state.currentEventId);
   if (!ev) return;
-  const text = document.getElementById('paste-box')?.value || '';
+  const gridMode = !document.getElementById('paste-grid-pane')?.classList.contains('hidden');
   const replace = document.getElementById('paste-replace')?.checked;
-  const parsed = parsePastedWinners(text, ev.status, isGuildEvent(ev));
+  const parsed = gridMode
+    ? collectPasteGridWinners(ev.status)
+    : parsePastedWinners(document.getElementById('paste-box')?.value || '', ev.status, isGuildEvent(ev));
   if (!parsed.length) { toast('ไม่พบรายการในข้อความ'); return; }
   ev.winners = replace ? parsed : ev.winners.concat(parsed);
   ev.winners.sort((a, b) => (a.note ? 1 : 0) - (b.note ? 1 : 0));
@@ -2470,7 +2605,8 @@ function doExport() {
 function renderSettings() {}
 
 // ── Modal ─────────────────────────────────────────────
-function showModal(title, bodyHtml) {
+function showModal(title, bodyHtml, opts = {}) {
+  document.getElementById('modal-box')?.classList.toggle('modal-wide', !!opts.wide);
   document.getElementById('modal-content').innerHTML = `<h3 class="modal-title">${title}</h3>${bodyHtml}`;
   document.getElementById('modal-overlay').classList.remove('hidden');
   document.querySelector('#modal-content input, #modal-content select')?.focus();
