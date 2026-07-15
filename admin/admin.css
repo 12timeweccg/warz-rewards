@@ -441,6 +441,13 @@ code {
 .bulk-count strong { color: var(--gold, #d7a86a); font-family: var(--font-mono); }
 .bulk-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bulk-controls .status-select { width: auto; min-width: 150px; padding: 6px 10px; font-size: 0.82rem; }
+.bulk-divider { width: 1px; align-self: stretch; background: var(--border); margin: 2px 2px; }
+.btn-cs {
+  background: rgba(224, 163, 49, 0.16);
+  border: 1px solid rgba(224, 163, 49, 0.5);
+  color: #e0a331;
+}
+.btn-cs:hover { background: rgba(224, 163, 49, 0.28); }
 
 /* Inline status dropdown in winners table */
 .inline-status {
@@ -499,7 +506,21 @@ code {
   font-size: 0.86rem;
   color: var(--gold, #d7a86a);
 }
-.reward-set-count { font-size: 0.72rem; color: var(--muted); }
+.reward-set-cat-input {
+  flex: 1;
+  min-width: 0;
+  font-weight: 700;
+  font-size: 0.86rem;
+  color: var(--gold, #d7a86a);
+  background: var(--bg-2);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+.reward-set-cat-input:hover { border-color: var(--border); }
+.reward-set-cat-input:focus { outline: none; border-color: rgba(215,168,106,0.55); }
+.reward-set-count { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
+.reward-set-head { gap: 8px; }
 .reward-set .editing-item-row { margin-top: 4px; }
 .reward-set-add {
   display: flex;

@@ -967,8 +967,10 @@ function renderRewardSets() {
   el.innerHTML = _editingSets.map((set, si) => `
     <div class="reward-set">
       <div class="reward-set-head">
-        <span class="reward-set-cat">${esc(set.category)}</span>
+        <input class="reward-set-cat-input" value="${esc(set.category)}" list="reward-set-cat-list"
+               onchange="renameRewardSet(${si}, this.value)" title="ชื่อหมวดรางวัล — แก้ได้" />
         <span class="reward-set-count">${set.items.length} ไอเทม</span>
+        <button type="button" class="btn-xs btn-danger" onclick="removeRewardSet(${si})" title="ลบทั้งหมวดนี้">🗑 ลบหมวด</button>
       </div>
       ${set.items.length
         ? set.items.map((item, ii) => `
@@ -1074,6 +1076,34 @@ function handleRewardSetKey(e) {
 
 function setRewardSetAmount(si, ii, value) {
   if (_editingSets[si] && _editingSets[si].items[ii]) _editingSets[si].items[ii].amount = String(value || '1');
+}
+
+// Rename a whole reward category. If the new name matches another category,
+// merge the two (move items over, skipping duplicates).
+function renameRewardSet(si, name) {
+  const set = _editingSets[si];
+  if (!set) return;
+  const newName = String(name || '').trim();
+  if (!newName || newName === set.category) { renderRewardSets(); return; }
+  const other = _editingSets.find((s, idx) => idx !== si && s.category === newName);
+  if (other) {
+    for (const it of set.items) {
+      if (!other.items.find(x => String(x.id) === String(it.id))) other.items.push(it);
+    }
+    _editingSets.splice(si, 1);
+  } else {
+    set.category = newName;
+  }
+  renderRewardSets();
+}
+
+// Delete an entire reward category (subset) and its items
+function removeRewardSet(si) {
+  const set = _editingSets[si];
+  if (!set) return;
+  if (set.items.length && !confirm(`ลบหมวด "${set.category}" และไอเทมทั้งหมด ${set.items.length} ชิ้นในหมวดนี้?`)) return;
+  _editingSets.splice(si, 1);
+  renderRewardSets();
 }
 
 function removeRewardSetItem(si, ii) {
@@ -1397,6 +1427,10 @@ function renderBulkBar() {
         <option value="__custom__">✏️ พิมพ์เอง…</option>
       </select>
       <button class="btn-sm btn-primary" onclick="applyBulkReward()">เปลี่ยนรางวัล</button>
+      <span class="bulk-divider"></span>
+      <button class="btn-sm btn-cs" onclick="bulkFlagCs(true)" title="ตั้งหมายเหตุให้ทุกคนที่เลือกไปติดต่อ CS ผ่าน Ticket">⚠ แจ้งติดต่อ CS</button>
+      <button class="btn-sm btn-ghost" onclick="bulkFlagCs(false)" title="ล้างหมายเหตุของทุกคนที่เลือก">ล้างหมายเหตุ</button>
+      <span class="bulk-divider"></span>
       <button class="btn-sm btn-danger" onclick="bulkDeleteWinners()">ลบที่เลือก</button>
       <button class="btn-sm btn-ghost" onclick="clearWinnerSelection()">ยกเลิกการเลือก</button>
     </div>
@@ -1439,6 +1473,19 @@ function applyBulkStatus() {
   _selectedWinners.clear();
   renderWinners();
   toast(`เปลี่ยนสถานะแล้ว ✓`);
+}
+
+// Flag (or clear) the "contact CS via Ticket" note on all selected winners at once
+function bulkFlagCs(on) {
+  const { ev } = getFilteredWinnerList();
+  if (!ev || !_selectedWinners.size) return;
+  const n = _selectedWinners.size;
+  if (on && !confirm(`แจ้งให้ ${n} รายการที่เลือกติดต่อ CS ผ่าน Ticket?`)) return;
+  _selectedWinners.forEach(i => { if (ev.winners[i]) ev.winners[i].note = on ? CS_NOTE : ''; });
+  persistData();
+  _selectedWinners.clear();
+  renderWinners();
+  toast(on ? `ตั้งหมายเหตุ "ติดต่อ CS" ${n} รายการแล้ว ⚠` : `ล้างหมายเหตุ ${n} รายการแล้ว ✓`);
 }
 
 function bulkDeleteWinners() {
